@@ -4,16 +4,19 @@
 .LSOverride
 ._*
 
-# Assets & Brand Media
-assets/
+# Raw Brand Assets & Working Files (Excluded from Shopify)
 brand_assets/
 *.pdf
 *.jpeg
 *.jpg
-*.png
-*.svg
+extracted_*
 generate_brand_assets.py
 test_intro_preview.html
+test_*.png
+test_*.svg
+hangtag_*.png
+tag_*.png
+NW_K_LABEL.png
 
 # Node / Editor
 node_modules/
