@@ -1,0 +1,133 @@
+{% comment %}
+  KOCKKROCH (KOCX KROCH) — Drop Countdown & VIP Access
+  Fearless from Origin • Built to Survive
+{% endcomment %}
+
+<section class="kk-countdown-section" data-section-id="{{ section.id }}">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <span class="kk-tag kk-tag--red">{{ section.settings.badge | default: '[SYSTEM PROTOCOL: NEXT RELEASE]' }}</span>
+    <h2 style="font-size: clamp(32px, 5vw, 54px); font-weight: 900; letter-spacing: -1.5px; text-transform: uppercase; margin: 16px 0 8px 0;">
+      {{ section.settings.title | default: 'NEXT DROP COMMENCING' }}
+    </h2>
+    <p style="color: var(--kk-muted); font-size: 15px;">
+      {{ section.settings.subtitle | default: 'Strictly limited edition. Once the batch sells out, it will never be reprinted. Subscribe for 1-hour VIP early access.' }}
+    </p>
+
+    <!-- Countdown Timer -->
+    <div id="kk-timer-{{ section.id }}" class="kk-countdown-box" data-target="{{ section.settings.countdown_date | default: '2026-10-31T00:00:00' }}">
+      <div class="kk-countdown-item">
+        <div class="kk-countdown-num" id="kk-days-{{ section.id }}">08</div>
+        <div class="kk-countdown-lbl">DAYS</div>
+      </div>
+      <div class="kk-countdown-item">
+        <div class="kk-countdown-num" id="kk-hours-{{ section.id }}">14</div>
+        <div class="kk-countdown-lbl">HOURS</div>
+      </div>
+      <div class="kk-countdown-item">
+        <div class="kk-countdown-num" id="kk-mins-{{ section.id }}">32</div>
+        <div class="kk-countdown-lbl">MINUTES</div>
+      </div>
+      <div class="kk-countdown-item">
+        <div class="kk-countdown-num" id="kk-secs-{{ section.id }}">45</div>
+        <div class="kk-countdown-lbl">SECONDS</div>
+      </div>
+    </div>
+
+    <!-- VIP Newsletter Access -->
+    {% form 'customer', class: 'kk-vip-form-wrap' %}
+      <input type="hidden" name="contact[tags]" value="vip_drop_access">
+      <div class="kk-vip-form">
+        <input
+          type="email"
+          name="contact[email]"
+          class="kk-vip-input"
+          placeholder="ENTER YOUR EMAIL FOR VIP PASS"
+          required
+        >
+        <button type="submit" class="kk-vip-submit">
+          <span>CLAIM ACCESS</span>
+        </button>
+      </div>
+      {% if form.posted_successfully? %}
+        <p style="color: #4ade80; font-size: 13px; margin-top: 12px; font-family: var(--kk-font-mono);">
+          ✓ VIP ACCESS CONFIRMED. WATCH YOUR INBOX BEFORE THE DROP.
+        </p>
+      {% endif %}
+    {% endform %}
+  </div>
+</section>
+
+<script>
+  (function() {
+    const timerEl = document.getElementById('kk-timer-{{ section.id }}');
+    if (!timerEl) return;
+
+    const targetDateStr = timerEl.getAttribute('data-target') || '2026-10-31T00:00:00';
+    let targetTime = new Date(targetDateStr).getTime();
+    if (isNaN(targetTime)) {
+      targetTime = Date.now() + 8 * 24 * 60 * 60 * 1000;
+    }
+
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = Math.max(0, targetTime - now);
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      const dEl = document.getElementById('kk-days-{{ section.id }}');
+      const hEl = document.getElementById('kk-hours-{{ section.id }}');
+      const mEl = document.getElementById('kk-mins-{{ section.id }}');
+      const sEl = document.getElementById('kk-secs-{{ section.id }}');
+
+      if (dEl) dEl.textContent = String(days).padStart(2, '0');
+      if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+      if (mEl) mEl.textContent = String(mins).padStart(2, '0');
+      if (sEl) sEl.textContent = String(secs).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "KOCKKROCH Drop Countdown",
+  "tag": "section",
+  "class": "section-kockkroch-countdown",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge Tag",
+      "default": "[SYSTEM PROTOCOL: NEXT RELEASE]"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "NEXT DROP COMMENCING"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Strictly limited edition. Once the batch sells out, it will never be reprinted. Subscribe for 1-hour VIP early access."
+    },
+    {
+      "type": "text",
+      "id": "countdown_date",
+      "label": "Countdown Target ISO (e.g. 2026-10-31T00:00:00)",
+      "default": "2026-10-31T00:00:00"
+    }
+  ],
+  "presets": [
+    {
+      "name": "KOCKKROCH Drop Countdown"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,686 @@
+/* ==========================================================================
+   KOCKKROCH (KOCX KROCH) — Master Streetwear Design System
+   Fearless from Origin • Built to Survive
+   ========================================================================== */
+
+:root {
+  --kk-obsidian: #08080A;
+  --kk-surface-1: #101015;
+  --kk-surface-2: #181820;
+  --kk-surface-3: #22222D;
+  --kk-border: rgba(255, 255, 255, 0.08);
+  --kk-border-hover: rgba(227, 0, 15, 0.5);
+  
+  --kk-white: #F4F4F6;
+  --kk-muted: #8E8E98;
+  --kk-dim: #52525B;
+  
+  --kk-red: #E3000F;
+  --kk-red-glow: rgba(227, 0, 15, 0.6);
+  --kk-red-dark: #96000A;
+
+  --kk-font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+/* ==========================================================================
+   GLOBAL STREETWEAR RESETS & BASE
+   ========================================================================== */
+body {
+  background-color: var(--kk-obsidian) !important;
+  color: var(--kk-white) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--kk-red);
+  color: #FFFFFF;
+}
+
+/* Technical HUD Badges */
+.kk-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--kk-border);
+  color: var(--kk-white);
+  font-family: var(--kk-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 0;
+}
+
+.kk-tag--red {
+  background: rgba(227, 0, 15, 0.12);
+  border-color: rgba(227, 0, 15, 0.4);
+  color: #FF3344;
+}
+
+.kk-tag--solid-red {
+  background: var(--kk-red);
+  border-color: var(--kk-red);
+  color: #FFFFFF;
+}
+
+/* Brutalist Button Styles */
+.kk-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 36px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.kk-btn-primary {
+  background: var(--kk-red);
+  color: #FFFFFF;
+  border: 1px solid var(--kk-red);
+  box-shadow: 0 0 25px rgba(227, 0, 15, 0.35);
+}
+
+.kk-btn-primary:hover {
+  background: #FF0A1C;
+  border-color: #FF0A1C;
+  box-shadow: 0 0 35px rgba(227, 0, 15, 0.65);
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+
+.kk-btn-outline {
+  background: transparent;
+  color: var(--kk-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.kk-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--kk-white);
+  transform: translateY(-2px);
+  color: var(--kk-white);
+}
+
+/* ==========================================================================
+   HERO SECTION (kockkroch-hero)
+   ========================================================================== */
+.kk-hero {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  background-color: var(--kk-obsidian);
+  overflow: hidden;
+}
+
+.kk-hero__bg-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.kk-hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.35;
+  filter: grayscale(100%) contrast(120%);
+}
+
+.kk-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at center, transparent 0%, var(--kk-obsidian) 90%),
+    linear-gradient(to bottom, transparent 60%, var(--kk-obsidian) 100%);
+}
+
+.kk-hero__content {
+  position: relative;
+  z-index: 3;
+  max-width: 1100px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kk-hero__meta-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.kk-hero__title {
+  font-size: clamp(48px, 9vw, 110px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+  color: var(--kk-white);
+  text-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.kk-hero__title .kk-red-text {
+  color: var(--kk-red);
+  text-shadow: 0 0 30px var(--kk-red-glow);
+}
+
+.kk-hero__subtitle {
+  font-size: clamp(15px, 2vw, 20px);
+  color: var(--kk-muted);
+  max-width: 650px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.kk-hero__actions {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   KINETIC MARQUEE TICKER (kockkroch-marquee)
+   ========================================================================== */
+.kk-marquee-wrap {
+  position: relative;
+  background: #050507;
+  border-top: 1px solid var(--kk-border);
+  border-bottom: 1px solid var(--kk-border);
+  padding: 14px 0;
+  overflow: hidden;
+  user-select: none;
+}
+
+.kk-marquee-track {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  animation: kkMarqueeScroll 25s linear infinite;
+}
+
+.kk-marquee-track--reverse {
+  animation: kkMarqueeScrollReverse 30s linear infinite;
+}
+
+.kk-marquee-wrap:hover .kk-marquee-track {
+  animation-play-state: paused;
+}
+
+.kk-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 24px;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--kk-white);
+}
+
+.kk-marquee-item .kk-hazard {
+  color: var(--kk-red);
+}
+
+@keyframes kkMarqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes kkMarqueeScrollReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* ==========================================================================
+   COLLECTION MATRIX GRID (kockkroch-collections)
+   ========================================================================== */
+.kk-section {
+  padding: 90px 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.kk-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--kk-border);
+  padding-bottom: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.kk-section-header__title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.kk-collection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .kk-collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .kk-collection-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kk-collection-card {
+  position: relative;
+  aspect-ratio: 3/4;
+  background-color: var(--kk-surface-1);
+  border: 1px solid var(--kk-border);
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.kk-collection-card:hover {
+  border-color: var(--kk-red);
+  transform: translateY(-4px);
+}
+
+.kk-collection-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.kk-collection-card:hover .kk-collection-card__img {
+  transform: scale(1.06);
+  filter: brightness(0.85);
+}
+
+.kk-collection-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 8, 10, 0.95) 0%, rgba(8, 8, 10, 0.3) 50%, transparent 100%);
+}
+
+.kk-collection-card__content {
+  position: relative;
+  z-index: 2;
+}
+
+.kk-collection-card__name {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  color: var(--kk-white);
+  margin: 0 0 6px 0;
+  transition: color 0.2s ease;
+}
+
+.kk-collection-card:hover .kk-collection-card__name {
+  color: var(--kk-red);
+}
+
+.kk-collection-card__count {
+  font-family: var(--kk-font-mono);
+  font-size: 11px;
+  color: var(--kk-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   PRODUCT GRID & STREETWEAR CARDS (kockkroch-product-grid)
+   ========================================================================== */
+.kk-product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .kk-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .kk-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+.kk-card {
+  position: relative;
+  background: var(--kk-surface-1);
+  border: 1px solid var(--kk-border);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.kk-card:hover {
+  border-color: rgba(227, 0, 15, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.kk-card__media {
+  position: relative;
+  aspect-ratio: 4/5;
+  background: #111116;
+  overflow: hidden;
+}
+
+.kk-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.kk-card__img-hover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.5s ease;
+}
+
+.kk-card:hover .kk-card__img-hover {
+  opacity: 1;
+}
+
+.kk-card__badge-ribbon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+}
+
+.kk-card__details {
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.kk-card__category {
+  font-family: var(--kk-font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--kk-muted);
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+}
+
+.kk-card__title {
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.2px;
+  color: var(--kk-white);
+  text-decoration: none;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.kk-card__title:hover {
+  color: var(--kk-red);
+}
+
+.kk-card__price-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.kk-card__price {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--kk-white);
+}
+
+.kk-card__compare-price {
+  font-size: 13px;
+  color: var(--kk-dim);
+  text-decoration: line-through;
+}
+
+.kk-card__sizes {
+  display: flex;
+  gap: 6px;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.kk-card__size-btn {
+  padding: 4px 8px;
+  font-family: var(--kk-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--kk-surface-2);
+  border: 1px solid var(--kk-border);
+  color: var(--kk-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.kk-card__size-btn:hover {
+  background: var(--kk-red);
+  color: #FFFFFF;
+  border-color: var(--kk-red);
+}
+
+/* ==========================================================================
+   MANIFESTO & STORY SECTION (kockkroch-manifesto)
+   ========================================================================== */
+.kk-manifesto {
+  position: relative;
+  background: #060608;
+  border-top: 1px solid var(--kk-border);
+  border-bottom: 1px solid var(--kk-border);
+  padding: 100px 24px;
+}
+
+.kk-manifesto__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 840px) {
+  .kk-manifesto__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.kk-manifesto__emblem-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.kk-manifesto__emblem-svg {
+  width: 220px;
+  height: 270px;
+  filter: drop-shadow(0 0 35px rgba(227, 0, 15, 0.4));
+  animation: kkFloat 6s ease-in-out infinite;
+}
+
+@keyframes kkFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.kk-manifesto__text-side h2 {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin: 0 0 24px 0;
+  color: var(--kk-white);
+}
+
+.kk-manifesto__text-side p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--kk-muted);
+  margin-bottom: 20px;
+}
+
+.kk-manifesto__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--kk-border);
+}
+
+.kk-stat-num {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--kk-red);
+  font-family: var(--kk-font-mono);
+  margin-bottom: 4px;
+}
+
+.kk-stat-lbl {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--kk-muted);
+}
+
+/* ==========================================================================
+   COUNTDOWN & VIP ACCESS (kockkroch-countdown)
+   ========================================================================== */
+.kk-countdown-section {
+  padding: 90px 24px;
+  background: radial-gradient(circle at center, #14141A 0%, var(--kk-obsidian) 100%);
+  text-align: center;
+  border-bottom: 1px solid var(--kk-border);
+}
+
+.kk-countdown-box {
+  display: inline-flex;
+  gap: 18px;
+  margin: 36px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.kk-countdown-item {
+  background: var(--kk-surface-1);
+  border: 1px solid var(--kk-border);
+  padding: 18px 24px;
+  min-width: 100px;
+}
+
+.kk-countdown-num {
+  font-size: 44px;
+  font-weight: 900;
+  color: var(--kk-white);
+  font-family: var(--kk-font-mono);
+  line-height: 1;
+}
+
+.kk-countdown-lbl {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--kk-muted);
+  margin-top: 8px;
+}
+
+.kk-vip-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+}
+
+.kk-vip-input {
+  flex: 1;
+  padding: 16px 20px;
+  background: #0C0C10;
+  border: 1px solid var(--kk-border);
+  border-right: none;
+  color: var(--kk-white);
+  font-size: 14px;
+  outline: none;
+}
+
+.kk-vip-input:focus {
+  border-color: var(--kk-red);
+}
+
+.kk-vip-submit {
+  padding: 16px 28px;
+  background: var(--kk-red);
+  color: #FFFFFF;
+  border: 1px solid var(--kk-red);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kk-vip-submit:hover {
+  background: #FF0A1C;
+}

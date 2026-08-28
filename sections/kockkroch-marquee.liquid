@@ -1,0 +1,84 @@
+{% comment %}
+  KOCKKROCH (KOCX KROCH) — Kinetic Marquee Ticker
+  Fearless from Origin • Built to Survive
+{% endcomment %}
+
+<div class="kk-marquee-wrap" style="background-color: {{ section.settings.bg_color | default: '#050507' }};">
+  <div class="kk-marquee-track {% if section.settings.direction == 'right' %}kk-marquee-track--reverse{% endif %}" style="animation-duration: {{ section.settings.speed | default: 25 }}s;">
+    {% for i in (1..4) %}
+      {% for block in section.blocks %}
+        <div class="kk-marquee-item" {{ block.shopify_attributes }}>
+          <span class="kk-hazard">✦</span>
+          <span>{{ block.settings.text }}</span>
+        </div>
+      {% else %}
+        <div class="kk-marquee-item"><span class="kk-hazard">✦</span><span>FEARLESS FROM ORIGIN</span></div>
+        <div class="kk-marquee-item"><span class="kk-hazard">✦</span><span>BUILT TO SURVIVE</span></div>
+        <div class="kk-marquee-item"><span class="kk-hazard">✦</span><span>KOCX KROCH 013</span></div>
+        <div class="kk-marquee-item"><span class="kk-hazard">✦</span><span>HEAVYWEIGHT 280 GSM</span></div>
+        <div class="kk-marquee-item"><span class="kk-hazard">✦</span><span>CALIFORNIA ARCHIVE</span></div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "KOCKKROCH Kinetic Marquee",
+  "tag": "section",
+  "class": "section-kockkroch-marquee",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#050507"
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Scroll Direction",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Scroll Duration (Seconds)",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 25
+    }
+  ],
+  "blocks": [
+    {
+      "type": "marquee_text",
+      "name": "Marquee Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Ticker Text",
+          "default": "FEARLESS FROM ORIGIN"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KOCKKROCH Kinetic Marquee",
+      "blocks": [
+        { "type": "marquee_text", "settings": { "text": "FEARLESS FROM ORIGIN" } },
+        { "type": "marquee_text", "settings": { "text": "BUILT TO SURVIVE" } },
+        { "type": "marquee_text", "settings": { "text": "KOCX KROCH DROP 013" } },
+        { "type": "marquee_text", "settings": { "text": "HEAVYWEIGHT FRENCH TERRY" } },
+        { "type": "marquee_text", "settings": { "text": "ANTI-CONFORMITY UNIFORM" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

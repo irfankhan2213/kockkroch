@@ -84,11 +84,11 @@
     "variant_button_radius": 0,
     "variant_button_width": "equal-width-buttons",
     "color_palette": {
-      "background": "#ffffff",
-      "foreground": "#000000",
-      "color1": "#c9584c",
-      "color2": "#202020",
-      "color3": "#E1E1E1"
+      "background": "#08080A",
+      "foreground": "#F4F4F6",
+      "color1": "#E3000F",
+      "color2": "#141419",
+      "color3": "#22222C"
     },
     "enable_intro_animation": true,
     "intro_frequency": "always",

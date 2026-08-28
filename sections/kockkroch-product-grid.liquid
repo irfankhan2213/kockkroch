@@ -1,0 +1,191 @@
+{% comment %}
+  KOCKKROCH (KOCX KROCH) — Featured Drop 013 Product Grid
+  Fearless from Origin • Built to Survive
+{% endcomment %}
+
+<section class="kk-section" data-section-id="{{ section.id }}">
+  <div class="kk-section-header">
+    <div>
+      <span class="kk-tag kk-tag--red">{{ section.settings.badge | default: 'DROP 013' }}</span>
+      <h2 class="kk-section-header__title" style="margin-top: 8px;">
+        {{ section.settings.title | default: 'LATEST RELEASES' }}
+      </h2>
+    </div>
+    {% if section.settings.view_all_link != blank %}
+      <a href="{{ section.settings.view_all_link }}" class="kk-btn kk-btn-primary" style="padding: 10px 20px; font-size: 11px;">
+        <span>VIEW ALL ({{ section.settings.collection.all_products_count | default: '12' }})</span>
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="kk-product-grid">
+    {% assign collection = collections[section.settings.collection] %}
+    {% if collection != blank and collection.products_count > 0 %}
+      {% for product in collection.products limit: section.settings.products_to_show %}
+        <div class="kk-card">
+          <div class="kk-card__media">
+            <a href="{{ product.url }}">
+              {% if product.featured_image != blank %}
+                <img
+                  src="{{ product.featured_image | image_url: width: 600 }}"
+                  alt="{{ product.title | escape }}"
+                  class="kk-card__img"
+                  loading="lazy"
+                >
+                {% if product.images.size > 1 %}
+                  <img
+                    src="{{ product.images[1] | image_url: width: 600 }}"
+                    alt="{{ product.title | escape }}"
+                    class="kk-card__img-hover"
+                    loading="lazy"
+                  >
+                {% endif %}
+              {% else %}
+                <div class="kk-card__img" style="background: #181820;"></div>
+              {% endif %}
+            </a>
+            <div class="kk-card__badge-ribbon">
+              {% if product.compare_at_price > product.price %}
+                <span class="kk-tag kk-tag--solid-red">SALE</span>
+              {% else %}
+                <span class="kk-tag kk-tag--red">[DROP 013]</span>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="kk-card__details">
+            <span class="kk-card__category">{{ product.type | default: 'HEAVYWEIGHT STREETWEAR' }}</span>
+            <a href="{{ product.url }}" class="kk-card__title">{{ product.title }}</a>
+            
+            <div class="kk-card__price-row">
+              <span class="kk-card__price">{{ product.price | money }}</span>
+              {% if product.compare_at_price > product.price %}
+                <span class="kk-card__compare-price">{{ product.compare_at_price | money }}</span>
+              {% endif %}
+            </div>
+
+            <!-- Size Pills -->
+            <div class="kk-card__sizes">
+              {% for variant in product.variants limit: 5 %}
+                <button
+                  type="button"
+                  class="kk-card__size-btn"
+                  onclick="location.href='{{ product.url }}?variant={{ variant.id }}'"
+                >
+                  {{ variant.title }}
+                </button>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <!-- Mock Streetwear Items for Instant Visual Demo -->
+      <div class="kk-card">
+        <div class="kk-card__media">
+          <div class="kk-card__img" style="background: radial-gradient(circle at center, #252530 0%, #101015 100%); display: flex; align-items: center; justify-content: center;">
+            <svg width="80" height="95" viewBox="0 0 63.80 78.70"><path d="M 41.53 22.11 L 36.08 13.65 L 31.23 10.26 L 27.25 13.52 L 22.24 22.35 L 41.53 22.11" fill="none" stroke="#FFF" stroke-width="0.8"/><path d="M 19.29 42.31 L 22.15 23.82 L 41.75 23.59 L 45.28 42.16 L 45.39 50.43 L 36.21 30.32 L 26.88 49.74 L 41.50 63.08 L 39.25 69.79 L 33.73 74.57 L 26.82 69.97 L 22.36 61.04 L 19.29 42.31" fill="none" stroke="#FFF" stroke-width="0.8"/><path d="M 32.00 48.96 L 51.95 69.96 L 38.88 51.18 L 36.14 37.94 L 32.00 48.96 Z" fill="#E3000F" stroke="#E3000F" stroke-width="0.5"/></svg>
+          </div>
+          <div class="kk-card__badge-ribbon"><span class="kk-tag kk-tag--red">[LIMITED 100]</span></div>
+        </div>
+        <div class="kk-card__details">
+          <span class="kk-card__category">280 GSM OVERSIZED TEE</span>
+          <a href="#" class="kk-card__title">REBELLION ORIGIN TEE // OBSIDIAN</a>
+          <div class="kk-card__price-row"><span class="kk-card__price">$65.00</span><span class="kk-card__compare-price">$80.00</span></div>
+          <div class="kk-card__sizes"><button class="kk-card__size-btn">S</button><button class="kk-card__size-btn">M</button><button class="kk-card__size-btn">L</button><button class="kk-card__size-btn">XL</button></div>
+        </div>
+      </div>
+
+      <div class="kk-card">
+        <div class="kk-card__media">
+          <div class="kk-card__img" style="background: radial-gradient(circle at center, #302020 0%, #101015 100%); display: flex; align-items: center; justify-content: center;">
+            <svg width="80" height="95" viewBox="0 0 63.80 78.70"><path d="M 41.53 22.11 L 36.08 13.65 L 31.23 10.26 L 27.25 13.52 L 22.24 22.35 L 41.53 22.11" fill="none" stroke="#FFF" stroke-width="0.8"/><path d="M 19.29 42.31 L 22.15 23.82 L 41.75 23.59 L 45.28 42.16 L 45.39 50.43 L 36.21 30.32 L 26.88 49.74 L 41.50 63.08 L 39.25 69.79 L 33.73 74.57 L 26.82 69.97 L 22.36 61.04 L 19.29 42.31" fill="none" stroke="#FFF" stroke-width="0.8"/><path d="M 32.00 48.96 L 51.95 69.96 L 38.88 51.18 L 36.14 37.94 L 32.00 48.96 Z" fill="#E3000F" stroke="#E3000F" stroke-width="0.5"/></svg>
+          </div>
+          <div class="kk-card__badge-ribbon"><span class="kk-tag kk-tag--solid-red">SURVIVAL FIT</span></div>
+        </div>
+        <div class="kk-card__details">
+          <span class="kk-card__category">450 GSM HEAVYWEIGHT HOODIE</span>
+          <a href="#" class="kk-card__title">KOCX KROCH EMBLEM HOODIE // BLOOD RED</a>
+          <div class="kk-card__price-row"><span class="kk-card__price">$120.00</span></div>
+          <div class="kk-card__sizes"><button class="kk-card__size-btn">S</button><button class="kk-card__size-btn">M</button><button class="kk-card__size-btn">L</button><button class="kk-card__size-btn">XL</button><button class="kk-card__size-btn">XXL</button></div>
+        </div>
+      </div>
+
+      <div class="kk-card">
+        <div class="kk-card__media">
+          <div class="kk-card__img" style="background: radial-gradient(circle at center, #202830 0%, #101015 100%); display: flex; align-items: center; justify-content: center;">
+            <svg width="80" height="95" viewBox="0 0 63.80 78.70"><path d="M 41.53 22.11 L 36.08 13.65 L 31.23 10.26 L 27.25 13.52 L 22.24 22.35 L 41.53 22.11" fill="none" stroke="#FFF" stroke-width="0.8"/><path d="M 19.29 42.31 L 22.15 23.82 L 41.75 23.59 L 45.28 42.16 L 45.39 50.43 L 36.21 30.32 L 26.88 49.74 L 41.50 63.08 L 39.25 69.79 L 33.73 74.57 L 26.82 69.97 L 22.36 61.04 L 19.29 42.31" fill="none" stroke="#FFF" stroke-width="0.8"/><path d="M 32.00 48.96 L 51.95 69.96 L 38.88 51.18 L 36.14 37.94 L 32.00 48.96 Z" fill="#E3000F" stroke="#E3000F" stroke-width="0.5"/></svg>
+          </div>
+          <div class="kk-card__badge-ribbon"><span class="kk-tag">[TACTICAL]</span></div>
+        </div>
+        <div class="kk-card__details">
+          <span class="kk-card__category">HEAVYWEIGHT ACID WASH CARGO</span>
+          <a href="#" class="kk-card__title">ANTI-SYSTEM MULTI-POCKET CARGO // STEEL</a>
+          <div class="kk-card__price-row"><span class="kk-card__price">$110.00</span></div>
+          <div class="kk-card__sizes"><button class="kk-card__size-btn">28</button><button class="kk-card__size-btn">30</button><button class="kk-card__size-btn">32</button><button class="kk-card__size-btn">34</button></div>
+        </div>
+      </div>
+
+      <div class="kk-card">
+        <div class="kk-card__media">
+          <div class="kk-card__img" style="background: radial-gradient(circle at center, #282820 0%, #101015 100%); display: flex; align-items: center; justify-content: center;">
+            <svg width="80" height="95" viewBox="0 0 63.80 78.70"><path d="M 41.53 22.11 L 36.08 13.65 L 31.23 10.26 L 27.25 13.52 L 22.24 22.35 L 41.53 22.11" fill="none" stroke="#FFF" stroke-width="0.8"/><path d="M 19.29 42.31 L 22.15 23.82 L 41.75 23.59 L 45.28 42.16 L 45.39 50.43 L 36.21 30.32 L 26.88 49.74 L 41.50 63.08 L 39.25 69.79 L 33.73 74.57 L 26.82 69.97 L 22.36 61.04 L 19.29 42.31" fill="none" stroke="#FFF" stroke-width="0.8"/><path d="M 32.00 48.96 L 51.95 69.96 L 38.88 51.18 L 36.14 37.94 L 32.00 48.96 Z" fill="#E3000F" stroke="#E3000F" stroke-width="0.5"/></svg>
+          </div>
+          <div class="kk-card__badge-ribbon"><span class="kk-tag kk-tag--red">[ARCHIVE]</span></div>
+        </div>
+        <div class="kk-card__details">
+          <span class="kk-card__category">WEATHERPROOF UTILITY BAG</span>
+          <a href="#" class="kk-card__title">TACTICAL SURVIVAL CROSSBODY // 013</a>
+          <div class="kk-card__price-row"><span class="kk-card__price">$55.00</span></div>
+          <div class="kk-card__sizes"><button class="kk-card__size-btn">ONE SIZE</button></div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "KOCKKROCH Product Grid",
+  "tag": "section",
+  "class": "section-kockkroch-products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Section Tag/Badge",
+      "default": "DROP 013"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "LATEST RELEASES"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to Show",
+      "min": 4,
+      "max": 16,
+      "step": 4,
+      "default": 8
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View All Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "KOCKKROCH Product Grid"
+    }
+  ]
+}
+{% endschema %}
