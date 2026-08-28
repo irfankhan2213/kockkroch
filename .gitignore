@@ -1,0 +1,22 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Assets & Brand Media
+assets/
+brand_assets/
+*.pdf
+*.jpeg
+*.jpg
+*.png
+*.svg
+generate_brand_assets.py
+test_intro_preview.html
+
+# Node / Editor
+node_modules/
+.vscode/
+.idea/
+*.log
