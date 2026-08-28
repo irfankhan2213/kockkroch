@@ -6,10 +6,8 @@
 :root {
   --k-intro-bg: #050507;
   --k-intro-red: #E3000F;
-  --k-intro-red-glow: rgba(227, 0, 15, 0.75);
+  --k-intro-red-glow: rgba(227, 0, 15, 0.7);
   --k-intro-white: #FFFFFF;
-  --k-intro-silver: #A1A1AA;
-  --k-intro-border: rgba(255, 255, 255, 0.12);
 }
 
 /* Prevent body scrolling while intro is active */
@@ -26,14 +24,14 @@ body.kockkroch-intro-active {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 999999;
+  z-index: 9999999;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--k-intro-bg);
   overflow: hidden;
   user-select: none;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   opacity: 1;
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -50,8 +48,8 @@ body.kockkroch-intro-active {
   position: absolute;
   inset: -100px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
   -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
@@ -63,60 +61,17 @@ body.kockkroch-intro-active {
   top: 0;
   left: 0;
   width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, rgba(227, 0, 15, 0.5), transparent);
-  opacity: 0.6;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(227, 0, 15, 0.4), transparent);
+  opacity: 0.5;
   animation: kIntroScanline 3s ease-in-out infinite;
 }
 
 .kockkroch-intro__noise {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(227, 0, 15, 0.07) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(227, 0, 15, 0.06) 0%, transparent 70%);
   pointer-events: none;
-}
-
-/* Skip Button */
-.kockkroch-intro__skip {
-  position: absolute;
-  top: 24px;
-  right: 28px;
-  z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  background: rgba(18, 18, 22, 0.85);
-  border: 1px solid var(--k-intro-border);
-  color: var(--k-intro-silver);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border-radius: 4px;
-  cursor: pointer;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all 0.2s ease;
-  opacity: 0;
-  animation: kIntroFadeIn 0.5s ease 0.4s forwards;
-}
-
-.kockkroch-intro__skip:hover {
-  color: var(--k-intro-white);
-  border-color: var(--k-intro-red);
-  background: rgba(227, 0, 15, 0.15);
-  box-shadow: 0 0 15px rgba(227, 0, 15, 0.3);
-}
-
-.kockkroch-intro__skip kbd {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 3px;
-  padding: 2px 5px;
-  font-size: 9px;
-  font-family: inherit;
-  color: var(--k-intro-white);
 }
 
 /* Center Stage Container (Pure Emblem Only) */
@@ -140,44 +95,48 @@ body.kockkroch-intro-active {
 }
 
 .kockkroch-intro__emblem {
-  width: 170px;
-  height: 210px;
+  width: 175px;
+  height: 215px;
   display: block;
-  filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.95));
+  filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.9));
   transform-origin: center center;
   animation: kIntroEmblemScale 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Wireframe Stroke Drawing */
+/* Fine, Crisp Vector Stroke Drawing */
 .kockkroch-intro__emblem .k-stroke {
-  stroke-dasharray: 240;
-  stroke-dashoffset: 240;
+  stroke: #FFFFFF;
+  stroke-width: 0.60;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
   animation: kIntroDrawStroke 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
 /* Stagger stroke drawings */
 .kockkroch-intro__emblem .k-s1  { animation-delay: 0.00s; }
-.kockkroch-intro__emblem .k-s2  { animation-delay: 0.08s; }
-.kockkroch-intro__emblem .k-s3  { animation-delay: 0.16s; }
-.kockkroch-intro__emblem .k-s4  { animation-delay: 0.05s; }
-.kockkroch-intro__emblem .k-s5  { animation-delay: 0.20s; }
-.kockkroch-intro__emblem .k-s6  { animation-delay: 0.24s; }
-.kockkroch-intro__emblem .k-s7  { animation-delay: 0.28s; }
-.kockkroch-intro__emblem .k-s8  { animation-delay: 0.32s; }
-.kockkroch-intro__emblem .k-s9  { animation-delay: 0.12s; }
-.kockkroch-intro__emblem .k-s10 { animation-delay: 0.36s; }
-.kockkroch-intro__emblem .k-s11 { animation-delay: 0.40s; }
-.kockkroch-intro__emblem .k-s12 { animation-delay: 0.44s; }
-.kockkroch-intro__emblem .k-s13 { animation-delay: 0.48s; }
-.kockkroch-intro__emblem .k-s14 { animation-delay: 0.52s; }
-.kockkroch-intro__emblem .k-s15 { animation-delay: 0.56s; }
+.kockkroch-intro__emblem .k-s2  { animation-delay: 0.06s; }
+.kockkroch-intro__emblem .k-s3  { animation-delay: 0.12s; }
+.kockkroch-intro__emblem .k-s4  { animation-delay: 0.04s; }
+.kockkroch-intro__emblem .k-s5  { animation-delay: 0.16s; }
+.kockkroch-intro__emblem .k-s6  { animation-delay: 0.20s; }
+.kockkroch-intro__emblem .k-s7  { animation-delay: 0.24s; }
+.kockkroch-intro__emblem .k-s8  { animation-delay: 0.28s; }
+.kockkroch-intro__emblem .k-s9  { animation-delay: 0.10s; }
+.kockkroch-intro__emblem .k-s10 { animation-delay: 0.30s; }
+.kockkroch-intro__emblem .k-s11 { animation-delay: 0.34s; }
+.kockkroch-intro__emblem .k-s12 { animation-delay: 0.38s; }
+.kockkroch-intro__emblem .k-s13 { animation-delay: 0.42s; }
+.kockkroch-intro__emblem .k-s14 { animation-delay: 0.46s; }
+.kockkroch-intro__emblem .k-s15 { animation-delay: 0.50s; }
 
 /* Signature Crimson Red Shard Ignition */
 .kockkroch-intro__emblem .k-shard {
   opacity: 0;
   transform-origin: 38px 51px;
   transform: scale(0.6);
-  animation: kIntroShardIgnite 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+  animation: kIntroShardIgnite 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
 }
 
 /* Dual Split Exit Shutters */
@@ -206,7 +165,7 @@ body.kockkroch-intro-active {
 /* Exit State Triggered via JS */
 .kockkroch-intro--exiting .kockkroch-intro__stage {
   opacity: 0;
-  transform: scale(1.1);
+  transform: scale(1.08);
   transition: opacity 0.35s ease, transform 0.5s ease;
 }
 
@@ -233,18 +192,12 @@ body.kockkroch-intro-active {
    ========================================================================== */
 
 @keyframes kIntroEmblemScale {
-  0% {
-    transform: scale(0.92);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(0.94); }
+  100% { transform: scale(1); }
 }
 
 @keyframes kIntroDrawStroke {
-  to {
-    stroke-dashoffset: 0;
-  }
+  to { stroke-dashoffset: 0; }
 }
 
 @keyframes kIntroShardIgnite {
@@ -255,19 +208,14 @@ body.kockkroch-intro-active {
   }
   50% {
     opacity: 1;
-    transform: scale(1.18);
-    filter: drop-shadow(0 0 25px var(--k-intro-red)) drop-shadow(0 0 60px var(--k-intro-red));
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 20px var(--k-intro-red)) drop-shadow(0 0 45px var(--k-intro-red));
   }
   100% {
     opacity: 1;
     transform: scale(1);
-    filter: drop-shadow(0 0 16px var(--k-intro-red));
+    filter: drop-shadow(0 0 12px var(--k-intro-red));
   }
-}
-
-@keyframes kIntroFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 @keyframes kIntroGridDrift {
@@ -277,22 +225,16 @@ body.kockkroch-intro-active {
 
 @keyframes kIntroScanline {
   0% { top: 0%; opacity: 0; }
-  15% { opacity: 0.7; }
-  85% { opacity: 0.7; }
+  15% { opacity: 0.6; }
+  85% { opacity: 0.6; }
   100% { top: 100%; opacity: 0; }
 }
 
 /* Mobile Optimizations */
 @media (max-width: 640px) {
   .kockkroch-intro__emblem {
-    width: 130px;
-    height: 160px;
-  }
-  .kockkroch-intro__skip {
-    top: 16px;
-    right: 16px;
-    padding: 6px 10px;
-    font-size: 10px;
+    width: 135px;
+    height: 165px;
   }
 }
 

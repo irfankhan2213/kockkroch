@@ -17,10 +17,8 @@
     :root {
       --k-intro-bg: #050507;
       --k-intro-red: #E3000F;
-      --k-intro-red-glow: rgba(227, 0, 15, 0.75);
+      --k-intro-red-glow: rgba(227, 0, 15, 0.7);
       --k-intro-white: #FFFFFF;
-      --k-intro-silver: #A1A1AA;
-      --k-intro-border: rgba(255, 255, 255, 0.12);
     }
 
     body.kockkroch-intro-active {
@@ -58,8 +56,8 @@
       position: absolute;
       inset: -100px;
       background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
       background-size: 48px 48px;
       mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
       -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
@@ -71,59 +69,17 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, rgba(227, 0, 15, 0.5), transparent);
-      opacity: 0.6;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(227, 0, 15, 0.4), transparent);
+      opacity: 0.5;
       animation: kIntroScanline 3s ease-in-out infinite;
     }
 
     .kockkroch-intro__noise {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(227, 0, 15, 0.07) 0%, transparent 70%);
+      background: radial-gradient(circle at 50% 50%, rgba(227, 0, 15, 0.06) 0%, transparent 70%);
       pointer-events: none;
-    }
-
-    .kockkroch-intro__skip {
-      position: absolute;
-      top: 24px;
-      right: 28px;
-      z-index: 10;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      background: rgba(18, 18, 22, 0.85);
-      border: 1px solid var(--k-intro-border);
-      color: var(--k-intro-silver);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-radius: 4px;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      transition: all 0.2s ease;
-      opacity: 0;
-      animation: kIntroFadeIn 0.5s ease 0.4s forwards;
-    }
-
-    .kockkroch-intro__skip:hover {
-      color: var(--k-intro-white);
-      border-color: var(--k-intro-red);
-      background: rgba(227, 0, 15, 0.15);
-      box-shadow: 0 0 15px rgba(227, 0, 15, 0.3);
-    }
-
-    .kockkroch-intro__skip kbd {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 3px;
-      padding: 2px 5px;
-      font-size: 9px;
-      font-family: inherit;
-      color: var(--k-intro-white);
     }
 
     .kockkroch-intro__stage {
@@ -145,41 +101,47 @@
     }
 
     .kockkroch-intro__emblem {
-      width: 170px;
-      height: 210px;
+      width: 175px;
+      height: 215px;
       display: block;
-      filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.95));
+      filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.9));
       transform-origin: center center;
       animation: kIntroEmblemScale 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
+    /* Fine, Crisp Vector Stroke Drawing */
     .kockkroch-intro__emblem .k-stroke {
-      stroke-dasharray: 240;
-      stroke-dashoffset: 240;
+      stroke: #FFFFFF;
+      stroke-width: 0.60;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
       animation: kIntroDrawStroke 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
     }
 
     .kockkroch-intro__emblem .k-s1  { animation-delay: 0.00s; }
-    .kockkroch-intro__emblem .k-s2  { animation-delay: 0.08s; }
-    .kockkroch-intro__emblem .k-s3  { animation-delay: 0.16s; }
-    .kockkroch-intro__emblem .k-s4  { animation-delay: 0.05s; }
-    .kockkroch-intro__emblem .k-s5  { animation-delay: 0.20s; }
-    .kockkroch-intro__emblem .k-s6  { animation-delay: 0.24s; }
-    .kockkroch-intro__emblem .k-s7  { animation-delay: 0.28s; }
-    .kockkroch-intro__emblem .k-s8  { animation-delay: 0.32s; }
-    .kockkroch-intro__emblem .k-s9  { animation-delay: 0.12s; }
-    .kockkroch-intro__emblem .k-s10 { animation-delay: 0.36s; }
-    .kockkroch-intro__emblem .k-s11 { animation-delay: 0.40s; }
-    .kockkroch-intro__emblem .k-s12 { animation-delay: 0.44s; }
-    .kockkroch-intro__emblem .k-s13 { animation-delay: 0.48s; }
-    .kockkroch-intro__emblem .k-s14 { animation-delay: 0.52s; }
-    .kockkroch-intro__emblem .k-s15 { animation-delay: 0.56s; }
+    .kockkroch-intro__emblem .k-s2  { animation-delay: 0.06s; }
+    .kockkroch-intro__emblem .k-s3  { animation-delay: 0.12s; }
+    .kockkroch-intro__emblem .k-s4  { animation-delay: 0.04s; }
+    .kockkroch-intro__emblem .k-s5  { animation-delay: 0.16s; }
+    .kockkroch-intro__emblem .k-s6  { animation-delay: 0.20s; }
+    .kockkroch-intro__emblem .k-s7  { animation-delay: 0.24s; }
+    .kockkroch-intro__emblem .k-s8  { animation-delay: 0.28s; }
+    .kockkroch-intro__emblem .k-s9  { animation-delay: 0.10s; }
+    .kockkroch-intro__emblem .k-s10 { animation-delay: 0.30s; }
+    .kockkroch-intro__emblem .k-s11 { animation-delay: 0.34s; }
+    .kockkroch-intro__emblem .k-s12 { animation-delay: 0.38s; }
+    .kockkroch-intro__emblem .k-s13 { animation-delay: 0.42s; }
+    .kockkroch-intro__emblem .k-s14 { animation-delay: 0.46s; }
+    .kockkroch-intro__emblem .k-s15 { animation-delay: 0.50s; }
 
+    /* Signature Red Shard with ultra-fine border */
     .kockkroch-intro__emblem .k-shard {
       opacity: 0;
       transform-origin: 38px 51px;
       transform: scale(0.6);
-      animation: kIntroShardIgnite 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+      animation: kIntroShardIgnite 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
     }
 
     .kockkroch-intro__shutter-top,
@@ -206,7 +168,7 @@
 
     .kockkroch-intro--exiting .kockkroch-intro__stage {
       opacity: 0;
-      transform: scale(1.1);
+      transform: scale(1.08);
       transition: opacity 0.35s ease, transform 0.5s ease;
     }
 
@@ -229,7 +191,7 @@
     }
 
     @keyframes kIntroEmblemScale {
-      0% { transform: scale(0.92); }
+      0% { transform: scale(0.94); }
       100% { transform: scale(1); }
     }
 
@@ -245,19 +207,14 @@
       }
       50% {
         opacity: 1;
-        transform: scale(1.18);
-        filter: drop-shadow(0 0 25px var(--k-intro-red)) drop-shadow(0 0 60px var(--k-intro-red));
+        transform: scale(1.12);
+        filter: drop-shadow(0 0 20px var(--k-intro-red)) drop-shadow(0 0 45px var(--k-intro-red));
       }
       100% {
         opacity: 1;
         transform: scale(1);
-        filter: drop-shadow(0 0 16px var(--k-intro-red));
+        filter: drop-shadow(0 0 12px var(--k-intro-red));
       }
-    }
-
-    @keyframes kIntroFadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
 
     @keyframes kIntroGridDrift {
@@ -267,21 +224,15 @@
 
     @keyframes kIntroScanline {
       0% { top: 0%; opacity: 0; }
-      15% { opacity: 0.7; }
-      85% { opacity: 0.7; }
+      15% { opacity: 0.6; }
+      85% { opacity: 0.6; }
       100% { top: 100%; opacity: 0; }
     }
 
     @media (max-width: 640px) {
       .kockkroch-intro__emblem {
-        width: 130px;
-        height: 160px;
-      }
-      .kockkroch-intro__skip {
-        top: 16px;
-        right: 16px;
-        padding: 6px 10px;
-        font-size: 10px;
+        width: 135px;
+        height: 165px;
       }
     }
 
@@ -313,17 +264,6 @@
       <div class="kockkroch-intro__noise"></div>
     </div>
 
-    <!-- Skip Button -->
-    <button
-      id="kockkroch-intro-skip"
-      class="kockkroch-intro__skip"
-      type="button"
-      aria-label="Skip Intro"
-    >
-      <span>SKIP</span>
-      <kbd>ESC</kbd>
-    </button>
-
     <!-- Center Stage Container (Pure Emblem Only) -->
     <div class="kockkroch-intro__stage">
       <div class="kockkroch-intro__emblem-wrap">
@@ -332,25 +272,25 @@
           viewBox="0 0 63.80 78.70"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <!-- Wireframe Facet Paths -->
-          <path class="k-stroke k-s1" d="M 41.53 22.11 L 36.08 13.65 L 31.23 10.26 L 27.25 13.52 L 22.24 22.35 L 41.53 22.11" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s2" d="M 19.29 42.31 L 22.15 23.82 L 41.75 23.59 L 45.28 42.16 L 45.39 50.43 L 36.21 30.32 L 26.88 49.74 L 41.50 63.08 L 39.25 69.79 L 33.73 74.57 L 26.82 69.97 L 22.36 61.04 L 19.29 42.31" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s3" d="M 54.00 72.64 L 36.06 34.54 L 28.81 49.45 L 54.00 72.64" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s4" d="M 18.62 33.19 L 20.57 25.22 L 11.64 22.19 L 4.25 49.24 L 4.00 74.70 L 8.20 53.28 L 15.17 40.55 L 12.35 29.00 L 18.62 33.19" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s5" d="M 40.95 4.00 L 54.18 14.99 L 41.80 7.23 L 36.47 12.38 L 32.64 9.65 L 40.95 4.00" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s6" d="M 20.87 4.02 L 7.63 15.00 L 20.02 7.25 L 26.25 12.34 L 29.45 9.70 L 20.87 4.02" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s7" d="M 26.25 12.35 L 20.61 5.55 L 29.45 9.70" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s8" d="M 36.47 12.38 L 41.49 5.36 L 32.64 9.65" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s9" d="M 27.73 13.55 L 35.33 13.45 L 22.66 22.19 L 41.08 21.95 L 27.73 13.55" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s10" d="M 18.62 33.19 L 11.82 22.69 L 12.35 29.00 L 8.37 34.17 L 15.12 40.35 L 4.25 49.24 L 8.20 53.28 L 5.05 57.78 L 4.01 73.99" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s11" d="M 45.18 32.74 L 43.22 24.78 L 52.16 21.74 L 59.55 48.80 L 59.80 74.25 L 55.60 52.83 L 48.63 40.10 L 51.29 28.59 L 45.18 32.74" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s12" d="M 59.68 73.63 L 58.52 57.45 L 55.60 52.83 L 59.37 48.15 L 49.07 39.85 L 55.21 32.93 L 51.45 28.55 L 52.09 22.41 L 45.18 32.74" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s13" d="M 41.59 23.79 L 20.25 41.53 L 27.87 29.41 L 22.90 24.22 L 41.40 30.39 L 45.18 41.65 L 42.17 43.22" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s14" d="M 22.36 61.04 L 40.38 66.43" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-          <path class="k-stroke k-s15" d="M 19.36 42.76 L 34.78 69.07 L 26.88 49.74" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+          <!-- Fine Wireframe Facet Paths -->
+          <path class="k-stroke k-s1" d="M 41.53 22.11 L 36.08 13.65 L 31.23 10.26 L 27.25 13.52 L 22.24 22.35 L 41.53 22.11" fill="none" />
+          <path class="k-stroke k-s2" d="M 19.29 42.31 L 22.15 23.82 L 41.75 23.59 L 45.28 42.16 L 45.39 50.43 L 36.21 30.32 L 26.88 49.74 L 41.50 63.08 L 39.25 69.79 L 33.73 74.57 L 26.82 69.97 L 22.36 61.04 L 19.29 42.31" fill="none" />
+          <path class="k-stroke k-s3" d="M 54.00 72.64 L 36.06 34.54 L 28.81 49.45 L 54.00 72.64" fill="none" />
+          <path class="k-stroke k-s4" d="M 18.62 33.19 L 20.57 25.22 L 11.64 22.19 L 4.25 49.24 L 4.00 74.70 L 8.20 53.28 L 15.17 40.55 L 12.35 29.00 L 18.62 33.19" fill="none" />
+          <path class="k-stroke k-s5" d="M 40.95 4.00 L 54.18 14.99 L 41.80 7.23 L 36.47 12.38 L 32.64 9.65 L 40.95 4.00" fill="none" />
+          <path class="k-stroke k-s6" d="M 20.87 4.02 L 7.63 15.00 L 20.02 7.25 L 26.25 12.34 L 29.45 9.70 L 20.87 4.02" fill="none" />
+          <path class="k-stroke k-s7" d="M 26.25 12.35 L 20.61 5.55 L 29.45 9.70" fill="none" />
+          <path class="k-stroke k-s8" d="M 36.47 12.38 L 41.49 5.36 L 32.64 9.65" fill="none" />
+          <path class="k-stroke k-s9" d="M 27.73 13.55 L 35.33 13.45 L 22.66 22.19 L 41.08 21.95 L 27.73 13.55" fill="none" />
+          <path class="k-stroke k-s10" d="M 18.62 33.19 L 11.82 22.69 L 12.35 29.00 L 8.37 34.17 L 15.12 40.35 L 4.25 49.24 L 8.20 53.28 L 5.05 57.78 L 4.01 73.99" fill="none" />
+          <path class="k-stroke k-s11" d="M 45.18 32.74 L 43.22 24.78 L 52.16 21.74 L 59.55 48.80 L 59.80 74.25 L 55.60 52.83 L 48.63 40.10 L 51.29 28.59 L 45.18 32.74" fill="none" />
+          <path class="k-stroke k-s12" d="M 59.68 73.63 L 58.52 57.45 L 55.60 52.83 L 59.37 48.15 L 49.07 39.85 L 55.21 32.93 L 51.45 28.55 L 52.09 22.41 L 45.18 32.74" fill="none" />
+          <path class="k-stroke k-s13" d="M 41.59 23.79 L 20.25 41.53 L 27.87 29.41 L 22.90 24.22 L 41.40 30.39 L 45.18 41.65 L 42.17 43.22" fill="none" />
+          <path class="k-stroke k-s14" d="M 22.36 61.04 L 40.38 66.43" fill="none" />
+          <path class="k-stroke k-s15" d="M 19.36 42.76 L 34.78 69.07 L 26.88 49.74" fill="none" />
           
           <!-- Signature Red Accent Blade/Shard -->
-          <path class="k-shard" d="M 32.00 48.96 L 51.95 69.96 L 38.88 51.18 L 36.14 37.94 L 32.00 48.96 Z" fill="#E3000F" stroke="#E3000F" stroke-width="0.8" stroke-linejoin="round" />
+          <path class="k-shard" d="M 32.00 48.96 L 51.95 69.96 L 38.88 51.18 L 36.14 37.94 L 32.00 48.96 Z" fill="#E3000F" stroke="#E3000F" stroke-width="0.5" stroke-linejoin="round" />
         </svg>
       </div>
     </div>
@@ -364,7 +304,7 @@
     (function () {
       'use strict';
       const STORAGE_KEY = 'kockkroch_intro_seen';
-      const INTRO_DURATION_MS = 1900;
+      const INTRO_DURATION_MS = 1800;
 
       function initKockkrochIntro() {
         const introEl = document.getElementById('kockkroch-intro');
@@ -405,20 +345,11 @@
           }, 750);
         }
 
-        const autoExitTimer = setTimeout(completeIntro, INTRO_DURATION_MS);
+        setTimeout(completeIntro, INTRO_DURATION_MS);
 
-        const skipBtn = document.getElementById('kockkroch-intro-skip');
-        if (skipBtn) {
-          skipBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            clearTimeout(autoExitTimer);
-            completeIntro();
-          });
-        }
-
+        // Optional keyboard ESC shortcut
         function onKeyDown(e) {
           if (e.key === 'Escape' || e.keyCode === 27) {
-            clearTimeout(autoExitTimer);
             completeIntro();
             window.removeEventListener('keydown', onKeyDown);
           }
