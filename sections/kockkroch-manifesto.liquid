@@ -1,29 +1,70 @@
 {% comment %}
-  KOCKKROCH — Atelier Monograph & Brand Philosophy
-  Inspired by ssstein & Kallmeyer NYC
+  KOCKKROCH (KOCX KROCH) — Clean Editorial Manifesto & Survival Story
+  Fearless from Origin • Built to Survive • California
 {% endcomment %}
 
-<section class="kk-monograph" data-section-id="{{ section.id }}">
-  <div class="kk-container">
-    <div class="kk-monograph-grid">
-      <div class="kk-monograph-media">
-        {% if section.settings.image != blank %}
-          <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.heading | escape }}" class="kk-monograph-img" loading="lazy">
-        {% else %}
-          <img src="{{ 'kockkroch-brand-atelier.webp' | asset_url }}" alt="Tokyo Atelier Workspace" class="kk-monograph-img" loading="lazy">
-        {% endif %}
+<section class="kk-manifesto" data-section-id="{{ section.id }}">
+  <div class="kk-manifesto__inner">
+    <div class="kk-manifesto__emblem-side" style="position: relative; overflow: hidden; border: 1px solid var(--kk-border); min-height: 460px;">
+      <img 
+        src="{{ 'kockkroch-brand-atelier.webp' | asset_url }}" 
+        alt="KOCKKROCH Design Atelier • Pattern Making & Garment Construction" 
+        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(10%) contrast(102%);"
+        loading="lazy"
+      >
+      <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.4) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px; z-index: 2;">
+        <svg class="kk-manifesto__emblem-svg" viewBox="0 0 63.80 78.70" xmlns="http://www.w3.org/2000/svg" style="max-width: 160px; filter: drop-shadow(0 4px 14px rgba(0,0,0,0.12));">
+          <path d="M 41.53 22.11 L 36.08 13.65 L 31.23 10.26 L 27.25 13.52 L 22.24 22.35 L 41.53 22.11" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 19.29 42.31 L 22.15 23.82 L 41.75 23.59 L 45.28 42.16 L 45.39 50.43 L 36.21 30.32 L 26.88 49.74 L 41.50 63.08 L 39.25 69.79 L 33.73 74.57 L 26.82 69.97 L 22.36 61.04 L 19.29 42.31" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 54.00 72.64 L 36.06 34.54 L 28.81 49.45 L 54.00 72.64" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 18.62 33.19 L 20.57 25.22 L 11.64 22.19 L 4.25 49.24 L 4.00 74.70 L 8.20 53.28 L 15.17 40.55 L 12.35 29.00 L 18.62 33.19" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 40.95 4.00 L 54.18 14.99 L 41.80 7.23 L 36.47 12.38 L 32.64 9.65 L 40.95 4.00" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 20.87 4.02 L 7.63 15.00 L 20.02 7.25 L 26.25 12.34 L 29.45 9.70 L 20.87 4.02" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 26.25 12.35 L 20.61 5.55 L 29.45 9.70" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 36.47 12.38 L 41.49 5.36 L 32.64 9.65" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 27.73 13.55 L 35.33 13.45 L 22.66 22.19 L 41.08 21.95 L 27.73 13.55" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 18.62 33.19 L 11.82 22.69 L 12.35 29.00 L 8.37 34.17 L 15.12 40.35 L 4.25 49.24 L 8.20 53.28 L 5.05 57.78 L 4.01 73.99" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 45.18 32.74 L 43.22 24.78 L 52.16 21.74 L 59.55 48.80 L 59.80 74.25 L 55.60 52.83 L 48.63 40.10 L 51.29 28.59 L 45.18 32.74" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 59.68 73.63 L 58.52 57.45 L 55.60 52.83 L 59.37 48.15 L 49.07 39.85 L 55.21 32.93 L 51.45 28.55 L 52.09 22.41 L 45.18 32.74" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 41.59 23.79 L 20.25 41.53 L 27.87 29.41 L 22.90 24.22 L 41.40 30.39 L 45.18 41.65 L 42.17 43.22" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 22.36 61.04 L 40.38 66.43" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 19.36 42.76 L 34.78 69.07 L 26.88 49.74" fill="none" stroke="#0A0A0C" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M 32.00 48.96 L 51.95 69.96 L 38.88 51.18 L 36.14 37.94 L 32.00 48.96 Z" fill="#E3000F" stroke="#E3000F" stroke-width="0.5" stroke-linejoin="round" />
+        </svg>
+        <span style="margin-top: 20px; font-size: 10px; letter-spacing: 2px; font-weight: 700; color: #0A0A0C; background: rgba(255,255,255,0.92); padding: 5px 12px; border: 1px solid rgba(0,0,0,0.08); text-transform: uppercase;">
+          DESIGN ATELIER • SURVIVAL PROTOCOL
+        </span>
       </div>
+    </div>
 
-      <div class="kk-monograph-content">
-        <span class="kk-monograph-label">{{ section.settings.label | default: 'ATELIER MONOGRAPH // 01' }}</span>
-        <h2 class="kk-monograph-quote">
-          {{ section.settings.heading | default: '“WE ENGINEER SILHOUETTES FOR SURVIVAL IN AN EPHEMERAL WORLD.”' }}
-        </h2>
-        <p class="kk-monograph-body">
-          {{ section.settings.body_text | default: 'Conceived between Tokyo and California, KOCKKROCH was born from an obsession with permanence. Rejecting the disposable cadence of fast trend cycles, we construct unyielding garments using high-density ring-spun cottons, custom Japanese hardware, and balanced boxy proportions engineered for decades of continuous wear. Form follows survival.' }}
-        </p>
-        <div class="kk-monograph-signoff">
-          <span>KOCKKROCH ATELIER — TOKYO • CALIFORNIA</span>
+    <div class="kk-manifesto__text-side">
+      <span class="kk-tag kk-tag--red" style="margin-bottom: 16px;">{{ section.settings.badge | default: 'THE RESISTANCE' }}</span>
+      
+      <h2>
+        {{ section.settings.title_1 | default: 'SURVIVAL IS NOT' }}<br>
+        <span style="color: var(--kk-red);">{{ section.settings.title_2 | default: 'AN ACCIDENT' }}</span>
+      </h2>
+
+      <p>
+        {{ section.settings.paragraph_1 | default: 'When systems collapse and conformity suffocates creativity, the fearless adapt. The cockroach is nature’s ultimate survivor — indestructible, resilient, enduring through every trial.' }}
+      </p>
+
+      <p>
+        {{ section.settings.paragraph_2 | default: 'KOCKKROCH is the armor for those who challenge authority and wear their defiance on their sleeves. Heavyweight fabrics, indestructible construction, and refined luxury streetwear silhouettes.' }}
+      </p>
+
+      <div class="kk-manifesto__stats">
+        <div>
+          <div class="kk-stat-num">{{ section.settings.stat_1_val | default: '280+' }}</div>
+          <div class="kk-stat-lbl">{{ section.settings.stat_1_lbl | default: 'GSM HEAVY COTTON' }}</div>
+        </div>
+        <div>
+          <div class="kk-stat-num">{{ section.settings.stat_2_val | default: '100%' }}</div>
+          <div class="kk-stat-lbl">{{ section.settings.stat_2_lbl | default: 'FEARLESS ORIGIN' }}</div>
+        </div>
+        <div>
+          <div class="kk-stat-num">{{ section.settings.stat_3_val | default: '013' }}</div>
+          <div class="kk-stat-lbl">{{ section.settings.stat_3_lbl | default: 'ARCHIVE PROTOCOL' }}</div>
         </div>
       </div>
     </div>
@@ -32,37 +73,80 @@
 
 {% schema %}
 {
-  "name": "KOCKKROCH Atelier Monograph",
+  "name": "KOCKKROCH Manifesto Story",
   "tag": "section",
   "class": "section-kockkroch-manifesto",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Atelier Image"
+      "type": "text",
+      "id": "badge",
+      "label": "Badge Tag",
+      "default": "THE RESISTANCE"
     },
     {
       "type": "text",
-      "id": "label",
-      "label": "Overline Label",
-      "default": "ATELIER MONOGRAPH // 01"
+      "id": "title_1",
+      "label": "Title Line 1",
+      "default": "SURVIVAL IS NOT"
+    },
+    {
+      "type": "text",
+      "id": "title_2",
+      "label": "Title Line 2 (Red)",
+      "default": "AN ACCIDENT"
     },
     {
       "type": "textarea",
-      "id": "heading",
-      "label": "Quote / Heading",
-      "default": "“WE ENGINEER SILHOUETTES FOR SURVIVAL IN AN EPHEMERAL WORLD.”"
+      "id": "paragraph_1",
+      "label": "First Paragraph",
+      "default": "When systems collapse and conformity suffocates creativity, the fearless adapt. The cockroach is nature’s ultimate survivor — indestructible, resilient, enduring through every trial."
     },
     {
       "type": "textarea",
-      "id": "body_text",
-      "label": "Body Copy",
-      "default": "Conceived between Tokyo and California, KOCKKROCH was born from an obsession with permanence. Rejecting the disposable cadence of fast trend cycles, we construct unyielding garments using high-density ring-spun cottons, custom Japanese hardware, and balanced boxy proportions engineered for decades of continuous wear. Form follows survival."
+      "id": "paragraph_2",
+      "label": "Second Paragraph",
+      "default": "KOCKKROCH is the armor for those who challenge authority and wear their defiance on their sleeves. Heavyweight fabrics, indestructible construction, and refined luxury streetwear silhouettes."
+    },
+    {
+      "type": "text",
+      "id": "stat_1_val",
+      "label": "Stat 1 Value",
+      "default": "280+"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_lbl",
+      "label": "Stat 1 Label",
+      "default": "GSM HEAVY COTTON"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_val",
+      "label": "Stat 2 Value",
+      "default": "100%"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_lbl",
+      "label": "Stat 2 Label",
+      "default": "FEARLESS ORIGIN"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_val",
+      "label": "Stat 3 Value",
+      "default": "013"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_lbl",
+      "label": "Stat 3 Label",
+      "default": "ARCHIVE PROTOCOL"
     }
   ],
   "presets": [
     {
-      "name": "KOCKKROCH Atelier Monograph"
+      "name": "KOCKKROCH Manifesto Story"
     }
   ]
 }

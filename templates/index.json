@@ -1,7 +1,21 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "kx_hero": {
+    "kockkroch_marquee_1": {
+      "type": "kockkroch-marquee",
+      "settings": {}
+    },
+    "kx_bone_hero_AJaXww": {
       "type": "kx-bone-hero",
+      "name": "KX Bone Hero Ticket",
       "settings": {
         "drop_no": "013",
         "season": "AW26",
@@ -10,55 +24,79 @@
         "copy": "Heavyweight ring-spun jerseys, boxy French terry and pleated trousers. Cut wide, built heavy, priced honestly. Once it sells, it never restocks.",
         "script": "Fearless from origin →",
         "primary_text": "SHOP DROP 013 →",
-        "secondary_text": "VIEW LOOKBOOK"
+        "primary_link": "",
+        "secondary_text": "VIEW LOOKBOOK",
+        "secondary_link": ""
       }
     },
-    "kx_ticker": {
-      "type": "kx-bone-ticker",
-      "settings": {}
-    },
-    "kx_capsules": {
-      "type": "kx-bone-capsules",
-      "settings": {
-        "subtitle": "PICK YOUR POISON",
-        "title_top": "SHOP BY",
-        "title_italic": "obsession",
-        "link_text": "VIEW EVERYTHING →"
-      }
-    },
-    "kx_drop": {
-      "type": "kx-bone-drop-grid",
-      "settings": {
-        "subtitle": "DROP 013 — 13 PIECES ONLY",
-        "title_top": "THE",
-        "title_italic": "hot list",
-        "link_text": "SHOP ALL →",
-        "count": 4
-      }
-    },
-    "kx_manifesto": {
-      "type": "kx-bone-manifesto",
-      "settings": {}
-    },
-    "kx_lookbook": {
-      "type": "kx-bone-lookbook",
-      "settings": {}
-    },
-    "kx_vault": {
+    "kx_bone_vault_p79fzB": {
       "type": "kx-bone-vault",
+      "name": "KX Bone Vault",
       "settings": {
         "drop": "014",
         "date": "2026-10-31T00:00:00"
       }
+    },
+    "kockkroch_categories": {
+      "type": "kockkroch-collections",
+      "settings": {
+        "subtitle": "CURATED SILHOUETTES",
+        "title": "CAPSULE RELEASES",
+        "link_text": "VIEW ALL SILHOUETTES →",
+        "view_all_link": "/collections/all"
+      }
+    },
+    "kockkroch_products": {
+      "type": "kockkroch-product-grid",
+      "settings": {
+        "badge": "DROP 013",
+        "title": "SELECTED WORKS",
+        "collection": "",
+        "products_to_show": 4,
+        "view_all_link": "/collections/all"
+      }
+    },
+    "kockkroch_banner": {
+      "type": "kockkroch-banner",
+      "settings": {
+        "label": "ATELIER STUDY // AUTUMN WINTER 2026",
+        "title": "FORM FOLLOWS SURVIVAL",
+        "btn_text": "EXPLORE CAMPAIGN →",
+        "link": "#kk-lookbook-section"
+      }
+    },
+    "kockkroch_lookbook": {
+      "type": "kockkroch-lookbook",
+      "settings": {
+        "subtitle": "EDITORIAL SERIES",
+        "title": "ARCHIVAL LOOKBOOK"
+      }
+    },
+    "kockkroch_manifesto": {
+      "type": "kockkroch-manifesto",
+      "settings": {
+        "badge": "THE RESISTANCE",
+        "title_1": "SURVIVAL IS NOT",
+        "title_2": "AN ACCIDENT",
+        "paragraph_1": "When systems collapse and conformity suffocates creativity, the fearless adapt. The cockroach is nature’s ultimate survivor — indestructible, resilient, enduring through every trial.",
+        "paragraph_2": "KOCKKROCH is the armor for those who challenge authority and wear their defiance on their sleeves. Heavyweight fabrics, indestructible construction, and refined luxury streetwear silhouettes.",
+        "stat_1_val": "280+",
+        "stat_1_lbl": "GSM HEAVY COTTON",
+        "stat_2_val": "100%",
+        "stat_2_lbl": "FEARLESS ORIGIN",
+        "stat_3_val": "013",
+        "stat_3_lbl": "ARCHIVE PROTOCOL"
+      }
     }
   },
   "order": [
-    "kx_hero",
-    "kx_ticker",
-    "kx_capsules",
-    "kx_drop",
-    "kx_manifesto",
-    "kx_lookbook",
-    "kx_vault"
+    "kockkroch_marquee_1",
+    "kx_bone_hero_AJaXww",
+    "kx_bone_vault_p79fzB",
+    "kockkroch_categories",
+    "kockkroch_products",
+    "kockkroch_banner",
+    "kockkroch_lookbook",
+    "kockkroch_manifesto"
   ]
 }
