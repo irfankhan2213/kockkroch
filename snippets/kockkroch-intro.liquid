@@ -15,10 +15,10 @@
 {%- if enable_intro -%}
   <style id="kockkroch-intro-styles">
     :root {
-      --k-intro-bg: #050507;
+      --k-intro-bg: #FFFFFF;
       --k-intro-red: #E3000F;
-      --k-intro-red-glow: rgba(227, 0, 15, 0.7);
-      --k-intro-white: #FFFFFF;
+      --k-intro-red-glow: rgba(227, 0, 15, 0.4);
+      --k-intro-black: #0A0A0C;
     }
 
     body.kockkroch-intro-active {
@@ -56,8 +56,8 @@
       position: absolute;
       inset: -100px;
       background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
       background-size: 48px 48px;
       mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
       -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
@@ -70,7 +70,7 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(227, 0, 15, 0.4), transparent);
+      background: linear-gradient(90deg, transparent, rgba(227, 0, 15, 0.25), transparent);
       opacity: 0.5;
       animation: kIntroScanline 3s ease-in-out infinite;
     }
@@ -78,7 +78,7 @@
     .kockkroch-intro__noise {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(227, 0, 15, 0.06) 0%, transparent 70%);
+      background: radial-gradient(circle at 50% 50%, rgba(227, 0, 15, 0.03) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -104,15 +104,15 @@
       width: 175px;
       height: 215px;
       display: block;
-      filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.9));
+      filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.08));
       transform-origin: center center;
       animation: kIntroEmblemScale 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     /* Fine, Crisp Vector Stroke Drawing */
     .kockkroch-intro__emblem .k-stroke {
-      stroke: #FFFFFF;
-      stroke-width: 0.60;
+      stroke: #0A0A0C;
+      stroke-width: 0.65;
       stroke-linecap: round;
       stroke-linejoin: round;
       stroke-dasharray: 200;

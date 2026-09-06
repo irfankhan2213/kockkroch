@@ -25,7 +25,7 @@
       },
       "block_order": ["m_1", "m_2", "m_3", "m_4", "m_5"],
       "settings": {
-        "bg_color": "#060608",
+        "bg_color": "#FAFAFC",
         "direction": "left",
         "speed": 28
       }
@@ -175,7 +175,7 @@
       },
       "block_order": ["m2_1", "m2_2", "m2_3", "m2_4"],
       "settings": {
-        "bg_color": "#08080A",
+        "bg_color": "#FAFAFC",
         "direction": "right",
         "speed": 25
       }

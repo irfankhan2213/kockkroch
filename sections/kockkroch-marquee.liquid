@@ -3,7 +3,7 @@
   Fearless from Origin • Built to Survive • California
 {% endcomment %}
 
-<div class="kk-marquee" style="background-color: {{ section.settings.bg_color | default: '#060608' }};">
+<div class="kk-marquee" style="background-color: {{ section.settings.bg_color | default: '#FAFAFC' }};">
   <div class="kk-marquee__track" style="animation: {% if section.settings.direction == 'right' %}kkMarqueeRight{% else %}kkMarqueeLeft{% endif %} {{ section.settings.speed | default: 28 }}s linear infinite;">
     <div class="kk-marquee__group">
       {% for block in section.blocks %}
@@ -40,7 +40,7 @@
       "type": "color",
       "id": "bg_color",
       "label": "Background Color",
-      "default": "#060608"
+      "default": "#FAFAFC"
     },
     {
       "type": "select",
