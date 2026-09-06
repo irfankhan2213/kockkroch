@@ -1,22 +1,22 @@
 {% comment %}
-  KOCKKROCH (KOCX KROCH) — Clean Luxury Streetwear Hero
-  Fearless from Origin • Built to Survive • California
+  KOCKKROCH — Archival Minimal Hero Campaign
+  Inspired by ssstein & 3sixteen
 {% endcomment %}
 
 <section id="kockkroch-hero-{{ section.id }}" class="kk-hero" data-section-id="{{ section.id }}">
-  <div class="kk-hero__bg-wrap">
+  <div class="kk-hero__media">
     {% if section.settings.image != blank %}
       <img
-        src="{{ section.settings.image | image_url: width: 2000 }}"
-        alt="{{ section.settings.title_line_1 | escape }}"
-        class="kk-hero__bg-img"
+        src="{{ section.settings.image | image_url: width: 2200 }}"
+        alt="{{ section.settings.title | escape }}"
+        class="kk-hero__img"
         loading="eager"
       >
     {% else %}
       <img
         src="{{ 'kockkroch-hero-banner.webp' | asset_url }}"
         alt="KOCKKROCH Editorial Campaign"
-        class="kk-hero__bg-img"
+        class="kk-hero__img"
         loading="eager"
       >
     {% endif %}
@@ -24,92 +24,60 @@
   </div>
 
   <div class="kk-hero__content">
-    <div class="kk-hero__meta">
-      {% if section.settings.badge_tag_1 != blank %}
-        <span class="kk-tag kk-tag--red">{{ section.settings.badge_tag_1 }}</span>
-      {% endif %}
-      {% if section.settings.badge_tag_2 != blank %}
-        <span class="kk-tag">{{ section.settings.badge_tag_2 }}</span>
-      {% endif %}
-    </div>
-
-    <h1 class="kk-hero__title">
-      {{ section.settings.title_line_1 | default: 'BUILT TO' }}
-      <span class="kk-hero__title-highlight">{{ section.settings.title_highlight | default: 'SURVIVE' }}</span>
-    </h1>
-
-    <p class="kk-hero__subtitle">
-      {{ section.settings.subtitle | default: 'Fearless from origin. Underground streetwear forged in defiance of standard conformity. Heavyweight cuts engineered for the rebel soul.' }}
-    </p>
-
-    <div class="kk-hero__cta-group">
-      {% if section.settings.primary_btn_text != blank %}
-        <a href="{{ section.settings.primary_btn_link | default: '/collections/all' }}" class="kk-btn kk-btn--primary">
-          <span>{{ section.settings.primary_btn_text }}</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      {% endif %}
-
-      {% if section.settings.secondary_btn_text != blank %}
-        <a href="{{ section.settings.secondary_btn_link | default: '#kk-lookbook-section' }}" class="kk-btn kk-btn--outline">
-          <span>{{ section.settings.secondary_btn_text }}</span>
-        </a>
-      {% endif %}
-    </div>
-
-    <div class="kk-hero__scroll-indicator" onclick="window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' })" style="margin-top: 48px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; opacity: 0.7; transition: opacity 0.2s;">
-      <span style="font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--kk-muted); font-weight: 700;">SCROLL TO EXPLORE</span>
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--kk-muted)" stroke-width="2.5"><path d="M7 10l5 5 5-5"/></svg>
+    <div class="kk-container">
+      <div class="kk-hero__meta">
+        <span class="kk-hero__badge">{{ section.settings.caption | default: 'COLLECTION 01 // AUTUMN WINTER 2026' }}</span>
+        <h1 class="kk-hero__title">{{ section.settings.title | default: 'ARCHIVAL SILHOUETTES' }}</h1>
+        <p class="kk-hero__desc">
+          {{ section.settings.subtitle | default: 'Meticulous Japanese and American archival tailoring. Heavyweight ring-spun cottons, drop shoulders, and permanent structural integrity.' }}
+        </p>
+        <div class="kk-hero__actions">
+          <a href="{{ section.settings.primary_btn_link | default: '#kk-catalog-section' }}" class="kk-btn kk-btn--white">
+            {{ section.settings.primary_btn_text | default: 'EXPLORE COLLECTION' }}
+          </a>
+          <a href="{{ section.settings.secondary_btn_link | default: '#kk-lookbook-section' }}" class="kk-btn kk-btn--ghost-white">
+            {{ section.settings.secondary_btn_text | default: 'VIEW LOOKBOOK' }}
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "KOCKKROCH Hero Banner",
+  "name": "KOCKKROCH Archival Hero",
   "tag": "section",
   "class": "section-kockkroch-hero",
   "settings": [
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Background Image"
+      "label": "Hero Image"
     },
     {
       "type": "text",
-      "id": "badge_tag_1",
-      "label": "Badge Tag (Red)",
-      "default": "DROP 013"
+      "id": "caption",
+      "label": "Overline Caption",
+      "default": "COLLECTION 01 // AUTUMN WINTER 2026"
     },
     {
       "type": "text",
-      "id": "badge_tag_2",
-      "label": "Badge Tag (Subtle)",
-      "default": "AUTUMN / WINTER 2026"
-    },
-    {
-      "type": "text",
-      "id": "title_line_1",
-      "label": "Title (Main)",
-      "default": "BUILT TO "
-    },
-    {
-      "type": "text",
-      "id": "title_highlight",
-      "label": "Title (Red Highlight)",
-      "default": "SURVIVE"
+      "id": "title",
+      "label": "Title",
+      "default": "ARCHIVAL SILHOUETTES"
     },
     {
       "type": "textarea",
       "id": "subtitle",
-      "label": "Subtitle / Description",
-      "default": "Fearless from origin. Underground streetwear forged in defiance of standard conformity. Heavyweight cuts engineered for the rebel soul."
+      "label": "Subtitle",
+      "default": "Meticulous Japanese and American archival tailoring. Heavyweight ring-spun cottons, drop shoulders, and permanent structural integrity."
     },
     {
       "type": "text",
       "id": "primary_btn_text",
       "label": "Primary Button Text",
-      "default": "EXPLORE DROP 013"
+      "default": "EXPLORE COLLECTION"
     },
     {
       "type": "url",
@@ -130,7 +98,7 @@
   ],
   "presets": [
     {
-      "name": "KOCKKROCH Hero Banner"
+      "name": "KOCKKROCH Archival Hero"
     }
   ]
 }

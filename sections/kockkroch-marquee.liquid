@@ -1,91 +1,49 @@
 {% comment %}
-  KOCKKROCH (KOCX KROCH) — Clean Kinetic Marquee Ticker
-  Fearless from Origin • Built to Survive • California
+  KOCKKROCH — Minimalist Archival Marquee Ribbon
 {% endcomment %}
 
-<div class="kk-marquee" style="background-color: {{ section.settings.bg_color | default: '#FAFAFC' }};">
-  <div class="kk-marquee__track" style="animation: {% if section.settings.direction == 'right' %}kkMarqueeRight{% else %}kkMarqueeLeft{% endif %} {{ section.settings.speed | default: 28 }}s linear infinite;">
-    <div class="kk-marquee__group">
-      {% for block in section.blocks %}
-        <span class="kk-marquee__item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
-      {% else %}
-        <span class="kk-marquee__item">FEARLESS FROM ORIGIN</span>
-        <span class="kk-marquee__item">BUILT TO SURVIVE</span>
-        <span class="kk-marquee__item">KOCX KROCH DROP 013</span>
-        <span class="kk-marquee__item">HEAVYWEIGHT 280 GSM</span>
-        <span class="kk-marquee__item">CALIFORNIA ARCHIVE</span>
-      {% endfor %}
+<div class="kk-marquee">
+  <div class="kk-marquee__track">
+    <div class="kk-marquee__item">
+      <span>COLLECTION 01 // ARCHIVAL SILHOUETTES</span>
+      <span class="kk-marquee__dot"></span>
+      <span>PERPETUAL WEAR</span>
+      <span class="kk-marquee__dot"></span>
+      <span>TOKYO & CALIFORNIA</span>
+      <span class="kk-marquee__dot"></span>
+      <span>HEAVYWEIGHT RING-SPUN COTTON</span>
+      <span class="kk-marquee__dot"></span>
+      <span>UNCOMPROMISED FORM</span>
+      <span class="kk-marquee__dot"></span>
+      <span>ARCHIVAL TAILORING</span>
+      <span class="kk-marquee__dot"></span>
     </div>
-    <div class="kk-marquee__group" aria-hidden="true">
-      {% for block in section.blocks %}
-        <span class="kk-marquee__item">{{ block.settings.text }}</span>
-      {% else %}
-        <span class="kk-marquee__item">FEARLESS FROM ORIGIN</span>
-        <span class="kk-marquee__item">BUILT TO SURVIVE</span>
-        <span class="kk-marquee__item">KOCX KROCH DROP 013</span>
-        <span class="kk-marquee__item">HEAVYWEIGHT 280 GSM</span>
-        <span class="kk-marquee__item">CALIFORNIA ARCHIVE</span>
-      {% endfor %}
+    <div class="kk-marquee__item" aria-hidden="true">
+      <span>COLLECTION 01 // ARCHIVAL SILHOUETTES</span>
+      <span class="kk-marquee__dot"></span>
+      <span>PERPETUAL WEAR</span>
+      <span class="kk-marquee__dot"></span>
+      <span>TOKYO & CALIFORNIA</span>
+      <span class="kk-marquee__dot"></span>
+      <span>HEAVYWEIGHT RING-SPUN COTTON</span>
+      <span class="kk-marquee__dot"></span>
+      <span>UNCOMPROMISED FORM</span>
+      <span class="kk-marquee__dot"></span>
+      <span>ARCHIVAL TAILORING</span>
+      <span class="kk-marquee__dot"></span>
     </div>
   </div>
 </div>
 
 {% schema %}
 {
-  "name": "KOCKKROCH Clean Marquee",
+  "name": "KOCKKROCH Minimal Marquee",
   "tag": "section",
   "class": "section-kockkroch-marquee",
-  "settings": [
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background Color",
-      "default": "#FAFAFC"
-    },
-    {
-      "type": "select",
-      "id": "direction",
-      "label": "Scroll Direction",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "right", "label": "Right" }
-      ],
-      "default": "left"
-    },
-    {
-      "type": "range",
-      "id": "speed",
-      "label": "Scroll Duration (Seconds)",
-      "min": 15,
-      "max": 60,
-      "step": 1,
-      "default": 28
-    }
-  ],
-  "blocks": [
-    {
-      "type": "marquee_text",
-      "name": "Marquee Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Ticker Text",
-          "default": "FEARLESS FROM ORIGIN"
-        }
-      ]
-    }
-  ],
+  "settings": [],
   "presets": [
     {
-      "name": "KOCKKROCH Clean Marquee",
-      "blocks": [
-        { "type": "marquee_text", "settings": { "text": "FEARLESS FROM ORIGIN" } },
-        { "type": "marquee_text", "settings": { "text": "BUILT TO SURVIVE" } },
-        { "type": "marquee_text", "settings": { "text": "KOCX KROCH DROP 013" } },
-        { "type": "marquee_text", "settings": { "text": "HEAVYWEIGHT FRENCH TERRY" } },
-        { "type": "marquee_text", "settings": { "text": "CALIFORNIA ARCHIVE" } }
-      ]
+      "name": "KOCKKROCH Minimal Marquee"
     }
   ]
 }

@@ -3,204 +3,60 @@
     "kockkroch_hero": {
       "type": "kockkroch-hero",
       "settings": {
-        "badge_tag_1": "DROP 013",
-        "badge_tag_2": "AUTUMN / WINTER 2026",
-        "title_line_1": "BUILT TO ",
-        "title_highlight": "SURVIVE",
-        "subtitle": "Fearless from origin. Underground streetwear forged in defiance of standard conformity. Heavyweight cuts engineered for the rebel soul.",
-        "primary_btn_text": "EXPLORE DROP 013",
-        "primary_btn_link": "/collections/all",
+        "caption": "COLLECTION 01 // AUTUMN WINTER 2026",
+        "title": "ARCHIVAL SILHOUETTES",
+        "subtitle": "Meticulous Japanese and American archival tailoring. Heavyweight ring-spun cottons, drop shoulders, and permanent structural integrity.",
+        "primary_btn_text": "EXPLORE COLLECTION",
+        "primary_btn_link": "#kk-catalog-section",
         "secondary_btn_text": "VIEW LOOKBOOK",
         "secondary_btn_link": "#kk-lookbook-section"
       }
     },
     "kockkroch_marquee_1": {
       "type": "kockkroch-marquee",
-      "blocks": {
-        "m_1": { "type": "marquee_text", "settings": { "text": "FEARLESS FROM ORIGIN" } },
-        "m_2": { "type": "marquee_text", "settings": { "text": "BUILT TO SURVIVE" } },
-        "m_3": { "type": "marquee_text", "settings": { "text": "KOCX KROCH DROP 013" } },
-        "m_4": { "type": "marquee_text", "settings": { "text": "HEAVYWEIGHT 280 GSM" } },
-        "m_5": { "type": "marquee_text", "settings": { "text": "CALIFORNIA ARCHIVE" } }
-      },
-      "block_order": ["m_1", "m_2", "m_3", "m_4", "m_5"],
-      "settings": {
-        "bg_color": "#FAFAFC",
-        "direction": "left",
-        "speed": 28
-      }
+      "settings": {}
     },
     "kockkroch_categories": {
       "type": "kockkroch-collections",
-      "blocks": {
-        "cat_1": { "type": "collection_card", "settings": { "tag": "HEAVYWEIGHT", "title": "OVERSIZED TEES" } },
-        "cat_2": { "type": "collection_card", "settings": { "tag": "FLEECE", "title": "HOODIES & SWEATS" } },
-        "cat_3": { "type": "collection_card", "settings": { "tag": "TACTICAL", "title": "CARGOS & PANTS" } },
-        "cat_4": { "type": "collection_card", "settings": { "tag": "LIMITED", "title": "ACCESSORIES & GEAR" } }
-      },
-      "block_order": ["cat_1", "cat_2", "cat_3", "cat_4"],
       "settings": {
-        "badge": "COLLECTIONS",
-        "title": "SURVIVAL CAPSULE",
-        "view_all_link": "/collections"
+        "subtitle": "CURATED SILHOUETTES",
+        "title": "CAPSULE RELEASES",
+        "link_text": "VIEW ALL SILHOUETTES →",
+        "view_all_link": "/collections/all"
       }
     },
     "kockkroch_products": {
       "type": "kockkroch-product-grid",
       "settings": {
-        "badge": "DROP 013",
-        "title": "LATEST RELEASES",
-        "products_to_show": 8,
-        "view_all_link": "/collections/all"
+        "subtitle": "COLLECTION 01",
+        "title": "SELECTED WORKS",
+        "link_text": "VIEW ENTIRE CATALOG →",
+        "view_all_link": "/collections/all",
+        "products_to_show": 4
       }
     },
     "kockkroch_banner": {
       "type": "kockkroch-banner",
       "settings": {
-        "eyebrow": "ARCHIVAL CAMPAIGN • DROP 013/014",
-        "badge_text": "LIMITED 150 EDITIONS",
-        "title_line_1": "PERPETUAL FORM &",
-        "title_highlight": "RAW STRUCTURE",
-        "description": "Every silhouette is mathematically cut from 450 GSM heavyweight loopback fleece and zero-torque combed cotton. Unyielding construction engineered to outlive the cycle of planned obsolescence.",
-        "show_specs": true,
-        "spec_1_label": "01 / TEXTILE SPEC",
-        "spec_1_val": "450 GSM HEAVYWEIGHT",
-        "spec_2_label": "02 / HARDWARE",
-        "spec_2_val": "YKK EXCELLA GUNMETAL",
-        "spec_3_label": "03 / PRODUCTION BATCH",
-        "spec_3_val": "150 HAND-NUMBERED UNITS",
-        "spec_4_label": "04 / LONGEVITY",
-        "spec_4_val": "PERPETUAL SURVIVAL",
-        "primary_btn_text": "SHOP THE CAPSULE",
-        "primary_btn_link": "/collections/all",
-        "secondary_btn_text": "EXPLORE THE LOOKBOOK",
-        "secondary_btn_link": "#kk-lookbook-section"
+        "label": "ATELIER STUDY // AUTUMN WINTER 2026",
+        "title": "FORM FOLLOWS SURVIVAL",
+        "btn_text": "EXPLORE CAMPAIGN →",
+        "link": "#kk-lookbook-section"
       }
     },
     "kockkroch_lookbook": {
       "type": "kockkroch-lookbook",
-      "blocks": {
-        "look_1": {
-          "type": "look",
-          "settings": {
-            "look_tab_label": "LOOK 01",
-            "look_tag": "STYLING SUITE",
-            "look_title": "HEAVYWEIGHT DRAPE",
-            "look_desc": "Engineered with 450 GSM loopback French terry and paired with reinforced technical cargos for high-density city survival.",
-            "hotspot_1_x": 48,
-            "hotspot_1_y": 36,
-            "hotspot_2_x": 52,
-            "hotspot_2_y": 68
-          }
-        },
-        "look_2": {
-          "type": "look",
-          "settings": {
-            "look_tab_label": "LOOK 02",
-            "look_tag": "ARCHIVAL MATRIX",
-            "look_title": "TACTICAL MONOCHROME",
-            "look_desc": "280 GSM combed organic cotton layered beneath weatherproof ripstop shells with surgical crimson accents.",
-            "hotspot_1_x": 45,
-            "hotspot_1_y": 42,
-            "hotspot_2_x": 55,
-            "hotspot_2_y": 72
-          }
-        }
-      },
-      "block_order": ["look_1", "look_2"],
       "settings": {
-        "eyebrow": "EDITORIAL ARCHIVE • AW26",
-        "heading": "SHOP THE LOOK"
-      }
-    },
-    "kockkroch_craft": {
-      "type": "kockkroch-craft",
-      "blocks": {
-        "pillar_1": {
-          "type": "material_card",
-          "settings": {
-            "metric": "280 GSM",
-            "title": "COMBED RING-SPUN COTTON",
-            "description": "High-density jersey knit engineered with zero lateral torque. Enzyme-treated for structural stability and permanent color fastness.",
-            "tag": "ZERO-TORQUE TEE FABRIC"
-          }
-        },
-        "pillar_2": {
-          "type": "material_card",
-          "settings": {
-            "metric": "450 GSM",
-            "title": "LOOPBACK FRENCH TERRY",
-            "description": "Substantial structural fleece woven for architectural boxy drape. Pre-shrunk to retain its silhouette through industrial laundering.",
-            "tag": "ARCHIVAL FLEECE"
-          }
-        },
-        "pillar_3": {
-          "type": "material_card",
-          "settings": {
-            "metric": "CUSTOM",
-            "title": "GUNMETAL JAPANESE HARDWARE",
-            "description": "Custom finished steel rivets, reinforced YKK Excella zippers, and heavy-gauge drawcord aglets built to withstand extreme stress.",
-            "tag": "MIL-SPEC HARDWARE"
-          }
-        },
-        "pillar_4": {
-          "type": "material_card",
-          "settings": {
-            "metric": "LIFETIME",
-            "title": "PERPETUAL ENDURANCE",
-            "description": "Twin-needle chain-stitched hems and bar-tacked pockets. Built to outlive the cycle of planned obsolescence.",
-            "tag": "SURVIVAL ASSURANCE"
-          }
-        }
-      },
-      "block_order": ["pillar_1", "pillar_2", "pillar_3", "pillar_4"],
-      "settings": {
-        "eyebrow": "TEXTILE ENGINEERING • BUILT TO SURVIVE",
-        "heading": "MATERIAL PURITY & STRUCTURAL LONGEVITY",
-        "subheading": "We engineer garments using custom-milled high-density cotton and reinforced hardware. Every piece is calculated to endure relentless wear without warping, shrinking, or yielding.",
-        "show_specs": true,
-        "specs_title": "TECHNICAL PARAMETERS",
-        "specs_subtitle": "Standardized physical metrics applied across all Drop 013 core silhouettes."
+        "subtitle": "EDITORIAL SERIES",
+        "title": "ARCHIVAL LOOKBOOK"
       }
     },
     "kockkroch_manifesto": {
       "type": "kockkroch-manifesto",
       "settings": {
-        "badge": "THE RESISTANCE",
-        "title_1": "SURVIVAL IS NOT",
-        "title_2": "AN ACCIDENT",
-        "paragraph_1": "When systems collapse and conformity suffocates creativity, the fearless adapt. The cockroach is nature’s ultimate survivor — indestructible, resilient, enduring through every trial.",
-        "paragraph_2": "KOCKKROCH is the armor for those who challenge authority and wear their defiance on their sleeves. Heavyweight fabrics, indestructible construction, and refined luxury streetwear silhouettes.",
-        "stat_1_val": "280+",
-        "stat_1_lbl": "GSM HEAVY COTTON",
-        "stat_2_val": "100%",
-        "stat_2_lbl": "FEARLESS ORIGIN",
-        "stat_3_val": "013",
-        "stat_3_lbl": "ARCHIVE PROTOCOL"
-      }
-    },
-    "kockkroch_countdown": {
-      "type": "kockkroch-countdown",
-      "settings": {
-        "badge": "LIMITED RELEASE",
-        "title": "NEXT DROP COMMENCING",
-        "subtitle": "Strictly limited edition. Once the batch sells out, it will never be reprinted. Subscribe for 1-hour VIP early access.",
-        "countdown_date": "2026-10-31T00:00:00"
-      }
-    },
-    "kockkroch_marquee_2": {
-      "type": "kockkroch-marquee",
-      "blocks": {
-        "m2_1": { "type": "marquee_text", "settings": { "text": "CALIFORNIA ORIGIN" } },
-        "m2_2": { "type": "marquee_text", "settings": { "text": "WORLDWIDE SHIPPING" } },
-        "m2_3": { "type": "marquee_text", "settings": { "text": "LIMITED EDITION" } },
-        "m2_4": { "type": "marquee_text", "settings": { "text": "NO REPRINTS" } }
-      },
-      "block_order": ["m2_1", "m2_2", "m2_3", "m2_4"],
-      "settings": {
-        "bg_color": "#FAFAFC",
-        "direction": "right",
-        "speed": 25
+        "label": "ATELIER MONOGRAPH // 01",
+        "heading": "“WE ENGINEER SILHOUETTES FOR SURVIVAL IN AN EPHEMERAL WORLD.”",
+        "body_text": "Conceived between Tokyo and California, KOCKKROCH was born from an obsession with permanence. Rejecting the disposable cadence of fast trend cycles, we construct unyielding garments using high-density ring-spun cottons, custom Japanese hardware, and balanced boxy proportions engineered for decades of continuous wear. Form follows survival."
       }
     }
   },
@@ -211,9 +67,6 @@
     "kockkroch_products",
     "kockkroch_banner",
     "kockkroch_lookbook",
-    "kockkroch_craft",
-    "kockkroch_manifesto",
-    "kockkroch_countdown",
-    "kockkroch_marquee_2"
+    "kockkroch_manifesto"
   ]
 }

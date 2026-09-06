@@ -1,232 +1,65 @@
 {% comment %}
-  KOCKKROCH (KOCX KROCH) — Full-Width Editorial Campaign Banner
-  Inspired by The Frankie Shop, Reigning Champ, 3sixteen & Kallmeyer NYC
-  Aesthetic: Gallery White / Studio Alabaster • Architectural Typography • Heavyweight Textile Focus
+  KOCKKROCH — Minimalist Editorial Campaign Banner
+  Inspired by ssstein & 3sixteen
 {% endcomment %}
 
-<section id="kockkroch-banner-{{ section.id }}" class="kk-banner" data-section-id="{{ section.id }}">
-  <div class="kk-banner__container">
-    <div class="kk-banner__card">
-      <!-- Background / Studio Media Wrapper -->
-      <div class="kk-banner__media-wrap">
-        {% if section.settings.image != blank %}
-          <img
-            src="{{ section.settings.image | image_url: width: 2400 }}"
-            alt="{{ section.settings.title_line_1 | escape }}"
-            class="kk-banner__media-img"
-            loading="lazy"
-          >
-          <div class="kk-banner__overlay"></div>
-        {% else %}
-          <!-- Editorial Studio Artwork with Architectural Grid & Technical Watermark -->
-          <div class="kk-banner__media-fallback">
-            <div class="kk-banner__grid-pattern"></div>
-            <div class="kk-banner__emblem-watermark">
-              <svg width="280" height="340" viewBox="0 0 63.80 78.70">
-                <path d="M 41.53 22.11 L 36.08 13.65 L 31.23 10.26 L 27.25 13.52 L 22.24 22.35 L 41.53 22.11" fill="none" stroke="#0A0A0C" stroke-width="0.45" stroke-opacity="0.12"/>
-                <path d="M 19.29 42.31 L 22.15 23.82 L 41.75 23.59 L 45.28 42.16 L 45.39 50.43 L 36.21 30.32 L 26.88 49.74 L 41.50 63.08 L 39.25 69.79 L 33.73 74.57 L 26.82 69.97 L 22.36 61.04 L 19.29 42.31" fill="none" stroke="#0A0A0C" stroke-width="0.45" stroke-opacity="0.12"/>
-                <path d="M 32.00 48.96 L 51.95 69.96 L 38.88 51.18 L 36.14 37.94 L 32.00 48.96 Z" fill="#E3000F" fill-opacity="0.85" stroke="#E3000F" stroke-width="0.3"/>
-              </svg>
-            </div>
-          </div>
-        {% endif %}
-      </div>
+<section class="kk-campaign-banner" data-section-id="{{ section.id }}">
+  {% if section.settings.image != blank %}
+    <img src="{{ section.settings.image | image_url: width: 2200 }}" alt="{{ section.settings.title | escape }}" class="kk-campaign-banner__img" loading="lazy">
+  {% else %}
+    <img src="{{ 'kockkroch-brand-atelier.webp' | asset_url }}" alt="Atelier Study" class="kk-campaign-banner__img" loading="lazy">
+  {% endif %}
+  <div class="kk-campaign-banner__overlay"></div>
 
-      <!-- Editorial Banner Content -->
-      <div class="kk-banner__content">
-        <!-- Top Meta Badges -->
-        <div class="kk-banner__meta">
-          {% if section.settings.eyebrow != blank %}
-            <span class="kk-tag kk-tag--red">{{ section.settings.eyebrow }}</span>
-          {% endif %}
-          {% if section.settings.badge_text != blank %}
-            <span class="kk-tag">{{ section.settings.badge_text }}</span>
-          {% endif %}
-          <span class="kk-banner__coords">34.0522° N, 118.2437° W // ARCHIVAL VAULT</span>
-        </div>
-
-        <!-- Main Title -->
-        <h2 class="kk-banner__title">
-          {{ section.settings.title_line_1 | default: 'PERPETUAL FORM &' }}
-          <span class="kk-banner__title-highlight">{{ section.settings.title_highlight | default: 'RAW STRUCTURE' }}</span>
-        </h2>
-
-        <!-- Descriptive Subtitle -->
-        <p class="kk-banner__description">
-          {{ section.settings.description | default: 'Every silhouette is mathematically cut from 450 GSM heavyweight loopback fleece and zero-torque combed cotton. Unyielding construction engineered to outlive the cycle of planned obsolescence.' }}
-        </p>
-
-        <!-- Technical Specification Data Strip -->
-        {% if section.settings.show_specs %}
-          <div class="kk-banner__specs-strip">
-            <div class="kk-banner__spec-item">
-              <span class="kk-banner__spec-label">{{ section.settings.spec_1_label | default: '01 / TEXTILE SPEC' }}</span>
-              <span class="kk-banner__spec-val">{{ section.settings.spec_1_val | default: '450 GSM HEAVYWEIGHT' }}</span>
-            </div>
-            <div class="kk-banner__spec-item">
-              <span class="kk-banner__spec-label">{{ section.settings.spec_2_label | default: '02 / HARDWARE' }}</span>
-              <span class="kk-banner__spec-val">{{ section.settings.spec_2_val | default: 'YKK EXCELLA GUNMETAL' }}</span>
-            </div>
-            <div class="kk-banner__spec-item">
-              <span class="kk-banner__spec-label">{{ section.settings.spec_3_label | default: '03 / PRODUCTION BATCH' }}</span>
-              <span class="kk-banner__spec-val">{{ section.settings.spec_3_val | default: '150 HAND-NUMBERED UNITS' }}</span>
-            </div>
-            <div class="kk-banner__spec-item">
-              <span class="kk-banner__spec-label">{{ section.settings.spec_4_label | default: '04 / LONGEVITY' }}</span>
-              <span class="kk-banner__spec-val">{{ section.settings.spec_4_val | default: 'PERPETUAL SURVIVAL' }}</span>
-            </div>
-          </div>
-        {% endif %}
-
-        <!-- Dual CTA Group -->
-        <div class="kk-banner__actions">
-          {% if section.settings.primary_btn_text != blank %}
-            <a href="{{ section.settings.primary_btn_link | default: '/collections/all' }}" class="kk-btn kk-btn--primary kk-banner__btn">
-              <span>{{ section.settings.primary_btn_text }}</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          {% endif %}
-
-          {% if section.settings.secondary_btn_text != blank %}
-            <a href="{{ section.settings.secondary_btn_link | default: '#kk-lookbook-section' }}" class="kk-btn kk-btn--outline kk-banner__btn">
-              <span>{{ section.settings.secondary_btn_text }}</span>
-            </a>
-          {% endif %}
-        </div>
-      </div>
+  <div class="kk-container" style="width: 100%;">
+    <div class="kk-campaign-banner__content">
+      <span class="kk-campaign-banner__label">{{ section.settings.label | default: 'ATELIER STUDY // AUTUMN WINTER 2026' }}</span>
+      <h2 class="kk-campaign-banner__title">{{ section.settings.title | default: 'FORM FOLLOWS SURVIVAL' }}</h2>
+      <a href="{{ section.settings.link | default: '#kk-lookbook-section' }}" class="kk-btn kk-btn--ghost-white">
+        {{ section.settings.btn_text | default: 'EXPLORE CAMPAIGN →' }}
+      </a>
     </div>
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "KOCKKROCH Editorial Banner",
+  "name": "KOCKKROCH Campaign Banner",
   "tag": "section",
   "class": "section-kockkroch-banner",
   "settings": [
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Background Image (Optional)"
+      "label": "Banner Image"
     },
     {
       "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow Tag",
-      "default": "ARCHIVAL CAMPAIGN • DROP 013/014"
+      "id": "label",
+      "label": "Overline Label",
+      "default": "ATELIER STUDY // AUTUMN WINTER 2026"
     },
     {
       "type": "text",
-      "id": "badge_text",
-      "label": "Status Badge",
-      "default": "LIMITED 150 EDITIONS"
+      "id": "title",
+      "label": "Title",
+      "default": "FORM FOLLOWS SURVIVAL"
     },
     {
       "type": "text",
-      "id": "title_line_1",
-      "label": "Title Line 1",
-      "default": "PERPETUAL FORM &"
-    },
-    {
-      "type": "text",
-      "id": "title_highlight",
-      "label": "Title Highlight",
-      "default": "RAW STRUCTURE"
-    },
-    {
-      "type": "textarea",
-      "id": "description",
-      "label": "Description",
-      "default": "Every silhouette is mathematically cut from 450 GSM heavyweight loopback fleece and zero-torque combed cotton. Unyielding construction engineered to outlive the cycle of planned obsolescence."
-    },
-    {
-      "type": "header",
-      "content": "Technical Specification Bar"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_specs",
-      "label": "Show Technical Spec Bar",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "spec_1_label",
-      "label": "Spec 1 Label",
-      "default": "01 / TEXTILE SPEC"
-    },
-    {
-      "type": "text",
-      "id": "spec_1_val",
-      "label": "Spec 1 Value",
-      "default": "450 GSM HEAVYWEIGHT"
-    },
-    {
-      "type": "text",
-      "id": "spec_2_label",
-      "label": "Spec 2 Label",
-      "default": "02 / HARDWARE"
-    },
-    {
-      "type": "text",
-      "id": "spec_2_val",
-      "label": "Spec 2 Value",
-      "default": "YKK EXCELLA GUNMETAL"
-    },
-    {
-      "type": "text",
-      "id": "spec_3_label",
-      "label": "Spec 3 Label",
-      "default": "03 / PRODUCTION BATCH"
-    },
-    {
-      "type": "text",
-      "id": "spec_3_val",
-      "label": "Spec 3 Value",
-      "default": "150 HAND-NUMBERED UNITS"
-    },
-    {
-      "type": "text",
-      "id": "spec_4_label",
-      "label": "Spec 4 Label",
-      "default": "04 / LONGEVITY"
-    },
-    {
-      "type": "text",
-      "id": "spec_4_val",
-      "label": "Spec 4 Value",
-      "default": "PERPETUAL SURVIVAL"
-    },
-    {
-      "type": "header",
-      "content": "Action Buttons"
-    },
-    {
-      "type": "text",
-      "id": "primary_btn_text",
-      "label": "Primary Button Text",
-      "default": "SHOP THE CAPSULE"
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "EXPLORE CAMPAIGN →"
     },
     {
       "type": "url",
-      "id": "primary_btn_link",
-      "label": "Primary Button Link"
-    },
-    {
-      "type": "text",
-      "id": "secondary_btn_text",
-      "label": "Secondary Button Text",
-      "default": "EXPLORE THE LOOKBOOK"
-    },
-    {
-      "type": "url",
-      "id": "secondary_btn_link",
-      "label": "Secondary Button Link"
+      "id": "link",
+      "label": "Link"
     }
   ],
   "presets": [
     {
-      "name": "KOCKKROCH Editorial Banner"
+      "name": "KOCKKROCH Campaign Banner"
     }
   ]
 }

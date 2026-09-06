@@ -1,366 +1,146 @@
 {% comment %}
-  KOCKKROCH — Interactive Lookbook / "Shop The Look"
-  Inspired by SSSTEIN (monograph layout) and Kith (styled outfit pairings)
+  KOCKKROCH — Archival Editorial Lookbook
+  Inspired by ssstein & 3sixteen
 {% endcomment %}
 
-<section class="kk-lookbook" id="kk-lookbook-section" data-section-id="{{ section.id }}">
-  <div class="kk-lookbook__header">
-    <div class="kk-lookbook__title-wrap">
-      <span class="kk-tag kk-tag--red">{{ section.settings.eyebrow | default: 'EDITORIAL ARCHIVE • AW26' }}</span>
-      <h2>{{ section.settings.heading | default: 'SHOP THE LOOK' }}</h2>
+<section id="kk-lookbook-section" class="kk-editorial-lookbook" data-section-id="{{ section.id }}">
+  <div class="kk-container">
+    <div class="kk-section-header">
+      <div class="kk-section-header__meta">
+        <span class="kk-section-header__subtitle">{{ section.settings.subtitle | default: 'EDITORIAL SERIES' }}</span>
+        <h2 class="kk-section-header__title">{{ section.settings.title | default: 'ARCHIVAL LOOKBOOK' }}</h2>
+      </div>
+      <div class="kk-lookbook-tabs" style="display: flex; gap: 8px;">
+        <button type="button" id="kk-lb-btn-1" class="kk-btn kk-btn--primary" style="padding: 8px 16px; font-size: 10px;" onclick="switchLook(1)">LOOK 01</button>
+        <button type="button" id="kk-lb-btn-2" class="kk-btn kk-btn--outline" style="padding: 8px 16px; font-size: 10px;" onclick="switchLook(2)">LOOK 02</button>
+      </div>
     </div>
 
-    <div class="kk-lookbook__nav" role="tablist" aria-label="Lookbook navigation">
-      {% for block in section.blocks %}
-        <button 
-          type="button"
-          class="kk-lookbook__nav-btn {% if forloop.first %}is-active{% endif %}"
-          data-look-target="{{ forloop.index }}"
-          role="tab"
-          aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
-          {{ block.shopify_attributes }}
+    <!-- Look 01 Content -->
+    <div id="kk-look-panel-1" class="kk-lookbook-row">
+      <div class="kk-lookbook-media">
+        <img
+          src="{{ 'kockkroch-lookbook-01.webp' | asset_url }}"
+          alt="Look 01 — Archival Heavy Fleece & Trousers"
+          class="kk-lookbook-img"
+          loading="lazy"
         >
-          {{ block.settings.look_tab_label | default: 'LOOK 0' | append: forloop.index }}
-        </button>
-      {% endfor %}
-    </div>
-  </div>
+      </div>
+      <div class="kk-lookbook-details">
+        <span class="kk-lookbook-tag">LOOK 01 // OVERSIZED FLEECE & CARGO</span>
+        <h3 class="kk-lookbook-heading">STRUCTURAL DRAPE & HEAVYWEIGHT HARMONY</h3>
+        <p class="kk-lookbook-copy">
+          A dialogue between weight and volume. The 450 GSM loopback fleece is cut wide through the body and sleeves to maintain an architectural boxy silhouette, counterbalanced by articulated matte-black ripstop trousers.
+        </p>
 
-  <div class="kk-lookbook__slides-container">
-    {% for block in section.blocks %}
-      <div 
-        class="kk-lookbook__slide {% if forloop.first %}is-active{% endif %}" 
-        id="kk-look-{{ forloop.index }}"
-        data-slide-index="{{ forloop.index }}"
-        role="tabpanel"
-      >
-        <!-- Editorial Image with Hotspots -->
-        <div class="kk-lookbook__visual">
-          {% if block.settings.look_image != blank %}
-            <img 
-              src="{{ block.settings.look_image | image_url: width: 1400 }}" 
-              alt="{{ block.settings.look_title | escape }}" 
-              loading="lazy"
-            >
-          {% else %}
-            <!-- Curated Editorial Graphic / Fallback -->
-            {% if forloop.index == 1 %}
-              <img 
-                src="{{ 'kockkroch-lookbook-01.webp' | asset_url }}" 
-                alt="LOOK 01 — Architectural Silhouette" 
-                loading="lazy"
-              >
-            {% else %}
-              <img 
-                src="{{ 'kockkroch-lookbook-02.webp' | asset_url }}" 
-                alt="LOOK 02 — Minimalist Tailoring" 
-                loading="lazy"
-              >
-            {% endif %}
-          {% endif %}
-
-          <!-- Interactive Hotspot 1 -->
-          {% if block.settings.product_1 != blank %}
-            {% assign p1 = block.settings.product_1 %}
-            <div 
-              class="kk-hotspot" 
-              style="top: {{ block.settings.hotspot_1_y | default: 35 }}%; left: {{ block.settings.hotspot_1_x | default: 45 }}%;"
-              data-product-id="{{ p1.id }}"
-            >
-              <div class="kk-hotspot__pulse"></div>
-              <div class="kk-hotspot__dot"></div>
-              <div class="kk-hotspot__tooltip">
-                <div class="kk-hotspot__tooltip-title">{{ p1.title }}</div>
-                <div class="kk-hotspot__tooltip-price">{{ p1.price | money }}</div>
-              </div>
-            </div>
-          {% else %}
-            <div class="kk-hotspot" style="top: 36%; left: 48%;">
-              <div class="kk-hotspot__pulse"></div>
-              <div class="kk-hotspot__dot"></div>
-              <div class="kk-hotspot__tooltip">
-                <div class="kk-hotspot__tooltip-title">HEAVYWEIGHT SURVIVAL HOODIE</div>
-                <div class="kk-hotspot__tooltip-price">$185.00 USD</div>
-              </div>
-            </div>
-          {% endif %}
-
-          <!-- Interactive Hotspot 2 -->
-          {% if block.settings.product_2 != blank %}
-            {% assign p2 = block.settings.product_2 %}
-            <div 
-              class="kk-hotspot" 
-              style="top: {{ block.settings.hotspot_2_y | default: 68 }}%; left: {{ block.settings.hotspot_2_x | default: 52 }}%;"
-              data-product-id="{{ p2.id }}"
-            >
-              <div class="kk-hotspot__pulse"></div>
-              <div class="kk-hotspot__dot"></div>
-              <div class="kk-hotspot__tooltip">
-                <div class="kk-hotspot__tooltip-title">{{ p2.title }}</div>
-                <div class="kk-hotspot__tooltip-price">{{ p2.price | money }}</div>
-              </div>
-            </div>
-          {% else %}
-            <div class="kk-hotspot" style="top: 68%; left: 52%;">
-              <div class="kk-hotspot__pulse"></div>
-              <div class="kk-hotspot__dot"></div>
-              <div class="kk-hotspot__tooltip">
-                <div class="kk-hotspot__tooltip-title">ARCHIVAL CARGO TROUSER</div>
-                <div class="kk-hotspot__tooltip-price">$210.00 USD</div>
-              </div>
-            </div>
-          {% endif %}
+        <div class="kk-lookbook-breakdown">
+          <div class="kk-breakdown-item">
+            <span class="kk-breakdown-title">ARCHIVAL BOXY HOODIE (450 GSM)</span>
+            <span class="kk-breakdown-price">$380 USD</span>
+          </div>
+          <div class="kk-breakdown-item">
+            <span class="kk-breakdown-title">ARTICULATED RIPSTOP CARGO</span>
+            <span class="kk-breakdown-price">$320 USD</span>
+          </div>
+          <div class="kk-breakdown-item">
+            <span class="kk-breakdown-title">ZERO-TORQUE CREWNECK BASE</span>
+            <span class="kk-breakdown-price">$180 USD</span>
+          </div>
         </div>
 
-        <!-- Companion Outfit Products Details Panel -->
-        <div class="kk-lookbook__details">
-          <div class="kk-lookbook__meta">
-            <span class="kk-lookbook__tag">{{ block.settings.look_tag | default: 'STYLING SUITE' }}</span>
-            <h3 class="kk-lookbook__look-title">{{ block.settings.look_title | default: 'ARCHIVAL PROPORTIONS' }}</h3>
-            <p class="kk-lookbook__desc">
-              {{ block.settings.look_desc | default: 'Sculpted oversize drape constructed with 450 GSM loopback cotton terry paired with articulated ripstop cargo bottoms. Designed for perpetual endurance in high-density urban terrain.' }}
-            </p>
-          </div>
-
-          <div class="kk-lookbook__products-list">
-            <!-- Product Item 1 -->
-            {% if block.settings.product_1 != blank %}
-              {% assign p1 = block.settings.product_1 %}
-              <div class="kk-lookbook__item-card" data-product-id="{{ p1.id }}">
-                <div class="kk-lookbook__item-thumb">
-                  {% if p1.featured_image %}
-                    <img src="{{ p1.featured_image | image_url: width: 180 }}" alt="{{ p1.title | escape }}">
-                  {% else %}
-                    <div style="width:100%;height:100%;background:#F0F0F4;"></div>
-                  {% endif %}
-                </div>
-                <div class="kk-lookbook__item-info">
-                  <div class="kk-lookbook__item-specs">450 GSM • PRE-SHRUNK</div>
-                  <h4 class="kk-lookbook__item-title">{{ p1.title }}</h4>
-                  <div class="kk-lookbook__item-price">{{ p1.price | money }}</div>
-                </div>
-                <div class="kk-lookbook__item-action">
-                  <a href="{{ p1.url }}" class="kk-btn kk-btn--outline" style="padding: 10px 16px; font-size: 10px;">
-                    VIEW ITEM
-                  </a>
-                </div>
-              </div>
-            {% else %}
-              <div class="kk-lookbook__item-card">
-                <div class="kk-lookbook__item-thumb">
-                  <div style="width:100%;height:100%;background:#F0F0F4;display:flex;align-items:center;justify-content:center;color:#888;font-size:10px;">GARMENT</div>
-                </div>
-                <div class="kk-lookbook__item-info">
-                  <div class="kk-lookbook__item-specs">450 GSM • ARCHIVAL FLEECE</div>
-                  <h4 class="kk-lookbook__item-title">HEAVYWEIGHT SURVIVAL HOODIE</h4>
-                  <div class="kk-lookbook__item-price">$185.00 USD</div>
-                </div>
-                <div class="kk-lookbook__item-action">
-                  <a href="/collections/all" class="kk-btn kk-btn--outline" style="padding: 10px 16px; font-size: 10px;">
-                    VIEW PIECE
-                  </a>
-                </div>
-              </div>
-            {% endif %}
-
-            <!-- Product Item 2 -->
-            {% if block.settings.product_2 != blank %}
-              {% assign p2 = block.settings.product_2 %}
-              <div class="kk-lookbook__item-card" data-product-id="{{ p2.id }}">
-                <div class="kk-lookbook__item-thumb">
-                  {% if p2.featured_image %}
-                    <img src="{{ p2.featured_image | image_url: width: 180 }}" alt="{{ p2.title | escape }}">
-                  {% else %}
-                    <div style="width:100%;height:100%;background:#F0F0F4;"></div>
-                  {% endif %}
-                </div>
-                <div class="kk-lookbook__item-info">
-                  <div class="kk-lookbook__item-specs">JAPANESE HARDWARE • RIPSTOP</div>
-                  <h4 class="kk-lookbook__item-title">{{ p2.title }}</h4>
-                  <div class="kk-lookbook__item-price">{{ p2.price | money }}</div>
-                </div>
-                <div class="kk-lookbook__item-action">
-                  <a href="{{ p2.url }}" class="kk-btn kk-btn--outline" style="padding: 10px 16px; font-size: 10px;">
-                    VIEW ITEM
-                  </a>
-                </div>
-              </div>
-            {% else %}
-              <div class="kk-lookbook__item-card">
-                <div class="kk-lookbook__item-thumb">
-                  <div style="width:100%;height:100%;background:#F0F0F4;display:flex;align-items:center;justify-content:center;color:#888;font-size:10px;">GARMENT</div>
-                </div>
-                <div class="kk-lookbook__item-info">
-                  <div class="kk-lookbook__item-specs">TACTICAL WEAVE • WATER REPELLENT</div>
-                  <h4 class="kk-lookbook__item-title">ARCHIVAL CARGO TROUSER</h4>
-                  <div class="kk-lookbook__item-price">$210.00 USD</div>
-                </div>
-                <div class="kk-lookbook__item-action">
-                  <a href="/collections/all" class="kk-btn kk-btn--outline" style="padding: 10px 16px; font-size: 10px;">
-                    VIEW PIECE
-                  </a>
-                </div>
-              </div>
-            {% endif %}
-          </div>
+        <div>
+          <a href="/products/hoodie" class="kk-btn kk-btn--primary">
+            SHOP LOOK 01
+          </a>
         </div>
       </div>
-    {% endfor %}
+    </div>
+
+    <!-- Look 02 Content -->
+    <div id="kk-look-panel-2" class="kk-lookbook-row" style="display: none;">
+      <div class="kk-lookbook-media">
+        <img
+          src="{{ 'kockkroch-lookbook-02.webp' | asset_url }}"
+          alt="Look 02 — Tailored Minimalist Drape"
+          class="kk-lookbook-img"
+          loading="lazy"
+        >
+      </div>
+      <div class="kk-lookbook-details">
+        <span class="kk-lookbook-tag">LOOK 02 // TAILORED MINIMALISM</span>
+        <h3 class="kk-lookbook-heading">FLUID PROPORTIONS & ARCHIVAL SHIRTING</h3>
+        <p class="kk-lookbook-copy">
+          Minimalist tailoring built for perennial wear. The 260 GSM crisp cotton poplin overshirt provides an understated, fluid drape paired with deep-pleated charcoal wool trousers. Quiet, effortless authority.
+        </p>
+
+        <div class="kk-lookbook-breakdown">
+          <div class="kk-breakdown-item">
+            <span class="kk-breakdown-title">ARCHIVAL POPLIN OVERSHIRT</span>
+            <span class="kk-breakdown-price">$290 USD</span>
+          </div>
+          <div class="kk-breakdown-item">
+            <span class="kk-breakdown-title">ZERO-TORQUE HEAVY TEE (280 GSM)</span>
+            <span class="kk-breakdown-price">$180 USD</span>
+          </div>
+          <div class="kk-breakdown-item">
+            <span class="kk-breakdown-title">PLEATED CHARCOAL TROUSER</span>
+            <span class="kk-breakdown-price">$340 USD</span>
+          </div>
+        </div>
+
+        <div>
+          <a href="/products/poplin-overshirt" class="kk-btn kk-btn--primary">
+            SHOP LOOK 02
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const navButtons = document.querySelectorAll('.kk-lookbook__nav-btn');
-    const slides = document.querySelectorAll('.kk-lookbook__slide');
+  function switchLook(lookNumber) {
+    var p1 = document.getElementById('kk-look-panel-1');
+    var p2 = document.getElementById('kk-look-panel-2');
+    var b1 = document.getElementById('kk-lb-btn-1');
+    var b2 = document.getElementById('kk-lb-btn-2');
 
-    navButtons.forEach(btn => {
-      btn.addEventListener('click', function() {
-        const targetIdx = this.getAttribute('data-look-target');
-
-        navButtons.forEach(b => {
-          b.classList.remove('is-active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        slides.forEach(s => s.classList.remove('is-active'));
-
-        this.classList.add('is-active');
-        this.setAttribute('aria-selected', 'true');
-
-        const activeSlide = document.getElementById('kk-look-' + targetIdx);
-        if (activeSlide) {
-          activeSlide.classList.add('is-active');
-        }
-      });
-    });
-  });
+    if (lookNumber === 1) {
+      if (p1) p1.style.display = 'grid';
+      if (p2) p2.style.display = 'none';
+      if (b1) { b1.className = 'kk-btn kk-btn--primary'; }
+      if (b2) { b2.className = 'kk-btn kk-btn--outline'; }
+    } else {
+      if (p1) p1.style.display = 'none';
+      if (p2) p2.style.display = 'grid';
+      if (b1) { b1.className = 'kk-btn kk-btn--outline'; }
+      if (b2) { b2.className = 'kk-btn kk-btn--primary'; }
+    }
+  }
 </script>
 
 {% schema %}
 {
-  "name": "KK Lookbook",
+  "name": "KOCKKROCH Lookbook",
+  "tag": "section",
+  "class": "section-kockkroch-lookbook",
   "settings": [
     {
       "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow Subtitle",
-      "default": "EDITORIAL ARCHIVE • AW26"
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "EDITORIAL SERIES"
     },
     {
       "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "SHOP THE LOOK"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "look",
-      "name": "Look Spread",
-      "settings": [
-        {
-          "type": "text",
-          "id": "look_tab_label",
-          "label": "Tab Label",
-          "default": "LOOK 01"
-        },
-        {
-          "type": "text",
-          "id": "look_tag",
-          "label": "Look Subtitle Tag",
-          "default": "STYLING SUITE"
-        },
-        {
-          "type": "text",
-          "id": "look_title",
-          "label": "Look Title",
-          "default": "ARCHIVAL PROPORTIONS"
-        },
-        {
-          "type": "textarea",
-          "id": "look_desc",
-          "label": "Editorial Description",
-          "default": "Sculpted oversize drape constructed with 450 GSM loopback cotton terry paired with articulated ripstop cargo bottoms."
-        },
-        {
-          "type": "image_picker",
-          "id": "look_image",
-          "label": "Full Editorial Image"
-        },
-        {
-          "type": "product",
-          "id": "product_1",
-          "label": "Companion Product 1"
-        },
-        {
-          "type": "range",
-          "id": "hotspot_1_x",
-          "min": 5,
-          "max": 95,
-          "step": 1,
-          "unit": "%",
-          "label": "Hotspot 1 Horizontal Position (X)",
-          "default": 45
-        },
-        {
-          "type": "range",
-          "id": "hotspot_1_y",
-          "min": 5,
-          "max": 95,
-          "step": 1,
-          "unit": "%",
-          "label": "Hotspot 1 Vertical Position (Y)",
-          "default": 35
-        },
-        {
-          "type": "product",
-          "id": "product_2",
-          "label": "Companion Product 2"
-        },
-        {
-          "type": "range",
-          "id": "hotspot_2_x",
-          "min": 5,
-          "max": 95,
-          "step": 1,
-          "unit": "%",
-          "label": "Hotspot 2 Horizontal Position (X)",
-          "default": 52
-        },
-        {
-          "type": "range",
-          "id": "hotspot_2_y",
-          "min": 5,
-          "max": 95,
-          "step": 1,
-          "unit": "%",
-          "label": "Hotspot 2 Vertical Position (Y)",
-          "default": 68
-        }
-      ]
+      "id": "title",
+      "label": "Title",
+      "default": "ARCHIVAL LOOKBOOK"
     }
   ],
   "presets": [
     {
-      "name": "KK Lookbook",
-      "blocks": [
-        {
-          "type": "look",
-          "settings": {
-            "look_tab_label": "LOOK 01",
-            "look_title": "HEAVYWEIGHT DRAPE",
-            "look_desc": "Engineered with 450 GSM loopback French terry and paired with reinforced technical cargos for high-density city survival."
-          }
-        },
-        {
-          "type": "look",
-          "settings": {
-            "look_tab_label": "LOOK 02",
-            "look_title": "TACTICAL MONOCHROME",
-            "look_desc": "280 GSM combed organic cotton layered beneath weatherproof ripstop shells with surgical crimson accents."
-          }
-        }
-      ]
+      "name": "KOCKKROCH Lookbook"
     }
   ]
 }
