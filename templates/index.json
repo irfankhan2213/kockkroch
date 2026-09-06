@@ -12,8 +12,11 @@
     "k13_hero": {
       "type": "k13-hero",
       "settings": {
+        "image_desktop": "shopify://shop_images/exec-6a03cc99-894f-429d-91ce-7ce084a55119.png",
         "primary_text": "SHOP NEW DROP →",
-        "secondary_text": "EXPLORE LOOKBOOK"
+        "primary_link": "",
+        "secondary_text": "EXPLORE LOOKBOOK",
+        "secondary_link": ""
       }
     },
     "k13_cats": {
@@ -22,28 +25,31 @@
         "cat_tees": {
           "type": "cat",
           "settings": {
+            "fallback": "kockkroch-product-tee.webp",
             "title": "TEES",
             "sub": "Graphic-led, boxy fits.",
             "cta": "SHOP TEES",
-            "fallback": "kockkroch-product-tee.webp"
+            "link": ""
           }
         },
         "cat_hoodies": {
           "type": "cat",
           "settings": {
+            "fallback": "kockkroch-product-hoodie.webp",
             "title": "HOODIES",
             "sub": "Warmth with weight.",
             "cta": "SHOP HOODIES",
-            "fallback": "kockkroch-product-hoodie.webp"
+            "link": ""
           }
         },
         "cat_new": {
           "type": "cat",
           "settings": {
+            "fallback": "kockkroch-editorial-hoodie.webp",
             "title": "NEW DROP",
             "sub": "Latest limited pieces.",
             "cta": "EXPLORE",
-            "fallback": "kockkroch-editorial-hoodie.webp"
+            "link": ""
           }
         }
       },
@@ -51,17 +57,23 @@
         "cat_tees",
         "cat_hoodies",
         "cat_new"
-      ]
+      ],
+      "settings": {}
     },
     "k13_newin": {
       "type": "k13-newin",
       "settings": {
-        "title": "NEW IN"
+        "collection": "",
+        "title": "NEW IN",
+        "link": ""
       }
     },
     "k13_duo": {
       "type": "k13-duo",
-      "settings": {}
+      "settings": {
+        "link_a": "",
+        "link_b": ""
+      }
     },
     "k13_trust": {
       "type": "k13-trust",
@@ -70,17 +82,42 @@
     "k13_wild": {
       "type": "k13-wild",
       "blocks": {
-        "look_1": { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-product-tee.webp" } },
-        "look_2": { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-product-hoodie.webp" } },
-        "look_3": { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-lookbook-01.webp" } },
-        "look_4": { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-editorial-tee.webp" } }
+        "look_1": {
+          "type": "look",
+          "settings": {
+            "fallback": "kockkroch-product-tee.webp",
+            "handle": "@kockkroch"
+          }
+        },
+        "look_2": {
+          "type": "look",
+          "settings": {
+            "fallback": "kockkroch-product-hoodie.webp",
+            "handle": "@kockkroch"
+          }
+        },
+        "look_3": {
+          "type": "look",
+          "settings": {
+            "fallback": "kockkroch-lookbook-01.webp",
+            "handle": "@kockkroch"
+          }
+        },
+        "look_4": {
+          "type": "look",
+          "settings": {
+            "fallback": "kockkroch-editorial-tee.webp",
+            "handle": "@kockkroch"
+          }
+        }
       },
       "block_order": [
         "look_1",
         "look_2",
         "look_3",
         "look_4"
-      ]
+      ],
+      "settings": {}
     },
     "k13_footer": {
       "type": "k13-footer",
