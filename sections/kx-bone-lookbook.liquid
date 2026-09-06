@@ -1,0 +1,53 @@
+{% comment %} KOCKKROCH — Lookbook bonkers {% endcomment %}
+<section id="kx-look" class="kx-sec kx-sec--paper">
+  <div class="kx-wrap">
+    <div class="kx-look__tabs kx-reveal">
+      <button class="kx-look__tab is-active" id="kxb-t1" onclick="kxbLook(1)">LOOK 01 ✦ VOLUME</button>
+      <button class="kx-look__tab" id="kxb-t2" onclick="kxbLook(2)">LOOK 02 ✦ DRAPE</button>
+      <span style="font-family:var(--kx-hand);font-size:20px;transform:rotate(-3deg)">← tap to switch, it's fun</span>
+    </div>
+    <div id="kxb-p1" class="kx-look kx-reveal">
+      <div class="kx-look__media"><img src="{{ 'kockkroch-lookbook-01.webp' | asset_url }}" alt="Look 01" loading="lazy"><span class="kx-look__looknum">01</span></div>
+      <div class="kx-look__panel">
+        <span class="kx-look__tag">LOOK 01 // STRUCTURAL DRAPE</span>
+        <h3 class="kx-look__title">BIG HOODIE,<br>BIGGER ENERGY.</h3>
+        <p class="kx-look__copy">450 GSM loopback terry cut extra-wide so it stands away from the body. Paired with pleated wide trousers. Photographed in Tokyo, worn everywhere.</p>
+        <div class="kx-look__rows">
+          <div class="kx-look__row"><span>ARCHIVAL BOXY HOODIE</span><span>$380 →</span></div>
+          <div class="kx-look__row"><span>PLEATED WIDE TROUSER</span><span>$320 →</span></div>
+          <div class="kx-look__row"><span>SIGNATURE TEE (BASE)</span><span>$180 →</span></div>
+        </div>
+        <div><a href="/collections/all" class="kx-btn kx-btn--red">SHOP LOOK 01 →</a></div>
+      </div>
+    </div>
+    <div id="kxb-p2" class="kx-look kx-reveal" style="display:none">
+      <div class="kx-look__media"><img src="{{ 'kockkroch-lookbook-02.webp' | asset_url }}" alt="Look 02" loading="lazy"><span class="kx-look__looknum">02</span></div>
+      <div class="kx-look__panel">
+        <span class="kx-look__tag">LOOK 02 // TAILORED CALM</span>
+        <h3 class="kx-look__title">CRISP SHIRT,<br>QUIET FLEX.</h3>
+        <p class="kx-look__copy">Compact poplin overshirt with zero sag collar + charcoal pleats. For gallery days, date nights, and looking like you own the building.</p>
+        <div class="kx-look__rows">
+          <div class="kx-look__row"><span>ARCHIVAL OVERSHIRT</span><span>$290 →</span></div>
+          <div class="kx-look__row"><span>SIGNATURE TEE</span><span>$180 →</span></div>
+          <div class="kx-look__row"><span>PLEATED TROUSER</span><span>$340 →</span></div>
+        </div>
+        <div><a href="/collections/all" class="kx-btn kx-btn--red">SHOP LOOK 02 →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+function kxbLook(n){
+  var p1=document.getElementById('kxb-p1'),p2=document.getElementById('kxb-p2'),
+      t1=document.getElementById('kxb-t1'),t2=document.getElementById('kxb-t2');
+  if(n===1){p1.style.display='grid';p2.style.display='none';t1.classList.add('is-active');t2.classList.remove('is-active');}
+  else{p1.style.display='none';p2.style.display='grid';t2.classList.add('is-active');t1.classList.remove('is-active');}
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var els=document.querySelectorAll('.kx-reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('is-in'));return;}
+  var o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-in');o.unobserve(e.target)}}),{threshold:.12});
+  els.forEach(e=>o.observe(e));
+});
+</script>
+{% schema %}{ "name": "KX Bone Lookbook", "tag": "section", "settings": [], "presets": [{ "name": "KX Bone Lookbook" }] }{% endschema %}

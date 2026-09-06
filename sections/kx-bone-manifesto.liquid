@@ -1,0 +1,38 @@
+{% comment %} KOCKKROCH — Manifesto bonkers (hangtag story) {% endcomment %}
+<section class="kx-sec">
+  <div class="kx-wrap">
+    <div class="kx-mani kx-reveal kx-grain" style="position:relative">
+      <div class="kx-mani__media">
+        <span class="kx-mani__tape">✦ HANGTAG N°013 — KEEP THIS</span>
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="atelier" loading="lazy">
+        {% else %}
+          <img src="{{ 'kockkroch-brand-atelier.webp' | asset_url }}" alt="atelier" loading="lazy">
+        {% endif %}
+      </div>
+      <div class="kx-mani__body">
+        <span class="kx-eyebrow"><span class="dot"></span> WHY WE EXIST</span>
+        <h2 class="kx-mani__quote">BUILT TO <em>survive</em> THE TREND CYCLE.</h2>
+        <p class="kx-mani__copy">Conceived between Tokyo and California. We watched fast fashion fall apart in 10 washes — so we did the opposite. Dense ring-spun cottons, bar-tacked stress points, boxy cuts that hold their shape for years. Like the roach: ugly to some, <b>un-killable to all.</b></p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+          <span class="kx-pill kx-pill--ink">TOKYO PATTERN</span>
+          <span class="kx-pill">CALI GARMENT-DYE</span>
+          <span class="kx-pill kx-pill--red">&lt;1.2% SHRINK</span>
+        </div>
+        <div class="kx-mani__sign">
+          <span class="kx-mani__script">Fearless from origin!</span>
+          <span style="font-family:var(--kx-grot);font-size:11px;font-weight:700;letter-spacing:.14em">— KOCX KROCH, FOUNDER</span>
+        </div>
+        <div class="kx-mani__big013">013</div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "KX Bone Manifesto",
+  "tag": "section",
+  "settings": [{ "type": "image_picker", "id": "image", "label": "Image" }],
+  "presets": [{ "name": "KX Bone Manifesto" }]
+}
+{% endschema %}

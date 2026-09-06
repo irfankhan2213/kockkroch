@@ -1,0 +1,22 @@
+{% comment %} KOCKKROCH — Double Ticker (red + ink) {% endcomment %}
+<div class="kx-ticker kx-ticker--red">
+  <div class="kx-ticker__track">
+    {% for i in (1..2) %}
+    <div class="kx-ticker__chunk"><span>DROP 013 LIVE ✦</span><small>450 GSM</small><span>FEARLESS FROM ORIGIN ✦</span><small>NO RESTOCK</small><span>KOCX KROCH ✦</span><small>TOKYO × CALI</small></div>
+    {% endfor %}
+    {% for i in (1..2) %}
+    <div class="kx-ticker__chunk" aria-hidden="true"><span>DROP 013 LIVE ✦</span><small>450 GSM</small><span>FEARLESS FROM ORIGIN ✦</span><small>NO RESTOCK</small><span>KOCX KROCH ✦</span><small>TOKYO × CALI</small></div>
+    {% endfor %}
+  </div>
+</div>
+<div class="kx-ticker kx-ticker--ink">
+  <div class="kx-ticker__track">
+    {% for i in (1..2) %}
+    <div class="kx-ticker__chunk"><span>HEAVYWEIGHT JERSEY</span><small>✦</small><span>BOXY FLEECE</span><small>✦</small><span>PLEATED TROUSERS</span><small>✦</small><span>OWNERS CLUB — 10% BACK</span></div>
+    {% endfor %}
+    {% for i in (1..2) %}
+    <div class="kx-ticker__chunk" aria-hidden="true"><span>HEAVYWEIGHT JERSEY</span><small>✦</small><span>BOXY FLEECE</span><small>✦</small><span>PLEATED TROUSERS</span><small>✦</small><span>OWNERS CLUB — 10% BACK</span></div>
+    {% endfor %}
+  </div>
+</div>
+{% schema %}{ "name": "KX Bone Ticker", "tag": "section", "settings": [], "presets": [{ "name": "KX Bone Ticker" }] }{% endschema %}

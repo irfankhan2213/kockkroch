@@ -27,9 +27,9 @@
   --kk-pure-black: #000000;
   --kk-pure-white: #FFFFFF;
 
-  /* Subtle Identity Accent (Restrained Crimson Touch) */
-  --kk-accent: #E3000F;
-  --kk-accent-subtle: rgba(227, 0, 15, 0.05);
+  /* Understated Luxury Accent (Gallery Monochrome) */
+  --kk-accent: #111111;
+  --kk-accent-subtle: rgba(0, 0, 0, 0.04);
 
   /* Typography Stack */
   --kk-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -943,4 +943,85 @@ img {
     gap: 8px;
     align-items: flex-start;
   }
+}
+
+/* ==========================================================================
+   HIGH-FASHION GALLERY HEADER & CONTAINER OVERRIDES
+   Inspired by The Frankie Shop & Kallmeyer NYC (Pure Gallery White Aesthetic)
+   ========================================================================== */
+#header-group,
+.header,
+.header__row--top,
+header-component,
+.header-wrapper,
+.header-section {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  color: #111111 !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: none !important;
+}
+
+#header-group *,
+.header *,
+.header__menu-item,
+.header__icon,
+.header__heading-link,
+.header__active-menu-item,
+.header__icon--cart,
+.header__icon--account,
+.header__icon--search {
+  color: #111111 !important;
+  fill: #111111 !important;
+}
+
+#header-group a:hover,
+.header a:hover,
+.header__menu-item:hover {
+  opacity: 0.65;
+}
+
+/* Strict Product Card & Grid Containment (Never expand to full-screen width) */
+.kk-product-matrix,
+.product-grid,
+ul.product-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 20px 16px !important;
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 1024px) {
+  .kk-product-matrix,
+  .product-grid,
+  ul.product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .kk-product-matrix,
+  .product-grid,
+  ul.product-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.kk-prod-card__media,
+.card__media,
+.product-card__media,
+.media {
+  max-height: 380px !important;
+  aspect-ratio: 3 / 4 !important;
+  overflow: hidden !important;
+}
+
+.kk-prod-card__img,
+.card__media img,
+.media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
 }

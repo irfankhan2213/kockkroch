@@ -1,68 +1,64 @@
 {
   "sections": {
-    "kockkroch_hero": {
-      "type": "kockkroch-hero",
+    "kx_hero": {
+      "type": "kx-bone-hero",
       "settings": {
-        "caption": "COLLECTION 01 // AUTUMN WINTER 2026",
-        "title": "ARCHIVAL SILHOUETTES",
-        "subtitle": "Meticulous Japanese and American archival tailoring. Heavyweight ring-spun cottons, drop shoulders, and permanent structural integrity.",
-        "primary_btn_text": "EXPLORE COLLECTION",
-        "primary_btn_link": "#kk-catalog-section",
-        "secondary_btn_text": "VIEW LOOKBOOK",
-        "secondary_btn_link": "#kk-lookbook-section"
+        "drop_no": "013",
+        "season": "AW26",
+        "line1": "KOCX",
+        "line2": "Kroch world",
+        "copy": "Heavyweight ring-spun jerseys, boxy French terry and pleated trousers. Cut wide, built heavy, priced honestly. Once it sells, it never restocks.",
+        "script": "Fearless from origin →",
+        "primary_text": "SHOP DROP 013 →",
+        "secondary_text": "VIEW LOOKBOOK"
       }
     },
-    "kockkroch_marquee_1": {
-      "type": "kockkroch-marquee",
+    "kx_ticker": {
+      "type": "kx-bone-ticker",
       "settings": {}
     },
-    "kockkroch_categories": {
-      "type": "kockkroch-collections",
+    "kx_capsules": {
+      "type": "kx-bone-capsules",
       "settings": {
-        "subtitle": "CURATED SILHOUETTES",
-        "title": "CAPSULE RELEASES",
-        "link_text": "VIEW ALL SILHOUETTES →",
-        "view_all_link": "/collections/all"
+        "subtitle": "PICK YOUR POISON",
+        "title_top": "SHOP BY",
+        "title_italic": "obsession",
+        "link_text": "VIEW EVERYTHING →"
       }
     },
-    "kockkroch_products": {
-      "type": "kockkroch-product-grid",
+    "kx_drop": {
+      "type": "kx-bone-drop-grid",
       "settings": {
-        "subtitle": "COLLECTION 01",
-        "title": "SELECTED WORKS",
-        "link_text": "VIEW ENTIRE CATALOG →",
-        "view_all_link": "/collections/all",
-        "products_to_show": 4
+        "subtitle": "DROP 013 — 13 PIECES ONLY",
+        "title_top": "THE",
+        "title_italic": "hot list",
+        "link_text": "SHOP ALL →",
+        "count": 4
       }
     },
-    "kockkroch_banner": {
-      "type": "kockkroch-banner",
-      "settings": {
-        "label": "ATELIER STUDY // AUTUMN WINTER 2026",
-        "title": "FORM FOLLOWS SURVIVAL",
-        "btn_text": "EXPLORE CAMPAIGN →",
-        "link": "#kk-lookbook-section"
-      }
+    "kx_manifesto": {
+      "type": "kx-bone-manifesto",
+      "settings": {}
     },
-    "kockkroch_lookbook": {
-      "type": "kockkroch-lookbook",
-      "settings": {
-        "subtitle": "EDITORIAL SERIES",
-        "title": "ARCHIVAL LOOKBOOK"
-      }
+    "kx_lookbook": {
+      "type": "kx-bone-lookbook",
+      "settings": {}
     },
-    "kockkroch_manifesto": {
-      "type": "kockkroch-manifesto",
+    "kx_vault": {
+      "type": "kx-bone-vault",
       "settings": {
-        "label": "ATELIER MONOGRAPH // 01",
-        "heading": "“WE ENGINEER SILHOUETTES FOR SURVIVAL IN AN EPHEMERAL WORLD.”",
-        "body_text": "Conceived between Tokyo and California, KOCKKROCH was born from an obsession with permanence. Rejecting the disposable cadence of fast trend cycles, we construct unyielding garments using high-density ring-spun cottons, custom Japanese hardware, and balanced boxy proportions engineered for decades of continuous wear. Form follows survival."
+        "drop": "014",
+        "date": "2026-10-31T00:00:00"
       }
     }
   },
   "order": [
-    "kockkroch_hero",
-    "kockkroch_products",
-    "kockkroch_lookbook"
+    "kx_hero",
+    "kx_ticker",
+    "kx_capsules",
+    "kx_drop",
+    "kx_manifesto",
+    "kx_lookbook",
+    "kx_vault"
   ]
 }

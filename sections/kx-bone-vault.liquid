@@ -1,0 +1,55 @@
+{% comment %} KOCKKROCH — Vault boarding pass countdown {% endcomment %}
+<section class="kx-sec">
+  <div class="kx-wrap">
+    <div class="kx-vault kx-reveal kx-grain" style="position:relative">
+      <div class="kx-vault__main">
+        <span class="kx-eyebrow"><span class="dot"></span> NEXT DROP — {{ section.settings.drop | default: '014' }}</span>
+        <h2 class="kx-display" style="font-size:clamp(42px,6vw,68px);line-height:.9;margin:10px 0">DON'T SLEEP<br><span style="font-family:var(--kx-serif);font-style:italic;text-transform:none;font-weight:400">on 014.</span></h2>
+        <p style="font-family:var(--kx-grot);font-size:14px;line-height:1.6;color:var(--kx-ink-2);max-width:44ch;margin:0">Drop 013 is 78% gone and never restocks. Join the list for 1-hour early access + Owners Club points before 014 boards.</p>
+        <div class="kx-count" id="kxb-count" data-target="{{ section.settings.date | default: '2026-10-31T00:00:00' }}">
+          <div class="kx-count__cell"><div class="kx-count__num" data-d>08</div><div class="kx-count__lbl">DAYS</div></div>
+          <div class="kx-count__cell"><div class="kx-count__num" data-h>14</div><div class="kx-count__lbl">HRS</div></div>
+          <div class="kx-count__cell"><div class="kx-count__num" data-m>32</div><div class="kx-count__lbl">MIN</div></div>
+          <div class="kx-count__cell" style="background:var(--kx-red);color:#fff;border-color:var(--kx-ink)"><div class="kx-count__num" data-s>45</div><div class="kx-count__lbl">SEC</div></div>
+        </div>
+        <div class="kx-vip">
+          {% form 'customer' %}<input type="hidden" name="contact[tags]" value="vip_drop_access">
+            <div style="display:flex;width:100%"><input type="email" name="contact[email]" placeholder="EMAIL FOR VIP PASS →" required style="flex:1"><button type="submit">CLAIM →</button></div>
+          {% endform %}
+        </div>
+        {% if form.posted_successfully? %}<p style="font-size:12px;font-weight:700">✓ YOU'RE ON THE LIST. CHECK INBOX.</p>{% endif %}
+      </div>
+      <div class="kx-vault__stub">
+        <span style="font-size:11px;letter-spacing:.2em;font-weight:700">✦ BOARDING PASS ✦</span>
+        <div style="font-family:var(--kx-display);font-size:64px;line-height:.9">014</div>
+        <div style="font-family:var(--kx-grot);font-size:12px;line-height:1.7;opacity:.85">FROM: TOKYO<br>TO: CALIFORNIA<br>SEAT: VIP EARLY ACCESS<br>GATE: CLOSES WHEN SOLD OUT</div>
+        <div style="background:var(--kx-bone);color:var(--kx-ink);font-family:var(--kx-grot);font-size:11px;font-weight:700;letter-spacing:.14em;padding:10px 12px;text-align:center;border:1.5px solid var(--kx-bone)">QR AT @KOCKKROCH — SHOW TO ENTER</div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var el=document.getElementById('kxb-count'); if(!el) return;
+  var t=new Date(el.getAttribute('data-target')).getTime(); if(isNaN(t)) t=Date.now()+8*864e5;
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    var d=Math.max(0,t-Date.now());
+    el.querySelector('[data-d]').textContent=pad(Math.floor(d/864e5));
+    el.querySelector('[data-h]').textContent=pad(Math.floor(d%864e5/36e5));
+    el.querySelector('[data-m]').textContent=pad(Math.floor(d%36e5/6e4));
+    el.querySelector('[data-s]').textContent=pad(Math.floor(d%6e4/1e3));
+  }
+  tick(); setInterval(tick,1000);
+})();
+</script>
+{% schema %}
+{
+  "name": "KX Bone Vault",
+  "settings": [
+    { "type": "text", "id": "drop", "label": "Next drop", "default": "014" },
+    { "type": "text", "id": "date", "label": "Target ISO", "default": "2026-10-31T00:00:00" }
+  ],
+  "presets": [{ "name": "KX Bone Vault" }]
+}
+{% endschema %}

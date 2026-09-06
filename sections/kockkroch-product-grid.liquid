@@ -19,11 +19,28 @@
       {% assign target_collection = collections[section.settings.collection] %}
       {% if target_collection != blank and target_collection.products.size > 0 %}
         {% for product in target_collection.products limit: section.settings.products_to_show | default: 4 %}
+          {% liquid
+            assign clean_title = product.title | remove: '450 GSM ' | remove: '280 GSM ' | remove: '260 GSM ' | remove: 'ZERO-TORQUE ' | remove: 'Zero-Torque ' | remove: 'CORDURA ' | remove: '450 gsm ' | remove: '280 gsm ' | strip
+            assign clean_category = product.type | default: 'ARCHIVAL' | remove: '450 GSM' | remove: '280 GSM' | remove: 'ZERO-TORQUE' | remove: 'FLEECE' | strip
+            if clean_category == blank or clean_category == 'ARCHIVAL'
+              if product.title contains 'HOODIE' or product.title contains 'Hoodie'
+                assign clean_category = 'ARCHIVAL KNITWEAR'
+              elsif product.title contains 'TEE' or product.title contains 'Tee'
+                assign clean_category = 'COTTON JERSEY'
+              elsif product.title contains 'TROUSER' or product.title contains 'Trouser' or product.title contains 'CARGO' or product.title contains 'Cargo' or product.title contains 'Pants'
+                assign clean_category = 'TAILORED TROUSERS'
+              elsif product.title contains 'SHIRT' or product.title contains 'Shirt'
+                assign clean_category = 'LUXURY SHIRTING'
+              else
+                assign clean_category = 'COLLECTION 01'
+              endif
+            endif
+          %}
           <div class="kk-prod-card">
             <a href="{{ product.url }}" class="kk-prod-card__media">
               <img
                 src="{{ product.featured_image | image_url: width: 900 }}"
-                alt="{{ product.title | escape }}"
+                alt="{{ clean_title | escape }}"
                 class="kk-prod-card__img"
                 loading="lazy"
               >
@@ -38,19 +55,19 @@
               </div>
             </a>
             <div class="kk-prod-card__info">
-              <span class="kk-prod-card__category">{{ product.type | default: 'ARCHIVAL' }}</span>
+              <span class="kk-prod-card__category">{{ clean_category }}</span>
               <h3 class="kk-prod-card__title">
-                <a href="{{ product.url }}">{{ product.title }}</a>
+                <a href="{{ product.url }}">{{ clean_title }}</a>
               </h3>
               <span class="kk-prod-card__price">{{ product.price | money }}</span>
             </div>
           </div>
         {% endfor %}
       {% else %}
-        <!-- Default Editorial 4-Product Catalog (ssstein & 3sixteen Aesthetic) -->
+        <!-- Default Editorial 4-Product Catalog (The Frankie Shop / ssstein Aesthetic) -->
         <div class="kk-prod-card">
           <a href="/products/hoodie" class="kk-prod-card__media">
-            <img src="{{ 'kockkroch-editorial-hoodie.webp' | asset_url }}" alt="450 GSM Heavyweight Boxy Hoodie" class="kk-prod-card__img" loading="lazy">
+            <img src="{{ 'kockkroch-editorial-hoodie.webp' | asset_url }}" alt="Archival Boxy Hoodie" class="kk-prod-card__img" loading="lazy">
             <div class="kk-prod-card__quick-add">
               <button type="button" class="kk-prod-card__size-opt">S</button>
               <button type="button" class="kk-prod-card__size-opt">M</button>
@@ -59,7 +76,7 @@
             </div>
           </a>
           <div class="kk-prod-card__info">
-            <span class="kk-prod-card__category">450 GSM FLEECE</span>
+            <span class="kk-prod-card__category">ARCHIVAL KNITWEAR</span>
             <h3 class="kk-prod-card__title"><a href="/products/hoodie">ARCHIVAL BOXY HOODIE</a></h3>
             <span class="kk-prod-card__price">$380 USD</span>
           </div>
@@ -67,7 +84,7 @@
 
         <div class="kk-prod-card">
           <a href="/products/heavyweight-tee" class="kk-prod-card__media">
-            <img src="{{ 'kockkroch-editorial-tee.webp' | asset_url }}" alt="280 GSM Zero-Torque Heavyweight Tee" class="kk-prod-card__img" loading="lazy">
+            <img src="{{ 'kockkroch-editorial-tee.webp' | asset_url }}" alt="Signature Boxy Crewneck Tee" class="kk-prod-card__img" loading="lazy">
             <div class="kk-prod-card__quick-add">
               <button type="button" class="kk-prod-card__size-opt">S</button>
               <button type="button" class="kk-prod-card__size-opt">M</button>
@@ -76,15 +93,15 @@
             </div>
           </a>
           <div class="kk-prod-card__info">
-            <span class="kk-prod-card__category">280 GSM RING-SPUN COTTON</span>
-            <h3 class="kk-prod-card__title"><a href="/products/heavyweight-tee">ZERO-TORQUE HEAVY TEE</a></h3>
+            <span class="kk-prod-card__category">COTTON JERSEY</span>
+            <h3 class="kk-prod-card__title"><a href="/products/heavyweight-tee">SIGNATURE BOXY CREWNECK</a></h3>
             <span class="kk-prod-card__price">$180 USD</span>
           </div>
         </div>
 
         <div class="kk-prod-card">
           <a href="/products/ripstop-cargo" class="kk-prod-card__media">
-            <img src="{{ 'kockkroch-editorial-cargo.webp' | asset_url }}" alt="Articulated Ripstop Tactical Cargo" class="kk-prod-card__img" loading="lazy">
+            <img src="{{ 'kockkroch-editorial-cargo.webp' | asset_url }}" alt="Pleated Wide-Leg Trouser" class="kk-prod-card__img" loading="lazy">
             <div class="kk-prod-card__quick-add">
               <button type="button" class="kk-prod-card__size-opt">28</button>
               <button type="button" class="kk-prod-card__size-opt">30</button>
@@ -93,15 +110,15 @@
             </div>
           </a>
           <div class="kk-prod-card__info">
-            <span class="kk-prod-card__category">CORDURA RIPSTOP</span>
-            <h3 class="kk-prod-card__title"><a href="/products/ripstop-cargo">ARTICULATED CARGO TROUSER</a></h3>
+            <span class="kk-prod-card__category">TAILORED TROUSERS</span>
+            <h3 class="kk-prod-card__title"><a href="/products/ripstop-cargo">PLEATED WIDE-LEG TROUSER</a></h3>
             <span class="kk-prod-card__price">$320 USD</span>
           </div>
         </div>
 
         <div class="kk-prod-card">
           <a href="/products/poplin-overshirt" class="kk-prod-card__media">
-            <img src="{{ 'kockkroch-editorial-overshirt.webp' | asset_url }}" alt="260 GSM Archival Poplin Overshirt" class="kk-prod-card__img" loading="lazy">
+            <img src="{{ 'kockkroch-editorial-overshirt.webp' | asset_url }}" alt="Archival Poplin Overshirt" class="kk-prod-card__img" loading="lazy">
             <div class="kk-prod-card__quick-add">
               <button type="button" class="kk-prod-card__size-opt">S</button>
               <button type="button" class="kk-prod-card__size-opt">M</button>
@@ -110,7 +127,7 @@
             </div>
           </a>
           <div class="kk-prod-card__info">
-            <span class="kk-prod-card__category">260 GSM CRISP POPLIN</span>
+            <span class="kk-prod-card__category">LUXURY SHIRTING</span>
             <h3 class="kk-prod-card__title"><a href="/products/poplin-overshirt">ARCHIVAL POPLIN OVERSHIRT</a></h3>
             <span class="kk-prod-card__price">$290 USD</span>
           </div>
