@@ -31,6 +31,16 @@
         "title": "BEST OF KOCKKROCH"
       }
     },
+    "mg_drop": {
+      "type": "mg-drop",
+      "settings": {
+        "drop_no": "013",
+        "percent": 78,
+        "title_a": "ALMOST",
+        "title_b": "GONE.",
+        "date": "2026-10-31T00:00:00"
+      }
+    },
     "mg_editorial": {
       "type": "mg-editorial",
       "settings": {
@@ -54,6 +64,7 @@
     "mg_hero",
     "mg_cats",
     "mg_best",
+    "mg_drop",
     "mg_editorial",
     "mg_perks",
     "mg_footer"

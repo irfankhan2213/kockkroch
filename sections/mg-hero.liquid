@@ -17,7 +17,7 @@
       <a href="#mg-best" class="mg-link-u">EXPLORE NEW IN</a>
     </div>
 
-    <div class="mg-hero__stage">
+    <div class="mg-hero__stage" id="mgStage-{{ section.id }}">
       <div class="mg-hero__imgwrap">
         {% if section.settings.image_1 != blank %}
           <img id="mgHeroImg-{{ section.id }}" src="{{ section.settings.image_1 | image_url: width: 1200 }}" alt="KOCKKROCH campaign" class="mg-hero__img" loading="eager">
@@ -32,7 +32,7 @@
     <div class="mg-hero__side mg-hero__side--right">
       <div class="mg-hero__kicker">NEW<br>COLLECTION<br>{{ section.settings.season | default: 'AW26' }}</div>
       <div>
-        <div class="mg-hero__count"><span id="mgHeroCur-{{ section.id }}">01</span>/03</div>
+        <div class="mg-hero__count"><span id="mgHeroCur-{{ section.id }}" data-mgcur="{{ section.id }}">01</span>/03</div>
         <div class="mg-hero__arrows">
           <button class="mg-hero__arrow" onclick="mgHeroGo('{{ section.id }}',-1)" aria-label="Previous">—</button>
           <button class="mg-hero__arrow" onclick="mgHeroGo('{{ section.id }}',1)" aria-label="Next">+</button>
@@ -41,6 +41,11 @@
     </div>
   </div>
   <div class="mg-hero__scroll"><em>SCROLL</em><i></i></div>
+  <div class="mg-hero__mobile-ctl">
+    <button class="mg-hero__arrow" onclick="mgHeroGo('{{ section.id }}',-1)" aria-label="Previous">←</button>
+    <span class="mg-hero__count"><span data-mgcur="{{ section.id }}">01</span>/03</span>
+    <button class="mg-hero__arrow" onclick="mgHeroGo('{{ section.id }}',1)" aria-label="Next">→</button>
+  </div>
   <div style="display:none">
     <span id="mgHeroImgs-{{ section.id }}" data-1="{% if section.settings.image_1 != blank %}{{ section.settings.image_1 | image_url: width: 1200 }}{% else %}{{ 'kockkroch-hero-banner.webp' | asset_url }}{% endif %}" data-2="{% if section.settings.image_2 != blank %}{{ section.settings.image_2 | image_url: width: 1200 }}{% else %}{{ 'kockkroch-lookbook-01.webp' | asset_url }}{% endif %}" data-3="{% if section.settings.image_3 != blank %}{{ section.settings.image_3 | image_url: width: 1200 }}{% else %}{{ 'kockkroch-lookbook-02.webp' | asset_url }}{% endif %}"></span>
   </div>
@@ -56,9 +61,20 @@
       idx[id] = n;
       var img = document.getElementById('mgHeroImg-' + id);
       if (img) img.src = host.getAttribute('data-' + n);
-      var cur = document.getElementById('mgHeroCur-' + id);
-      if (cur) cur.textContent = '0' + n;
+      document.querySelectorAll('[data-mgcur="' + id + '"]').forEach(function (el) { el.textContent = '0' + n; });
     };
+    var stage = document.getElementById('mgStage-{{ section.id }}');
+    if (stage && !stage.dataset.swipe) {
+      stage.dataset.swipe = '1';
+      var x0 = null;
+      stage.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      stage.addEventListener('touchend', function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 40) window.mgHeroGo('{{ section.id }}', dx < 0 ? 1 : -1);
+        x0 = null;
+      }, { passive: true });
+    }
   })();
 </script>
 

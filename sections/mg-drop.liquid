@@ -1,0 +1,81 @@
+{% comment %} KOCKKROCH — Drop urgency band (mega language): stock pressure + countdown + VIP capture {% endcomment %}
+<section class="mg-drop">
+  <div class="mg-wrap mg-drop__grid">
+    <div class="mg-reveal">
+      <span class="mg-eyebrow">DROP {{ section.settings.drop_no | default: '013' }} — {{ section.settings.percent | default: 78 }}% CLAIMED</span>
+      <h2 class="mg-display mg-drop__title">{{ section.settings.title_a | default: 'ALMOST' }}<br>{{ section.settings.title_b | default: 'GONE.' }}</h2>
+      <div class="mg-drop__bar"><i style="width:{{ section.settings.percent | default: 78 }}%"></i></div>
+      <p class="mg-drop__note">Once it sells out it never restocks. Members get 1-hour early access to Drop 014.</p>
+    </div>
+    <div class="mg-reveal">
+      <div class="mg-drop__count" id="mgDrop-{{ section.id }}" data-target="{{ section.settings.date | default: '2026-10-31T00:00:00' }}">
+        <div class="mg-drop__cell"><div class="mg-display" data-d>08</div><span>DAYS</span></div>
+        <div class="mg-drop__cell"><div class="mg-display" data-h>14</div><span>HRS</span></div>
+        <div class="mg-drop__cell"><div class="mg-display" data-m>32</div><span>MIN</span></div>
+        <div class="mg-drop__cell mg-drop__cell--hot"><div class="mg-display" data-s>45</div><span>SEC</span></div>
+      </div>
+      {% form 'customer' %}
+        <input type="hidden" name="contact[tags]" value="vip_drop_access">
+        <div class="mg-drop__form">
+          <input type="email" name="contact[email]" placeholder="EMAIL FOR VIP ACCESS" required>
+          <button type="submit">CLAIM →</button>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .mg-drop { background: var(--mg-paper); border-top: 1px solid var(--mg-line); border-bottom: 1px solid var(--mg-line); }
+  .mg-drop__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding-top: 56px; padding-bottom: 56px; }
+  @media (max-width: 900px) { .mg-drop__grid { grid-template-columns: 1fr; gap: 28px; } }
+  .mg-drop__title { font-size: clamp(52px, 7vw, 96px); margin: 10px 0 18px 0; }
+  .mg-drop__bar { height: 10px; border: 1px solid var(--mg-ink); background: #fff; max-width: 420px; }
+  .mg-drop__bar i { display: block; height: 100%; background: var(--mg-red); }
+  .mg-drop__note { font-size: 13px; color: #3c3a36; margin-top: 14px; max-width: 40ch; line-height: 1.6; }
+  .mg-drop__count { display: flex; gap: 10px; margin-bottom: 14px; }
+  .mg-drop__cell { flex: 1; border: 1px solid var(--mg-ink); background: #fff; text-align: center; padding: 14px 6px 10px 6px; }
+  .mg-drop__cell .mg-display { font-size: clamp(28px, 3.4vw, 42px); }
+  .mg-drop__cell span { font-size: 10px; font-weight: 700; letter-spacing: .18em; }
+  .mg-drop__cell--hot { background: var(--mg-ink); color: #fff; }
+  .mg-drop__form { display: flex; border: 1px solid var(--mg-ink); background: #fff; }
+  .mg-drop__form input { flex: 1; border: none; padding: 15px 16px; font-size: 12px; font-weight: 600; letter-spacing: .1em; outline: none; background: transparent; min-width: 0; }
+  .mg-drop__form button { background: var(--mg-ink); color: #fff; border: none; font-size: 11px; font-weight: 800; letter-spacing: .14em; padding: 0 24px; cursor: pointer; }
+  .mg-drop__form button:hover { background: var(--mg-red); }
+</style>
+
+<script>
+  (function () {
+    var el = document.getElementById('mgDrop-{{ section.id }}');
+    if (!el || el.dataset.live) return;
+    el.dataset.live = '1';
+    var t = new Date(el.getAttribute('data-target')).getTime();
+    if (isNaN(t)) t = Date.now() + 8 * 864e5;
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+      var d = Math.max(0, t - Date.now());
+      el.querySelector('[data-d]').textContent = pad(Math.floor(d / 864e5));
+      el.querySelector('[data-h]').textContent = pad(Math.floor(d % 864e5 / 36e5));
+      el.querySelector('[data-m]').textContent = pad(Math.floor(d % 36e5 / 6e4));
+      el.querySelector('[data-s]').textContent = pad(Math.floor(d % 6e4 / 1e3));
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MG Drop Urgency",
+  "tag": "section",
+  "enabled_on": { "templates": ["*"] },
+  "settings": [
+    { "type": "text", "id": "drop_no", "label": "Drop number", "default": "013" },
+    { "type": "range", "id": "percent", "label": "Percent claimed", "min": 10, "max": 99, "step": 1, "default": 78 },
+    { "type": "text", "id": "title_a", "label": "Title line 1", "default": "ALMOST" },
+    { "type": "text", "id": "title_b", "label": "Title line 2", "default": "GONE." },
+    { "type": "text", "id": "date", "label": "Countdown target ISO", "default": "2026-10-31T00:00:00" }
+  ],
+  "presets": [{ "name": "MG Drop Urgency" }]
+}
+{% endschema %}

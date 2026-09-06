@@ -94,6 +94,10 @@ body {
 .mg-hero__scroll i { width: 1px; height: 64px; background: var(--mg-ink); display: block; }
 .mg-hero__scroll em { writing-mode: vertical-rl; font-style: normal; }
 @media (max-width: 1024px) { .mg-hero__scroll { display: none; } }
+.mg-hero__mobile-ctl { display: none; }
+@media (max-width: 1024px) {
+  .mg-hero__mobile-ctl { display: flex; align-items: center; justify-content: center; gap: 18px; padding: 18px 0 26px 0; position: relative; z-index: 3; }
+}
 .mg-hero__fades { position: absolute; inset: 0; pointer-events: none; }
 
 /* ---------- section titles + tabs ---------- */
