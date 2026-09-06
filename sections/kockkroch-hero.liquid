@@ -46,10 +46,15 @@
       {% endif %}
 
       {% if section.settings.secondary_btn_text != blank %}
-        <a href="{{ section.settings.secondary_btn_link | default: '/pages/lookbook' }}" class="kk-btn kk-btn--outline">
+        <a href="{{ section.settings.secondary_btn_link | default: '#kk-lookbook-section' }}" class="kk-btn kk-btn--outline">
           <span>{{ section.settings.secondary_btn_text }}</span>
         </a>
       {% endif %}
+    </div>
+
+    <div class="kk-hero__scroll-indicator" onclick="window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' })" style="margin-top: 48px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; opacity: 0.7; transition: opacity 0.2s;">
+      <span style="font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--kk-muted); font-weight: 700;">SCROLL TO EXPLORE</span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--kk-muted)" stroke-width="2.5"><path d="M7 10l5 5 5-5"/></svg>
     </div>
   </div>
 </section>

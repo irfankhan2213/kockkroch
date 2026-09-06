@@ -17,6 +17,13 @@
       {{ section.settings.subtitle | default: 'Strictly limited edition. Once the batch sells out, it will never be reprinted. Subscribe for 1-hour VIP early access.' }}
     </p>
 
+    <!-- Release Status Selector (Kith Inspired) -->
+    <div class="kk-vault-tabs" role="tablist">
+      <button type="button" class="kk-vault-tab is-active">UPCOMING • DROP 014</button>
+      <a href="#kockkroch-products" class="kk-vault-tab" style="text-decoration: none;">LIVE NOW • DROP 013</a>
+      <a href="/collections/all" class="kk-vault-tab" style="text-decoration: none;">ARCHIVE VAULT</a>
+    </div>
+
     <!-- Clean Countdown Timer -->
     <div id="kk-timer-{{ section.id }}" class="kk-countdown-box" data-target="{{ section.settings.countdown_date | default: '2026-10-31T00:00:00' }}">
       <div class="kk-countdown-item">

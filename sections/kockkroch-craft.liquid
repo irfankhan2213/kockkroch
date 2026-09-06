@@ -1,0 +1,194 @@
+{% comment %}
+  KOCKKROCH — Material & Craftsmanship Showcase
+  Inspired by 3sixteen: textile weight, macro fiber specifications, and garment longevity
+{% endcomment %}
+
+<section class="kk-craft" id="kk-craft-section" data-section-id="{{ section.id }}">
+  <div class="kk-craft__inner">
+    <div class="kk-craft__intro">
+      <span class="kk-tag kk-tag--red">{{ section.settings.eyebrow | default: 'TEXTILE ENGINEERING • BUILT TO SURVIVE' }}</span>
+      <h2>{{ section.settings.heading | default: 'MATERIAL PURITY & STRUCTURAL LONGEVITY' }}</h2>
+      <p>
+        {{ section.settings.subheading | default: 'We engineer garments using custom-milled high-density cotton and reinforced hardware. Every piece is calculated to endure relentless wear without warping, shrinking, or yielding.' }}
+      </p>
+    </div>
+
+    <!-- 4-Card Material Pillars -->
+    <div class="kk-craft__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'material_card' %}
+          <div class="kk-craft__card" {{ block.shopify_attributes }}>
+            <div>
+              <div class="kk-craft__card-num">PILLAR 0{{ forloop.index }}</div>
+              <div class="kk-craft__card-weight">{{ block.settings.metric | default: '280 GSM' }}</div>
+              <h3 class="kk-craft__card-title">{{ block.settings.title | default: 'COMBED COTTON' }}</h3>
+              <p class="kk-craft__card-desc">{{ block.settings.description | default: 'High-density ring-spun jersey with zero lateral torque. Enzyme-treated for structural stability.' }}</p>
+            </div>
+            {% if block.settings.tag != blank %}
+              <div style="margin-top: 24px;">
+                <span class="kk-tag" style="font-size: 9px; padding: 3px 8px;">{{ block.settings.tag }}</span>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Technical Specification Table -->
+    {% if section.settings.show_specs %}
+      <div class="kk-craft__specs">
+        <div class="kk-craft__specs-heading">
+          <span class="kk-tag" style="margin-bottom: 12px;">LABORATORY STANDARDS</span>
+          <h3>{{ section.settings.specs_title | default: 'TECHNICAL PARAMETERS' }}</h3>
+          <p>{{ section.settings.specs_subtitle | default: 'Standardized physical metrics applied across all Drop 013 core silhouettes.' }}</p>
+        </div>
+
+        <div>
+          <table class="kk-craft__spec-table">
+            <tbody>
+              <tr>
+                <td>YARN SPINNING</td>
+                <td>16s Ring-Spun Compact Combed Yarn</td>
+              </tr>
+              <tr>
+                <td>KNIT DENSITY</td>
+                <td>24GG High-Tension Custom Interlock</td>
+              </tr>
+              <tr>
+                <td>COLLAR ARCHITECTURE</td>
+                <td>1x1 Heavyweight Lycra-Ribbed Zero-Sag Collar</td>
+              </tr>
+              <tr>
+                <td>SEAM REINFORCEMENT</td>
+                <td>Bar-Tacked Stress Points & Flat-Locked Twin-Needle Seams</td>
+              </tr>
+              <tr>
+                <td>DIMENSIONAL TOLERANCE</td>
+                <td>Pre-Shrunk Cold Washed (&lt;1.2% Variation)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "KK Material & Craft",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Subtitle",
+      "default": "TEXTILE ENGINEERING • BUILT TO SURVIVE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "MATERIAL PURITY & STRUCTURAL LONGEVITY"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Description",
+      "default": "We engineer garments using custom-milled high-density cotton and reinforced hardware. Every piece is calculated to endure relentless wear without warping, shrinking, or yielding."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_specs",
+      "label": "Show Technical Spec Table",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "specs_title",
+      "label": "Specs Title",
+      "default": "TECHNICAL PARAMETERS"
+    },
+    {
+      "type": "text",
+      "id": "specs_subtitle",
+      "label": "Specs Subtitle",
+      "default": "Standardized physical metrics applied across all Drop 013 core silhouettes."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "material_card",
+      "name": "Material Pillar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "metric",
+          "label": "Metric / Weight Highlight",
+          "default": "280 GSM"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "RING-SPUN COMBED COTTON"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "High-density jersey knit engineered with zero lateral torque. Enzyme-treated for structural stability and permanent color fastness."
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag",
+          "default": "HEAVYWEIGHT ZERO-TORQUE"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "KK Material & Craft",
+      "blocks": [
+        {
+          "type": "material_card",
+          "settings": {
+            "metric": "280 GSM",
+            "title": "COMBED RING-SPUN COTTON",
+            "description": "High-density jersey knit engineered with zero lateral torque. Enzyme-treated for structural stability and permanent color fastness.",
+            "tag": "ZERO-TORQUE TEE FABRIC"
+          }
+        },
+        {
+          "type": "material_card",
+          "settings": {
+            "metric": "450 GSM",
+            "title": "LOOPBACK FRENCH TERRY",
+            "description": "Substantial structural fleece woven for architectural boxy drape. Pre-shrunk to retain its silhouette through industrial laundering.",
+            "tag": "ARCHIVAL FLEECE"
+          }
+        },
+        {
+          "type": "material_card",
+          "settings": {
+            "metric": "CUSTOM",
+            "title": "GUNMETAL JAPANESE HARDWARE",
+            "description": "Custom finished steel rivets, reinforced YKK Excella zippers, and heavy-gauge drawcord aglets built to withstand extreme stress.",
+            "tag": "MIL-SPEC HARDWARE"
+          }
+        },
+        {
+          "type": "material_card",
+          "settings": {
+            "metric": "LIFETIME",
+            "title": "PERPETUAL ENDURANCE",
+            "description": "Twin-needle chain-stitched hems and bar-tacked pockets. Built to outlive the cycle of planned obsolescence.",
+            "tag": "SURVIVAL ASSURANCE"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -11,7 +11,7 @@
         "primary_btn_text": "EXPLORE DROP 013",
         "primary_btn_link": "/collections/all",
         "secondary_btn_text": "VIEW LOOKBOOK",
-        "secondary_btn_link": "/pages/lookbook"
+        "secondary_btn_link": "#kk-lookbook-section"
       }
     },
     "kockkroch_marquee_1": {
@@ -52,6 +52,92 @@
         "title": "LATEST RELEASES",
         "products_to_show": 8,
         "view_all_link": "/collections/all"
+      }
+    },
+    "kockkroch_lookbook": {
+      "type": "kockkroch-lookbook",
+      "blocks": {
+        "look_1": {
+          "type": "look",
+          "settings": {
+            "look_tab_label": "LOOK 01",
+            "look_tag": "STYLING SUITE",
+            "look_title": "HEAVYWEIGHT DRAPE",
+            "look_desc": "Engineered with 450 GSM loopback French terry and paired with reinforced technical cargos for high-density city survival.",
+            "hotspot_1_x": 48,
+            "hotspot_1_y": 36,
+            "hotspot_2_x": 52,
+            "hotspot_2_y": 68
+          }
+        },
+        "look_2": {
+          "type": "look",
+          "settings": {
+            "look_tab_label": "LOOK 02",
+            "look_tag": "ARCHIVAL MATRIX",
+            "look_title": "TACTICAL MONOCHROME",
+            "look_desc": "280 GSM combed organic cotton layered beneath weatherproof ripstop shells with surgical crimson accents.",
+            "hotspot_1_x": 45,
+            "hotspot_1_y": 42,
+            "hotspot_2_x": 55,
+            "hotspot_2_y": 72
+          }
+        }
+      },
+      "block_order": ["look_1", "look_2"],
+      "settings": {
+        "eyebrow": "EDITORIAL ARCHIVE • AW26",
+        "heading": "SHOP THE LOOK"
+      }
+    },
+    "kockkroch_craft": {
+      "type": "kockkroch-craft",
+      "blocks": {
+        "pillar_1": {
+          "type": "material_card",
+          "settings": {
+            "metric": "280 GSM",
+            "title": "COMBED RING-SPUN COTTON",
+            "description": "High-density jersey knit engineered with zero lateral torque. Enzyme-treated for structural stability and permanent color fastness.",
+            "tag": "ZERO-TORQUE TEE FABRIC"
+          }
+        },
+        "pillar_2": {
+          "type": "material_card",
+          "settings": {
+            "metric": "450 GSM",
+            "title": "LOOPBACK FRENCH TERRY",
+            "description": "Substantial structural fleece woven for architectural boxy drape. Pre-shrunk to retain its silhouette through industrial laundering.",
+            "tag": "ARCHIVAL FLEECE"
+          }
+        },
+        "pillar_3": {
+          "type": "material_card",
+          "settings": {
+            "metric": "CUSTOM",
+            "title": "GUNMETAL JAPANESE HARDWARE",
+            "description": "Custom finished steel rivets, reinforced YKK Excella zippers, and heavy-gauge drawcord aglets built to withstand extreme stress.",
+            "tag": "MIL-SPEC HARDWARE"
+          }
+        },
+        "pillar_4": {
+          "type": "material_card",
+          "settings": {
+            "metric": "LIFETIME",
+            "title": "PERPETUAL ENDURANCE",
+            "description": "Twin-needle chain-stitched hems and bar-tacked pockets. Built to outlive the cycle of planned obsolescence.",
+            "tag": "SURVIVAL ASSURANCE"
+          }
+        }
+      },
+      "block_order": ["pillar_1", "pillar_2", "pillar_3", "pillar_4"],
+      "settings": {
+        "eyebrow": "TEXTILE ENGINEERING • BUILT TO SURVIVE",
+        "heading": "MATERIAL PURITY & STRUCTURAL LONGEVITY",
+        "subheading": "We engineer garments using custom-milled high-density cotton and reinforced hardware. Every piece is calculated to endure relentless wear without warping, shrinking, or yielding.",
+        "show_specs": true,
+        "specs_title": "TECHNICAL PARAMETERS",
+        "specs_subtitle": "Standardized physical metrics applied across all Drop 013 core silhouettes."
       }
     },
     "kockkroch_manifesto": {
@@ -100,6 +186,8 @@
     "kockkroch_marquee_1",
     "kockkroch_categories",
     "kockkroch_products",
+    "kockkroch_lookbook",
+    "kockkroch_craft",
     "kockkroch_manifesto",
     "kockkroch_countdown",
     "kockkroch_marquee_2"
