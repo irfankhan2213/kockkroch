@@ -1,0 +1,56 @@
+{% comment %} KOCKKROCH — Black mega footer (MAFIA language) {% endcomment %}
+<footer class="mg-footer">
+  <div class="mg-wrap">
+    <div class="mg-footer__word">KOCK<span>KROCH</span></div>
+    <div class="mg-footer__grid">
+      <div>
+        <h5>THE BRAND</h5>
+        <p>Fearless from origin. Built to survive. Heavyweight streetwear engineered between Tokyo and California — Drop 013.</p>
+      </div>
+      <div>
+        <h5>SHOP</h5>
+        <a href="/collections/all">Hoodies</a>
+        <a href="/collections/all">Tees</a>
+        <a href="/collections/all">Trousers</a>
+        <a href="/collections/all">View All</a>
+      </div>
+      <div>
+        <h5>BRAND</h5>
+        <a href="#mg-best">Best Sellers</a>
+        <a href="#">Lookbook</a>
+        <a href="#">Our Story</a>
+        <a href="#">Stockists</a>
+      </div>
+      <div>
+        <h5>SUPPORT</h5>
+        <a href="/pages/contact">Track Order</a>
+        <a href="/pages/contact">Shipping</a>
+        <a href="/pages/contact">Returns</a>
+        <a href="/pages/contact">Contact</a>
+      </div>
+      <div>
+        <h5>NEWSLETTER</h5>
+        <p>Get drops and private sales straight to your inbox.</p>
+        {% form 'customer' %}
+          <div class="mg-news">
+            <input type="email" name="contact[email]" placeholder="Enter your email" required>
+            <button type="submit">→</button>
+          </div>
+        {% endform %}
+      </div>
+    </div>
+    <div class="mg-footer__bottom">
+      <span>© 2026 KOCKKROCH. ALL RIGHTS RESERVED.</span>
+      <span>TOKYO • CALIFORNIA • FEARLESS FROM ORIGIN</span>
+    </div>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "MG Mega Footer",
+  "tag": "section",
+  "enabled_on": { "templates": ["*"] },
+  "settings": [],
+  "presets": [{ "name": "MG Mega Footer" }]
+}
+{% endschema %}

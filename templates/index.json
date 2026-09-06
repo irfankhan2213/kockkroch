@@ -1,102 +1,52 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "kockkroch_marquee_1": {
-      "type": "kockkroch-marquee",
+    "mg_hero": {
+      "type": "mg-hero",
+      "settings": {
+        "ship_msg": "FREE EXPRESS SHIPPING OVER $199",
+        "ghost": "KOCKKROCH",
+        "line1": "ADDICTED",
+        "line2": "TO FASHION.",
+        "year": "2026",
+        "season": "AW26",
+        "cta_text": "SHOP NOW"
+      }
+    },
+    "mg_cats": {
+      "type": "mg-cats",
       "settings": {}
     },
-    "kx_bone_hero_AJaXww": {
-      "type": "kx-bone-hero",
-      "name": "KX Bone Hero Ticket",
+    "mg_best": {
+      "type": "mg-products",
       "settings": {
-        "drop_no": "013",
-        "season": "AW26",
-        "line1": "KOCX",
-        "line2": "Kroch world",
-        "copy": "Heavyweight ring-spun jerseys, boxy French terry and pleated trousers. Cut wide, built heavy, priced honestly. Once it sells, it never restocks.",
-        "script": "Fearless from origin →",
-        "primary_text": "SHOP DROP 013 →",
-        "primary_link": "",
-        "secondary_text": "VIEW LOOKBOOK",
-        "secondary_link": ""
+        "title": "BEST OF KOCKKROCH"
       }
     },
-    "kx_bone_vault_p79fzB": {
-      "type": "kx-bone-vault",
-      "name": "KX Bone Vault",
+    "mg_editorial": {
+      "type": "mg-editorial",
       "settings": {
-        "drop": "014",
-        "date": "2026-10-31T00:00:00"
+        "eyebrow": "NEW SEASON — DROP 013",
+        "title_a": "BUILT TO",
+        "title_b": "SURVIVE.",
+        "copy": "Dense ring-spun cottons, bar-tacked stress points and boxy cuts that hold shape for years. Discover everything new and now.",
+        "cta": "EXPLORE COLLECTION"
       }
     },
-    "kockkroch_categories": {
-      "type": "kockkroch-collections",
-      "settings": {
-        "subtitle": "CURATED SILHOUETTES",
-        "title": "CAPSULE RELEASES",
-        "link_text": "VIEW ALL SILHOUETTES →",
-        "view_all_link": "/collections/all"
-      }
+    "mg_perks": {
+      "type": "mg-perks",
+      "settings": {}
     },
-    "kockkroch_products": {
-      "type": "kockkroch-product-grid",
-      "settings": {
-        "badge": "DROP 013",
-        "title": "SELECTED WORKS",
-        "collection": "",
-        "products_to_show": 4,
-        "view_all_link": "/collections/all"
-      }
-    },
-    "kockkroch_banner": {
-      "type": "kockkroch-banner",
-      "settings": {
-        "label": "ATELIER STUDY // AUTUMN WINTER 2026",
-        "title": "FORM FOLLOWS SURVIVAL",
-        "btn_text": "EXPLORE CAMPAIGN →",
-        "link": "#kk-lookbook-section"
-      }
-    },
-    "kockkroch_lookbook": {
-      "type": "kockkroch-lookbook",
-      "settings": {
-        "subtitle": "EDITORIAL SERIES",
-        "title": "ARCHIVAL LOOKBOOK"
-      }
-    },
-    "kockkroch_manifesto": {
-      "type": "kockkroch-manifesto",
-      "settings": {
-        "badge": "THE RESISTANCE",
-        "title_1": "SURVIVAL IS NOT",
-        "title_2": "AN ACCIDENT",
-        "paragraph_1": "When systems collapse and conformity suffocates creativity, the fearless adapt. The cockroach is nature’s ultimate survivor — indestructible, resilient, enduring through every trial.",
-        "paragraph_2": "KOCKKROCH is the armor for those who challenge authority and wear their defiance on their sleeves. Heavyweight fabrics, indestructible construction, and refined luxury streetwear silhouettes.",
-        "stat_1_val": "280+",
-        "stat_1_lbl": "GSM HEAVY COTTON",
-        "stat_2_val": "100%",
-        "stat_2_lbl": "FEARLESS ORIGIN",
-        "stat_3_val": "013",
-        "stat_3_lbl": "ARCHIVE PROTOCOL"
-      }
+    "mg_footer": {
+      "type": "mg-footer",
+      "settings": {}
     }
   },
   "order": [
-    "kockkroch_marquee_1",
-    "kx_bone_hero_AJaXww",
-    "kx_bone_vault_p79fzB",
-    "kockkroch_categories",
-    "kockkroch_products",
-    "kockkroch_banner",
-    "kockkroch_lookbook",
-    "kockkroch_manifesto"
+    "mg_hero",
+    "mg_cats",
+    "mg_best",
+    "mg_editorial",
+    "mg_perks",
+    "mg_footer"
   ]
 }

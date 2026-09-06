@@ -1,0 +1,26 @@
+{% comment %} KOCKKROCH — Black category band (GAZU strip) {% endcomment %}
+<section class="mg-band">
+  <div class="mg-band__grid">
+    <a href="/collections/all" class="mg-band__cell mg-reveal">
+      <img src="{{ 'kockkroch-capsule-hoodies.webp' | asset_url }}" alt="Hoodies" loading="lazy">
+      <div><h3>HOODIES</h3><p>Heavyweight fleece essentials.</p><span>SHOP NOW →</span></div>
+    </a>
+    <a href="/collections/all" class="mg-band__cell mg-reveal">
+      <img src="{{ 'kockkroch-capsule-tees.webp' | asset_url }}" alt="Tees" loading="lazy">
+      <div><h3>TEES</h3><p>Boxy ring-spun jersey.</p><span>SHOP NOW →</span></div>
+    </a>
+    <a href="/collections/all" class="mg-band__cell mg-reveal">
+      <img src="{{ 'kockkroch-capsule-cargos.webp' | asset_url }}" alt="Trousers" loading="lazy">
+      <div><h3>TROUSERS</h3><p>Pleated wide-leg cuts.</p><span>SHOP NOW →</span></div>
+    </a>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "MG Category Band",
+  "tag": "section",
+  "enabled_on": { "templates": ["*"] },
+  "settings": [],
+  "presets": [{ "name": "MG Category Band" }]
+}
+{% endschema %}

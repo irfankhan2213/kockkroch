@@ -1,0 +1,85 @@
+{% comment %} KOCKKROCH — Mega hero (W.CONCEPT / GAZU language): utility strip + giant type + slider {% endcomment %}
+<div class="mg-util">
+  <div class="mg-util__in">
+    <span>{{ section.settings.ship_msg | default: 'FREE EXPRESS SHIPPING OVER $199' }}</span>
+    <span class="mg-util__links"><a href="/pages/contact">TRACK ORDER</a><a href="/pages/contact">HELP</a><a href="#">@KOCKKROCH</a></span>
+  </div>
+</div>
+
+<section class="mg-hero" id="mg-hero-{{ section.id }}">
+  <div class="mg-hero__ghost" aria-hidden="true">{{ section.settings.ghost | default: 'KOCKKROCH' }}</div>
+  <div class="mg-hero__grid">
+    <div class="mg-hero__side">
+      <div class="mg-hero__kicker">FEARLESS<br>FROM ORIGIN<br>DROP 013</div>
+      <div class="mg-hero__cta-row">
+        <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="mg-btn-dark">{{ section.settings.cta_text | default: 'SHOP NOW' }}</a>
+      </div>
+      <a href="#mg-best" class="mg-link-u">EXPLORE NEW IN</a>
+    </div>
+
+    <div class="mg-hero__stage">
+      <div class="mg-hero__imgwrap">
+        {% if section.settings.image_1 != blank %}
+          <img id="mgHeroImg-{{ section.id }}" src="{{ section.settings.image_1 | image_url: width: 1200 }}" alt="KOCKKROCH campaign" class="mg-hero__img" loading="eager">
+        {% else %}
+          <img id="mgHeroImg-{{ section.id }}" src="{{ 'kockkroch-hero-banner.webp' | asset_url }}" alt="KOCKKROCH campaign" class="mg-hero__img" loading="eager">
+        {% endif %}
+        <div class="mg-hero__title mg-hero__title--top"><span>{{ section.settings.line1 | default: 'ADDICTED' }}</span></div>
+        <div class="mg-hero__title mg-hero__title--bottom"><span>{{ section.settings.line2 | default: 'TO FASHION.' }} <span class="yr">{{ section.settings.year | default: '2026' }}</span></span></div>
+      </div>
+    </div>
+
+    <div class="mg-hero__side mg-hero__side--right">
+      <div class="mg-hero__kicker">NEW<br>COLLECTION<br>{{ section.settings.season | default: 'AW26' }}</div>
+      <div>
+        <div class="mg-hero__count"><span id="mgHeroCur-{{ section.id }}">01</span>/03</div>
+        <div class="mg-hero__arrows">
+          <button class="mg-hero__arrow" onclick="mgHeroGo('{{ section.id }}',-1)" aria-label="Previous">—</button>
+          <button class="mg-hero__arrow" onclick="mgHeroGo('{{ section.id }}',1)" aria-label="Next">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mg-hero__scroll"><em>SCROLL</em><i></i></div>
+  <div style="display:none">
+    <span id="mgHeroImgs-{{ section.id }}" data-1="{% if section.settings.image_1 != blank %}{{ section.settings.image_1 | image_url: width: 1200 }}{% else %}{{ 'kockkroch-hero-banner.webp' | asset_url }}{% endif %}" data-2="{% if section.settings.image_2 != blank %}{{ section.settings.image_2 | image_url: width: 1200 }}{% else %}{{ 'kockkroch-lookbook-01.webp' | asset_url }}{% endif %}" data-3="{% if section.settings.image_3 != blank %}{{ section.settings.image_3 | image_url: width: 1200 }}{% else %}{{ 'kockkroch-lookbook-02.webp' | asset_url }}{% endif %}"></span>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var idx = { '{{ section.id }}': 1 };
+    window.mgHeroGo = window.mgHeroGo || function (id, dir) {
+      var host = document.getElementById('mgHeroImgs-' + id);
+      if (!host) return;
+      var n = ((idx[id] || 1) - 1 + dir + 3) % 3 + 1;
+      idx[id] = n;
+      var img = document.getElementById('mgHeroImg-' + id);
+      if (img) img.src = host.getAttribute('data-' + n);
+      var cur = document.getElementById('mgHeroCur-' + id);
+      if (cur) cur.textContent = '0' + n;
+    };
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MG Mega Hero",
+  "tag": "section",
+  "enabled_on": { "templates": ["*"] },
+  "settings": [
+    { "type": "text", "id": "ship_msg", "label": "Utility bar message", "default": "FREE EXPRESS SHIPPING OVER $199" },
+    { "type": "text", "id": "ghost", "label": "Ghost outline word", "default": "KOCKKROCH" },
+    { "type": "image_picker", "id": "image_1", "label": "Slide 1" },
+    { "type": "image_picker", "id": "image_2", "label": "Slide 2" },
+    { "type": "image_picker", "id": "image_3", "label": "Slide 3" },
+    { "type": "text", "id": "line1", "label": "Headline line 1 (ink)", "default": "ADDICTED" },
+    { "type": "text", "id": "line2", "label": "Headline line 2 (white)", "default": "TO FASHION." },
+    { "type": "text", "id": "year", "label": "Year tag", "default": "2026" },
+    { "type": "text", "id": "season", "label": "Season", "default": "AW26" },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "SHOP NOW" },
+    { "type": "url", "id": "cta_link", "label": "CTA link" }
+  ],
+  "presets": [{ "name": "MG Mega Hero" }]
+}
+{% endschema %}

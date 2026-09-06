@@ -1,0 +1,110 @@
+{% comment %} KOCKKROCH — Best-sellers carousel (W.CONCEPT tabs + GAZU cards) {% endcomment %}
+<section id="mg-best" class="mg-sec mg-sec--paper">
+  <div class="mg-wrap">
+    <div class="mg-sec-head mg-reveal">
+      <h2>{{ section.settings.title | default: 'BEST OF KOCKKROCH' }}</h2>
+      <a class="mg-link-u" href="{{ section.settings.link | default: '/collections/all' }}">VIEW ALL</a>
+    </div>
+    <div class="mg-tabs mg-reveal" id="mgTabs-{{ section.id }}">
+      <button class="mg-tab is-active" data-cat="all">ALL</button>
+      <button class="mg-tab" data-cat="hoodies">HOODIES</button>
+      <button class="mg-tab" data-cat="tees">TEES</button>
+      <button class="mg-tab" data-cat="trousers">TROUSERS</button>
+      <button class="mg-tab" data-cat="shirts">SHIRTS</button>
+    </div>
+    <div class="mg-car mg-reveal">
+      <button class="mg-car__nav mg-car__nav--prev" onclick="mgSlide('{{ section.id }}',-1)" aria-label="Previous">←</button>
+      <div class="mg-track" id="mgTrack-{{ section.id }}">
+        {% assign coll = collections[section.settings.collection] %}
+        {% if coll != blank and coll.products.size > 0 %}
+          {% for product in coll.products limit: 8 %}
+            {% assign t = product.type | downcase %}
+            {% assign cat = 'shirts' %}
+            {% if t contains 'hood' or t contains 'fleece' or t contains 'sweat' %}{% assign cat = 'hoodies' %}
+            {% elsif t contains 'tee' or t contains 'jersey' or t contains 'crewneck' %}{% assign cat = 'tees' %}
+            {% elsif t contains 'trouser' or t contains 'cargo' or t contains 'pant' or t contains 'denim' %}{% assign cat = 'trousers' %}{% endif %}
+            <a href="{{ product.url }}" class="mg-card" data-cat="{{ cat }}">
+              <div class="mg-card__media">
+                {% if product.compare_at_price > product.price %}<span class="mg-card__badge">-{{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}%</span>{% endif %}
+                <button class="mg-card__heart" onclick="event.preventDefault();this.classList.toggle('is-liked')" aria-label="Wishlist">♡</button>
+                <img src="{{ product.featured_image | image_url: width: 700 }}" alt="{{ product.title | escape }}" loading="lazy">
+              </div>
+              <div class="mg-card__info">
+                <div class="mg-card__brand">{{ product.vendor | default: 'KOCKKROCH' | upcase }}</div>
+                <div class="mg-card__name">{{ product.title }}</div>
+                <div class="mg-card__prices">{% if product.compare_at_price > product.price %}<span class="mg-card__compare">{{ product.compare_at_price | money }}</span>{% endif %}<span class="mg-card__price">{{ product.price | money }}</span></div>
+              </div>
+            </a>
+          {% endfor %}
+        {% else %}
+          {% assign fb = 'HOODIES|ARCHIVAL BOXY HOODIE|450 GSM FLEECE|$450|$380|kockkroch-editorial-hoodie.webp,TEES|SIGNATURE BOXY TEE|280 GSM JERSEY|$220|$180|kockkroch-editorial-tee.webp,TROUSERS|PLEATED WIDE TROUSER|RIPSTOP TWILL|$389|$320|kockkroch-editorial-cargo.webp,SHIRTS|ARCHIVAL POPLIN OVERSHIRT|COMPACT POPLIN|$340|$290|kockkroch-editorial-overshirt.webp,HOODIES|HEAVYWEIGHT PULLOVER|BRUSHED FLEECE|$420|$350|kockkroch-product-hoodie.webp,TEES|ESSENTIAL CREWNECK TEE|MIDWEIGHT JERSEY|$195|$165|kockkroch-product-tee.webp,TROUSERS|RELAXED CARGO PANT|GARMENT-DYED TWILL|$375|$310|kockkroch-product-cargo.webp,SHIRTS|TECH POPLIN SHIRT|ZERO-SAG COLLAR|$330|$275|kockkroch-product-shirt.webp' | split: ',' %}
+          {% for row in fb %}
+            {% assign f = row | split: '|' %}
+            <a href="/collections/all" class="mg-card" data-cat="{{ f[0] | downcase }}">
+              <div class="mg-card__media">
+                <span class="mg-card__badge">SALE</span>
+                <button class="mg-card__heart" onclick="event.preventDefault();this.classList.toggle('is-liked')" aria-label="Wishlist">♡</button>
+                <img src="{{ f[5] | asset_url }}" alt="{{ f[1] }}" loading="lazy">
+              </div>
+              <div class="mg-card__info">
+                <div class="mg-card__brand">KOCKKROCH</div>
+                <div class="mg-card__name">{{ f[1] }} — {{ f[2] }}</div>
+                <div class="mg-card__prices"><span class="mg-card__compare">{{ f[3] }}</span><span class="mg-card__price">{{ f[4] }}</span></div>
+              </div>
+            </a>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <button class="mg-car__nav mg-car__nav--next" onclick="mgSlide('{{ section.id }}',1)" aria-label="Next">→</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  window.mgSlide = window.mgSlide || function (id, dir) {
+    var track = document.getElementById('mgTrack-' + id);
+    if (!track) return;
+    var card = track.querySelector('.mg-card');
+    var w = card ? card.offsetWidth + 20 : 300;
+    track.scrollBy({ left: dir * w * 2, behavior: 'smooth' });
+  };
+  (function () {
+    var tabs = document.getElementById('mgTabs-{{ section.id }}');
+    var track = document.getElementById('mgTrack-{{ section.id }}');
+    if (!tabs || !track || tabs.dataset.bound) return;
+    tabs.dataset.bound = '1';
+    tabs.addEventListener('click', function (e) {
+      var btn = e.target.closest('.mg-tab');
+      if (!btn) return;
+      tabs.querySelectorAll('.mg-tab').forEach(function (b) { b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      var cat = btn.getAttribute('data-cat');
+      track.querySelectorAll('.mg-card').forEach(function (c) {
+        c.style.display = (cat === 'all' || c.getAttribute('data-cat') === cat) ? '' : 'none';
+      });
+      track.scrollTo({ left: 0 });
+    });
+  })();
+  (function () {
+    var els = document.querySelectorAll('.mg-reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('is-in'); }); return; }
+    var o = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); o.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    els.forEach(function (e) { o.observe(e); });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MG Best Sellers",
+  "tag": "section",
+  "enabled_on": { "templates": ["*"] },
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "text", "id": "title", "label": "Title", "default": "BEST OF KOCKKROCH" },
+    { "type": "url", "id": "link", "label": "View-all link" }
+  ],
+  "presets": [{ "name": "MG Best Sellers" }]
+}
+{% endschema %}
