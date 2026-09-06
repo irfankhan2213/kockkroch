@@ -1,38 +1,53 @@
-{% comment %} KOCK KROCH — Strong black footer {% endcomment %}
+{% comment %} KOCK KROCH — Strong black footer, editable columns via menus {% endcomment %}
 <footer class="k13-footer">
   <div class="k13-wrap">
-    <div class="k13-footer__word">KOCK <em>KROCH</em></div>
+    <div class="k13-footer__word">{{ section.settings.word_a | default: 'KOCK' }} <em>{{ section.settings.word_b | default: 'KROCH' }}</em></div>
     <div class="k13-footer__grid">
       <div>
-        <h5>THE BRAND</h5>
-        <p>Fearless, technical streetwear from India. Oversized heavyweight tees with technical graphics — Drop 013: Unkillable Aesthetic.</p>
-        <a href="https://instagram.com/" target="_blank" rel="noopener">INSTAGRAM →</a>
+        <h5>{{ section.settings.brand_heading | default: 'THE BRAND' }}</h5>
+        <p>{{ section.settings.blurb | default: 'Fearless, technical streetwear from India. Oversized heavyweight tees with technical graphics — Drop 013: Unkillable Aesthetic.' }}</p>
+        <a href="{{ section.settings.insta_link | default: 'https://instagram.com/' }}" target="_blank" rel="noopener">INSTAGRAM →</a>
       </div>
       <div>
-        <h5>SHOP</h5>
-        <a href="/collections/all">Tees</a>
-        <a href="/collections/all">Hoodies</a>
-        <a href="/collections/all">New Drop</a>
-        <a href="/collections/all">View All</a>
+        <h5>{{ section.settings.shop_heading | default: 'SHOP' }}</h5>
+        {% assign sm = linklists[section.settings.shop_menu] %}
+        {% if sm != blank and sm.links.size > 0 %}
+          {% for l in sm.links %}<a href="{{ l.url }}">{{ l.title }}</a>{% endfor %}
+        {% else %}
+          <a href="/collections/all">Tees</a>
+          <a href="/collections/all">Hoodies</a>
+          <a href="/collections/all">New Drop</a>
+          <a href="/collections/all">View All</a>
+        {% endif %}
       </div>
       <div>
-        <h5>ABOUT</h5>
-        <a href="/pages/contact">Our Story</a>
-        <a href="#k13-wild">Lookbook</a>
-        <a href="/pages/contact">Stockists</a>
-        <a href="/pages/contact">Contact</a>
+        <h5>{{ section.settings.about_heading | default: 'ABOUT' }}</h5>
+        {% assign am = linklists[section.settings.about_menu] %}
+        {% if am != blank and am.links.size > 0 %}
+          {% for l in am.links %}<a href="{{ l.url }}">{{ l.title }}</a>{% endfor %}
+        {% else %}
+          <a href="/pages/contact">Our Story</a>
+          <a href="#k13-wild">Lookbook</a>
+          <a href="/pages/contact">Stockists</a>
+          <a href="/pages/contact">Contact</a>
+        {% endif %}
       </div>
       <div>
-        <h5>SUPPORT</h5>
-        <a href="/policies/shipping-policy">Shipping</a>
-        <a href="/policies/refund-policy">Returns & Exchange</a>
-        <a href="/policies/shipping-policy">Track Order</a>
-        <a href="/pages/contact">Size Guide</a>
-        <a href="/pages/contact">FAQ</a>
+        <h5>{{ section.settings.support_heading | default: 'SUPPORT' }}</h5>
+        {% assign pm = linklists[section.settings.support_menu] %}
+        {% if pm != blank and pm.links.size > 0 %}
+          {% for l in pm.links %}<a href="{{ l.url }}">{{ l.title }}</a>{% endfor %}
+        {% else %}
+          <a href="/policies/shipping-policy">Shipping</a>
+          <a href="/policies/refund-policy">Returns & Exchange</a>
+          <a href="/policies/shipping-policy">Track Order</a>
+          <a href="/pages/contact">Size Guide</a>
+          <a href="/pages/contact">FAQ</a>
+        {% endif %}
       </div>
       <div>
-        <h5>GET THE DROP FIRST</h5>
-        <p>New pieces, restocks and private sales. No spam.</p>
+        <h5>{{ section.settings.news_heading | default: 'GET THE DROP FIRST' }}</h5>
+        <p>{{ section.settings.news_text | default: 'New pieces, restocks and private sales. No spam.' }}</p>
         {% form 'customer' %}
           <div class="k13-news">
             <input type="email" name="contact[email]" placeholder="Email address" required aria-label="Email">
@@ -42,8 +57,8 @@
       </div>
     </div>
     <div class="k13-footer__bottom">
-      <span>© 2026 KOCK KROCH. ALL RIGHTS RESERVED.</span>
-      <span>MADE IN INDIA • PRICES IN INR (₹)</span>
+      <span>{{ section.settings.bottom_left | default: '© 2026 KOCK KROCH. ALL RIGHTS RESERVED.' }}</span>
+      <span>{{ section.settings.bottom_right | default: 'MADE IN INDIA • PRICES IN INR (₹)' }}</span>
     </div>
   </div>
 </footer>
@@ -53,7 +68,27 @@
   "name": "K13 Black Footer",
   "tag": "section",
   "enabled_on": { "templates": ["*"] },
-  "settings": [],
+  "settings": [
+    { "type": "text", "id": "word_a", "label": "Wordmark solid", "default": "KOCK" },
+    { "type": "text", "id": "word_b", "label": "Wordmark outline", "default": "KROCH" },
+    { "type": "header", "content": "Brand column" },
+    { "type": "text", "id": "brand_heading", "label": "Heading", "default": "THE BRAND" },
+    { "type": "textarea", "id": "blurb", "label": "Blurb", "default": "Fearless, technical streetwear from India. Oversized heavyweight tees with technical graphics — Drop 013: Unkillable Aesthetic." },
+    { "type": "url", "id": "insta_link", "label": "Instagram link" },
+    { "type": "header", "content": "Link columns (pick menus)" },
+    { "type": "text", "id": "shop_heading", "label": "Shop heading", "default": "SHOP" },
+    { "type": "menu", "id": "shop_menu", "label": "Shop menu" },
+    { "type": "text", "id": "about_heading", "label": "About heading", "default": "ABOUT" },
+    { "type": "menu", "id": "about_menu", "label": "About menu" },
+    { "type": "text", "id": "support_heading", "label": "Support heading", "default": "SUPPORT" },
+    { "type": "menu", "id": "support_menu", "label": "Support menu" },
+    { "type": "header", "content": "Newsletter" },
+    { "type": "text", "id": "news_heading", "label": "Heading", "default": "GET THE DROP FIRST" },
+    { "type": "textarea", "id": "news_text", "label": "Text", "default": "New pieces, restocks and private sales. No spam." },
+    { "type": "header", "content": "Bottom bar" },
+    { "type": "text", "id": "bottom_left", "label": "Bottom left", "default": "© 2026 KOCK KROCH. ALL RIGHTS RESERVED." },
+    { "type": "text", "id": "bottom_right", "label": "Bottom right", "default": "MADE IN INDIA • PRICES IN INR (₹)" }
+  ],
   "presets": [{ "name": "K13 Black Footer" }]
 }
 {% endschema %}

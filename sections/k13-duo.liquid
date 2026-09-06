@@ -1,29 +1,29 @@
-{% comment %} KOCK KROCH — Duo campaign blocks: UNKILLABLE AESTHETIC / MADE TO RULE {% endcomment %}
+{% comment %} KOCK KROCH — Duo campaign blocks, fully editable {% endcomment %}
 <section class="k13-duo">
   <a href="{{ section.settings.link_a | default: '/collections/all' }}" class="k13-duo__cell">
     {% if section.settings.image_a != blank %}
-      <img src="{{ section.settings.image_a | image_url: width: 1400 }}" alt="Unkillable Aesthetic" loading="lazy">
+      <img src="{{ section.settings.image_a | image_url: width: 1400 }}" alt="{{ section.settings.title_a | strip_html | escape }}" loading="lazy">
     {% else %}
-      <img src="{{ 'kockkroch-lookbook-01.webp' | asset_url }}" alt="Unkillable Aesthetic" loading="lazy">
+      <img src="{{ 'kockkroch-lookbook-01.webp' | asset_url }}" alt="{{ section.settings.title_a | strip_html | escape }}" loading="lazy">
     {% endif %}
     <div class="k13-duo__copy">
-      <span class="rule" style="background:var(--k13-blue)"></span>
-      <h3>UNKILLABLE<br>AESTHETIC</h3>
-      <p>Black heavyweight tees with technical graphics. Built to outlast every trend cycle.</p>
-      <span class="k13-btn k13-btn--outline-w">SHOP THE DROP</span>
+      <span class="rule" style="background:{{ section.settings.accent_a | default: '#2E9BFF' }}"></span>
+      <h3>{{ section.settings.title_a | default: 'UNKILLABLE\nAESTHETIC' | newline_to_br }}</h3>
+      <p>{{ section.settings.copy_a | default: 'Black heavyweight tees with technical graphics. Built to outlast every trend cycle.' }}</p>
+      <span class="k13-btn k13-btn--outline-w">{{ section.settings.cta_a | default: 'SHOP THE DROP' }}</span>
     </div>
   </a>
   <a href="{{ section.settings.link_b | default: '/collections/all' }}" class="k13-duo__cell">
     {% if section.settings.image_b != blank %}
-      <img src="{{ section.settings.image_b | image_url: width: 1400 }}" alt="Made To Rule" loading="lazy">
+      <img src="{{ section.settings.image_b | image_url: width: 1400 }}" alt="{{ section.settings.title_b | strip_html | escape }}" loading="lazy">
     {% else %}
-      <img src="{{ 'kockkroch-editorial-cargo.webp' | asset_url }}" alt="Made To Rule" loading="lazy">
+      <img src="{{ 'kockkroch-editorial-cargo.webp' | asset_url }}" alt="{{ section.settings.title_b | strip_html | escape }}" loading="lazy">
     {% endif %}
     <div class="k13-duo__copy">
-      <span class="rule" style="background:var(--k13-orange)"></span>
-      <h3>MADE TO<br>RULE</h3>
-      <p>Oversized fits, dense cotton, fearless cuts. Uniform for the new street order.</p>
-      <span class="k13-btn k13-btn--black">EXPLORE FITS</span>
+      <span class="rule" style="background:{{ section.settings.accent_b | default: '#F26B21' }}"></span>
+      <h3>{{ section.settings.title_b | default: 'MADE TO\nRULE' | newline_to_br }}</h3>
+      <p>{{ section.settings.copy_b | default: 'Oversized fits, dense cotton, fearless cuts. Uniform for the new street order.' }}</p>
+      <span class="k13-btn k13-btn--black">{{ section.settings.cta_b | default: 'EXPLORE FITS' }}</span>
     </div>
   </a>
 </section>
@@ -34,10 +34,40 @@
   "tag": "section",
   "enabled_on": { "templates": ["*"] },
   "settings": [
+    { "type": "header", "content": "Left block" },
     { "type": "image_picker", "id": "image_a", "label": "Left image" },
+    { "type": "textarea", "id": "title_a", "label": "Left title", "default": "UNKILLABLE\nAESTHETIC" },
+    { "type": "textarea", "id": "copy_a", "label": "Left copy", "default": "Black heavyweight tees with technical graphics. Built to outlast every trend cycle." },
+    { "type": "text", "id": "cta_a", "label": "Left button", "default": "SHOP THE DROP" },
     { "type": "url", "id": "link_a", "label": "Left link" },
+    {
+      "type": "select",
+      "id": "accent_a",
+      "label": "Left accent",
+      "options": [
+        { "value": "#2E9BFF", "label": "Electric blue" },
+        { "value": "#F26B21", "label": "Signal orange" },
+        { "value": "#E3000F", "label": "Red" }
+      ],
+      "default": "#2E9BFF"
+    },
+    { "type": "header", "content": "Right block" },
     { "type": "image_picker", "id": "image_b", "label": "Right image" },
-    { "type": "url", "id": "link_b", "label": "Right link" }
+    { "type": "textarea", "id": "title_b", "label": "Right title", "default": "MADE TO\nRULE" },
+    { "type": "textarea", "id": "copy_b", "label": "Right copy", "default": "Oversized fits, dense cotton, fearless cuts. Uniform for the new street order." },
+    { "type": "text", "id": "cta_b", "label": "Right button", "default": "EXPLORE FITS" },
+    { "type": "url", "id": "link_b", "label": "Right link" },
+    {
+      "type": "select",
+      "id": "accent_b",
+      "label": "Right accent",
+      "options": [
+        { "value": "#2E9BFF", "label": "Electric blue" },
+        { "value": "#F26B21", "label": "Signal orange" },
+        { "value": "#E3000F", "label": "Red" }
+      ],
+      "default": "#F26B21"
+    }
   ],
   "presets": [{ "name": "K13 Duo Campaign" }]
 }

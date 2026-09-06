@@ -1,15 +1,17 @@
 {% comment %} KOCK KROCH — DROP 013 campaign hero: announcement marquee + full-width image hero {% endcomment %}
+{% assign msgs = section.settings.messages | default: 'FREE SHIPPING OVER ₹999 • EASY 15-DAY EXCHANGE|DROP 013 IS LIVE|OVERSIZED FITS • HEAVYWEIGHT COTTON' | split: '|' %}
 <div class="k13-announce" role="marquee" aria-label="Store messages">
   <div class="k13-announce__track">
     {% for i in (1..2) %}
-      <span>FREE SHIPPING OVER ₹999 <b>•</b> EASY 15-DAY EXCHANGE <b>•</b> DROP 013 IS LIVE <b>•</b> OVERSIZED FITS • HEAVYWEIGHT COTTON <b>•</b>&nbsp;</span>
+      <span>{% for m in msgs %}{{ m | strip }}{% unless forloop.last %} <b>•</b> {% endunless %}{% endfor %} <b>•</b>&nbsp;</span>
     {% endfor %}
     {% for i in (1..2) %}
-      <span aria-hidden="true">FREE SHIPPING OVER ₹999 <b>•</b> EASY 15-DAY EXCHANGE <b>•</b> DROP 013 IS LIVE <b>•</b> OVERSIZED FITS • HEAVYWEIGHT COTTON <b>•</b>&nbsp;</span>
+      <span aria-hidden="true">{% for m in msgs %}{{ m | strip }}{% unless forloop.last %} <b>•</b> {% endunless %}{% endfor %} <b>•</b>&nbsp;</span>
     {% endfor %}
   </div>
 </div>
 
+{% assign accent = section.settings.accent_line | default: 'line3' %}
 <section class="k13-hero">
   <picture>
     {% if section.settings.image_mobile != blank %}
@@ -18,22 +20,22 @@
       <source media="(max-width: 768px)" srcset="{{ 'kockkroch-hero-banner.webp' | asset_url }}">
     {% endif %}
     {% if section.settings.image_desktop != blank %}
-      <img src="{{ section.settings.image_desktop | image_url: width: 2200 }}" alt="DROP 013 — UNKILLABLE AESTHETIC" class="k13-hero__img" loading="eager" fetchpriority="high">
+      <img src="{{ section.settings.image_desktop | image_url: width: 2200 }}" alt="{{ section.settings.line1 | default: 'WEAR' }} {{ section.settings.line4 | default: 'STORY' }}" class="k13-hero__img" loading="eager" fetchpriority="high">
     {% else %}
-      <img src="{{ 'kockkroch-hero-banner.webp' | asset_url }}" alt="DROP 013 — UNKILLABLE AESTHETIC" class="k13-hero__img" loading="eager" fetchpriority="high">
+      <img src="{{ 'kockkroch-hero-banner.webp' | asset_url }}" alt="{{ section.settings.line1 | default: 'WEAR' }} {{ section.settings.line4 | default: 'STORY' }}" class="k13-hero__img" loading="eager" fetchpriority="high">
     {% endif %}
   </picture>
   <div class="k13-hero__shade"></div>
-  <div class="k13-hero__ghost" aria-hidden="true">KOCK KROCH</div>
+  <div class="k13-hero__ghost" aria-hidden="true">{{ section.settings.ghost | default: 'KOCK KROCH' }}</div>
 
   <div class="k13-hero__in">
     <div class="k13-hero__top">
-      <div>DROP 013<br>AW26 / INDIAN STREETWEAR</div>
-      <div class="k13-hero__top--right">HEAVYWEIGHT<br>BLACK TEES<br>WITH TECHNICAL<br>GRAPHICS</div>
+      <div>{{ section.settings.top_left | default: 'DROP 013\nAW26 / INDIAN STREETWEAR' | newline_to_br }}</div>
+      <div class="k13-hero__top--right">{{ section.settings.top_right | default: 'HEAVYWEIGHT\nBLACK TEES\nWITH TECHNICAL\nGRAPHICS' | newline_to_br }}</div>
     </div>
     <div>
-      <h1 class="k13-hero__title">WEAR<br>THE<br><span class="org">BACK</span><br>STORY.</h1>
-      <p class="k13-hero__sub">Oversized silhouettes. Heavyweight cotton. Technical graphics.</p>
+      <h1 class="k13-hero__title">{% for n in (1..4) %}{% capture key %}line{{ n }}{% endcapture %}{% assign ln = section.settings[key] %}{% if ln != blank %}{% if key == accent %}<span class="org">{{ ln }}</span><br>{% else %}{{ ln }}<br>{% endif %}{% endif %}{% endfor %}</h1>
+      <p class="k13-hero__sub">{{ section.settings.sub | default: 'Oversized silhouettes. Heavyweight cotton. Technical graphics.' }}</p>
       <div class="k13-hero__ctas">
         <a href="{{ section.settings.primary_link | default: '/collections/all' }}" class="k13-btn k13-btn--black">{{ section.settings.primary_text | default: 'SHOP NEW DROP →' }}</a>
         <a href="{{ section.settings.secondary_link | default: '#k13-wild' }}" class="k13-btn k13-btn--outline-w">{{ section.settings.secondary_text | default: 'EXPLORE LOOKBOOK' }}</a>
@@ -48,8 +50,34 @@
   "tag": "section",
   "enabled_on": { "templates": ["*"] },
   "settings": [
+    { "type": "header", "content": "Announcement bar" },
+    { "type": "textarea", "id": "messages", "label": "Messages (separate with | )", "default": "FREE SHIPPING OVER ₹999 • EASY 15-DAY EXCHANGE|DROP 013 IS LIVE|OVERSIZED FITS • HEAVYWEIGHT COTTON" },
+    { "type": "header", "content": "Images" },
     { "type": "image_picker", "id": "image_desktop", "label": "Desktop hero (16x9)" },
     { "type": "image_picker", "id": "image_mobile", "label": "Mobile hero (4x5)" },
+    { "type": "header", "content": "Overlay text" },
+    { "type": "text", "id": "ghost", "label": "Ghost outline word", "default": "KOCK KROCH" },
+    { "type": "textarea", "id": "top_left", "label": "Top-left meta", "default": "DROP 013\nAW26 / INDIAN STREETWEAR" },
+    { "type": "textarea", "id": "top_right", "label": "Top-right meta", "default": "HEAVYWEIGHT\nBLACK TEES\nWITH TECHNICAL\nGRAPHICS" },
+    { "type": "text", "id": "line1", "label": "Headline line 1", "default": "WEAR" },
+    { "type": "text", "id": "line2", "label": "Headline line 2", "default": "THE" },
+    { "type": "text", "id": "line3", "label": "Headline line 3", "default": "BACK" },
+    { "type": "text", "id": "line4", "label": "Headline line 4", "default": "STORY." },
+    {
+      "type": "select",
+      "id": "accent_line",
+      "label": "Orange accent line",
+      "options": [
+        { "value": "line1", "label": "Line 1" },
+        { "value": "line2", "label": "Line 2" },
+        { "value": "line3", "label": "Line 3" },
+        { "value": "line4", "label": "Line 4" },
+        { "value": "none", "label": "None" }
+      ],
+      "default": "line3"
+    },
+    { "type": "textarea", "id": "sub", "label": "Supporting text", "default": "Oversized silhouettes. Heavyweight cotton. Technical graphics." },
+    { "type": "header", "content": "Buttons" },
     { "type": "text", "id": "primary_text", "label": "Primary CTA", "default": "SHOP NEW DROP →" },
     { "type": "url", "id": "primary_link", "label": "Primary link" },
     { "type": "text", "id": "secondary_text", "label": "Secondary CTA", "default": "EXPLORE LOOKBOOK" },

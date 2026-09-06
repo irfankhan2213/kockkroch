@@ -1,14 +1,14 @@
-{% comment %} KOCK KROCH — THE DROP IN THE WILD (community lookbook) {% endcomment %}
+{% comment %} KOCK KROCH — THE DROP IN THE WILD (community lookbook), editable {% endcomment %}
 <section id="k13-wild" class="k13-sec">
   <div class="k13-wrap">
     <div class="k13-wild__head k13-reveal">
-      <span class="k13-eyebrow">COMMUNITY LOOKBOOK</span>
-      <h2>THE DROP IN THE WILD.</h2>
-      <a href="https://instagram.com/" target="_blank" rel="noopener">@KOCKKROCH ON INSTAGRAM →</a>
+      <span class="k13-eyebrow">{{ section.settings.eyebrow | default: 'COMMUNITY LOOKBOOK' }}</span>
+      <h2>{{ section.settings.title | default: 'THE DROP IN THE WILD.' }}</h2>
+      <a href="{{ section.settings.handle_link | default: 'https://instagram.com/' }}" target="_blank" rel="noopener">{{ section.settings.handle_label | default: '@KOCKKROCH ON INSTAGRAM →' }}</a>
     </div>
     <div class="k13-wild__grid">
       {% for block in section.blocks %}
-        <a href="https://instagram.com/" target="_blank" rel="noopener" class="k13-wild__tile k13-reveal" {{ block.shopify_attributes }}>
+        <a href="{{ section.settings.handle_link | default: 'https://instagram.com/' }}" target="_blank" rel="noopener" class="k13-wild__tile k13-reveal" {{ block.shopify_attributes }}>
           {% if block.settings.image != blank %}
             <img src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.handle | escape }}" loading="lazy">
           {% else %}
@@ -26,6 +26,12 @@
   "name": "K13 Drop In The Wild",
   "tag": "section",
   "enabled_on": { "templates": ["*"] },
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "COMMUNITY LOOKBOOK" },
+    { "type": "text", "id": "title", "label": "Heading", "default": "THE DROP IN THE WILD." },
+    { "type": "text", "id": "handle_label", "label": "Handle link label", "default": "@KOCKKROCH ON INSTAGRAM →" },
+    { "type": "url", "id": "handle_link", "label": "Handle link" }
+  ],
   "blocks": [
     {
       "type": "look",

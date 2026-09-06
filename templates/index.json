@@ -65,7 +65,18 @@
     },
     "k13_trust": {
       "type": "k13-trust",
-      "settings": {}
+      "blocks": {
+        "perk_1": { "type": "perk", "settings": { "icon": "dispatch", "title": "FAST DISPATCH", "sub": "Ships in 24–48 hrs" } },
+        "perk_2": { "type": "perk", "settings": { "icon": "exchange", "title": "EASY EXCHANGE", "sub": "15-day easy exchange" } },
+        "perk_3": { "type": "perk", "settings": { "icon": "fit", "title": "HEAVYWEIGHT FIT", "sub": "280 GSM boxy cotton" } },
+        "perk_4": { "type": "perk", "settings": { "icon": "secure", "title": "SECURE CHECKOUT", "sub": "UPI, cards & COD" } }
+      },
+      "block_order": [
+        "perk_1",
+        "perk_2",
+        "perk_3",
+        "perk_4"
+      ]
     },
     "k13_wild": {
       "type": "k13-wild",
