@@ -1,19 +1,23 @@
 {% comment %}
-  KOCKKROCH (KOCX KROCH) — Drop Countdown & VIP Access
-  Fearless from Origin • Built to Survive
+  KOCKKROCH (KOCX KROCH) — Clean Luxury Drop Countdown & VIP Access
+  Fearless from Origin • Built to Survive • California
 {% endcomment %}
 
 <section class="kk-countdown-section" data-section-id="{{ section.id }}">
-  <div style="max-width: 800px; margin: 0 auto;">
-    <span class="kk-tag kk-tag--red">{{ section.settings.badge | default: '[SYSTEM PROTOCOL: NEXT RELEASE]' }}</span>
-    <h2 style="font-size: clamp(32px, 5vw, 54px); font-weight: 900; letter-spacing: -1.5px; text-transform: uppercase; margin: 16px 0 8px 0;">
+  <div style="max-width: 720px; margin: 0 auto;">
+    {% if section.settings.badge != blank %}
+      <span class="kk-tag kk-tag--red">{{ section.settings.badge }}</span>
+    {% endif %}
+    
+    <h2 style="font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -0.5px; text-transform: uppercase; margin: 16px 0 8px 0; color: var(--kk-white);">
       {{ section.settings.title | default: 'NEXT DROP COMMENCING' }}
     </h2>
-    <p style="color: var(--kk-muted); font-size: 15px;">
+    
+    <p style="color: var(--kk-muted); font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
       {{ section.settings.subtitle | default: 'Strictly limited edition. Once the batch sells out, it will never be reprinted. Subscribe for 1-hour VIP early access.' }}
     </p>
 
-    <!-- Countdown Timer -->
+    <!-- Clean Countdown Timer -->
     <div id="kk-timer-{{ section.id }}" class="kk-countdown-box" data-target="{{ section.settings.countdown_date | default: '2026-10-31T00:00:00' }}">
       <div class="kk-countdown-item">
         <div class="kk-countdown-num" id="kk-days-{{ section.id }}">08</div>
@@ -34,26 +38,28 @@
     </div>
 
     <!-- VIP Newsletter Access -->
-    {% form 'customer', class: 'kk-vip-form-wrap' %}
-      <input type="hidden" name="contact[tags]" value="vip_drop_access">
-      <div class="kk-vip-form">
-        <input
-          type="email"
-          name="contact[email]"
-          class="kk-vip-input"
-          placeholder="ENTER YOUR EMAIL FOR VIP PASS"
-          required
-        >
-        <button type="submit" class="kk-vip-submit">
-          <span>CLAIM ACCESS</span>
-        </button>
-      </div>
-      {% if form.posted_successfully? %}
-        <p style="color: #4ade80; font-size: 13px; margin-top: 12px; font-family: var(--kk-font-mono);">
-          ✓ VIP ACCESS CONFIRMED. WATCH YOUR INBOX BEFORE THE DROP.
-        </p>
-      {% endif %}
-    {% endform %}
+    <div class="kk-vip-form-wrap">
+      {% form 'customer', class: 'kk-vip-form-el' %}
+        <input type="hidden" name="contact[tags]" value="vip_drop_access">
+        <div class="kk-vip-form">
+          <input
+            type="email"
+            name="contact[email]"
+            class="kk-vip-input"
+            placeholder="ENTER YOUR EMAIL FOR VIP PASS"
+            required
+          >
+          <button type="submit" class="kk-vip-submit">
+            <span>CLAIM ACCESS</span>
+          </button>
+        </div>
+        {% if form.posted_successfully? %}
+          <p style="color: #4ade80; font-size: 12px; margin-top: 12px; letter-spacing: 1px;">
+            ✓ VIP ACCESS CONFIRMED. WATCH YOUR INBOX BEFORE THE DROP.
+          </p>
+        {% endif %}
+      {% endform %}
+    </div>
   </div>
 </section>
 
@@ -103,7 +109,7 @@
       "type": "text",
       "id": "badge",
       "label": "Badge Tag",
-      "default": "[SYSTEM PROTOCOL: NEXT RELEASE]"
+      "default": "LIMITED RELEASE"
     },
     {
       "type": "text",

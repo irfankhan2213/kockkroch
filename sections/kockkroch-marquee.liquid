@@ -1,30 +1,38 @@
 {% comment %}
-  KOCKKROCH (KOCX KROCH) — Kinetic Marquee Ticker
-  Fearless from Origin • Built to Survive
+  KOCKKROCH (KOCX KROCH) — Clean Kinetic Marquee Ticker
+  Fearless from Origin • Built to Survive • California
 {% endcomment %}
 
-<div class="kk-marquee-wrap" style="background-color: {{ section.settings.bg_color | default: '#050507' }};">
-  <div class="kk-marquee-track {% if section.settings.direction == 'right' %}kk-marquee-track--reverse{% endif %}" style="animation-duration: {{ section.settings.speed | default: 25 }}s;">
-    {% for i in (1..4) %}
+<div class="kk-marquee" style="background-color: {{ section.settings.bg_color | default: '#060608' }};">
+  <div class="kk-marquee__track" style="animation: {% if section.settings.direction == 'right' %}kkMarqueeRight{% else %}kkMarqueeLeft{% endif %} {{ section.settings.speed | default: 28 }}s linear infinite;">
+    <div class="kk-marquee__group">
       {% for block in section.blocks %}
-        <div class="kk-marquee-item" {{ block.shopify_attributes }}>
-          <span class="kk-hazard">✦</span>
-          <span>{{ block.settings.text }}</span>
-        </div>
+        <span class="kk-marquee__item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
       {% else %}
-        <div class="kk-marquee-item"><span class="kk-hazard">✦</span><span>FEARLESS FROM ORIGIN</span></div>
-        <div class="kk-marquee-item"><span class="kk-hazard">✦</span><span>BUILT TO SURVIVE</span></div>
-        <div class="kk-marquee-item"><span class="kk-hazard">✦</span><span>KOCX KROCH 013</span></div>
-        <div class="kk-marquee-item"><span class="kk-hazard">✦</span><span>HEAVYWEIGHT 280 GSM</span></div>
-        <div class="kk-marquee-item"><span class="kk-hazard">✦</span><span>CALIFORNIA ARCHIVE</span></div>
+        <span class="kk-marquee__item">FEARLESS FROM ORIGIN</span>
+        <span class="kk-marquee__item">BUILT TO SURVIVE</span>
+        <span class="kk-marquee__item">KOCX KROCH DROP 013</span>
+        <span class="kk-marquee__item">HEAVYWEIGHT 280 GSM</span>
+        <span class="kk-marquee__item">CALIFORNIA ARCHIVE</span>
       {% endfor %}
-    {% endfor %}
+    </div>
+    <div class="kk-marquee__group" aria-hidden="true">
+      {% for block in section.blocks %}
+        <span class="kk-marquee__item">{{ block.settings.text }}</span>
+      {% else %}
+        <span class="kk-marquee__item">FEARLESS FROM ORIGIN</span>
+        <span class="kk-marquee__item">BUILT TO SURVIVE</span>
+        <span class="kk-marquee__item">KOCX KROCH DROP 013</span>
+        <span class="kk-marquee__item">HEAVYWEIGHT 280 GSM</span>
+        <span class="kk-marquee__item">CALIFORNIA ARCHIVE</span>
+      {% endfor %}
+    </div>
   </div>
 </div>
 
 {% schema %}
 {
-  "name": "KOCKKROCH Kinetic Marquee",
+  "name": "KOCKKROCH Clean Marquee",
   "tag": "section",
   "class": "section-kockkroch-marquee",
   "settings": [
@@ -32,7 +40,7 @@
       "type": "color",
       "id": "bg_color",
       "label": "Background Color",
-      "default": "#050507"
+      "default": "#060608"
     },
     {
       "type": "select",
@@ -48,10 +56,10 @@
       "type": "range",
       "id": "speed",
       "label": "Scroll Duration (Seconds)",
-      "min": 10,
+      "min": 15,
       "max": 60,
-      "step": 5,
-      "default": 25
+      "step": 1,
+      "default": 28
     }
   ],
   "blocks": [
@@ -70,13 +78,13 @@
   ],
   "presets": [
     {
-      "name": "KOCKKROCH Kinetic Marquee",
+      "name": "KOCKKROCH Clean Marquee",
       "blocks": [
         { "type": "marquee_text", "settings": { "text": "FEARLESS FROM ORIGIN" } },
         { "type": "marquee_text", "settings": { "text": "BUILT TO SURVIVE" } },
         { "type": "marquee_text", "settings": { "text": "KOCX KROCH DROP 013" } },
         { "type": "marquee_text", "settings": { "text": "HEAVYWEIGHT FRENCH TERRY" } },
-        { "type": "marquee_text", "settings": { "text": "ANTI-CONFORMITY UNIFORM" } }
+        { "type": "marquee_text", "settings": { "text": "CALIFORNIA ARCHIVE" } }
       ]
     }
   ]
