@@ -13,7 +13,12 @@
         loading="eager"
       >
     {% else %}
-      <div class="kk-hero__bg-img" style="background: radial-gradient(circle at center, #FFFFFF 0%, #F5F5F8 100%);"></div>
+      <img
+        src="{{ 'kockkroch-hero-banner.webp' | asset_url }}"
+        alt="KOCKKROCH Editorial Campaign"
+        class="kk-hero__bg-img"
+        loading="eager"
+      >
     {% endif %}
     <div class="kk-hero__overlay"></div>
   </div>
