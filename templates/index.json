@@ -54,6 +54,29 @@
         "view_all_link": "/collections/all"
       }
     },
+    "kockkroch_banner": {
+      "type": "kockkroch-banner",
+      "settings": {
+        "eyebrow": "ARCHIVAL CAMPAIGN • DROP 013/014",
+        "badge_text": "LIMITED 150 EDITIONS",
+        "title_line_1": "PERPETUAL FORM &",
+        "title_highlight": "RAW STRUCTURE",
+        "description": "Every silhouette is mathematically cut from 450 GSM heavyweight loopback fleece and zero-torque combed cotton. Unyielding construction engineered to outlive the cycle of planned obsolescence.",
+        "show_specs": true,
+        "spec_1_label": "01 / TEXTILE SPEC",
+        "spec_1_val": "450 GSM HEAVYWEIGHT",
+        "spec_2_label": "02 / HARDWARE",
+        "spec_2_val": "YKK EXCELLA GUNMETAL",
+        "spec_3_label": "03 / PRODUCTION BATCH",
+        "spec_3_val": "150 HAND-NUMBERED UNITS",
+        "spec_4_label": "04 / LONGEVITY",
+        "spec_4_val": "PERPETUAL SURVIVAL",
+        "primary_btn_text": "SHOP THE CAPSULE",
+        "primary_btn_link": "/collections/all",
+        "secondary_btn_text": "EXPLORE THE LOOKBOOK",
+        "secondary_btn_link": "#kk-lookbook-section"
+      }
+    },
     "kockkroch_lookbook": {
       "type": "kockkroch-lookbook",
       "blocks": {
@@ -186,6 +209,7 @@
     "kockkroch_marquee_1",
     "kockkroch_categories",
     "kockkroch_products",
+    "kockkroch_banner",
     "kockkroch_lookbook",
     "kockkroch_craft",
     "kockkroch_manifesto",
