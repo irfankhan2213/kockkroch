@@ -73,14 +73,14 @@ img {
    GLOBAL UTILITIES & BUTTONS
    ========================================================================== */
 .kk-container {
-  max-width: 1560px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 28px;
 }
 
 @media (max-width: 768px) {
   .kk-container {
-    padding: 0 20px;
+    padding: 0 16px;
   }
 }
 
@@ -88,11 +88,11 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 8px;
+  padding: 3px 6px;
   background: var(--kk-surface-2);
   border: 1px solid var(--kk-border);
   color: var(--kk-muted);
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -103,10 +103,10 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 14px 28px;
+  gap: 6px;
+  padding: 10px 22px;
   font-family: var(--kk-font-sans);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -114,7 +114,7 @@ img {
   cursor: pointer;
   border-radius: 0;
   border: 1px solid transparent;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .kk-btn--primary {
@@ -164,36 +164,36 @@ img {
 
 /* Section Header */
 .kk-section-header {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   border-bottom: 1px solid var(--kk-border);
-  padding-bottom: 16px;
+  padding-bottom: 12px;
 }
 
 .kk-section-header__subtitle {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--kk-muted);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .kk-section-header__title {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--kk-text-primary);
   margin: 0;
 }
 
 .kk-section-header__link {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--kk-muted);
   transition: color 0.2s ease;
@@ -216,8 +216,8 @@ img {
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--kk-border);
   z-index: 999;
-  padding: 0 40px;
-  height: 68px;
+  padding: 0 28px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -225,28 +225,28 @@ img {
 
 @media (max-width: 768px) {
   .kk-nav {
-    padding: 0 20px;
-    height: 60px;
+    padding: 0 16px;
+    height: 48px;
   }
 }
 
 .kk-nav__brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
 }
 
 .kk-nav__logo-svg {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
 }
 
 .kk-nav__wordmark {
   font-family: var(--kk-font-sans);
-  font-size: 14px;
+  font-size: 12.5px;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #111111;
 }
@@ -254,7 +254,7 @@ img {
 .kk-nav__menu {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -267,9 +267,9 @@ img {
 }
 
 .kk-nav__link {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #55555E;
   transition: color 0.2s ease;
@@ -282,13 +282,13 @@ img {
 .kk-nav__actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .kk-nav__cart-btn {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #111111;
 }
@@ -299,8 +299,9 @@ img {
 .kk-hero {
   position: relative;
   width: 100%;
-  height: 85vh;
-  min-height: 560px;
+  height: 58vh;
+  min-height: 400px;
+  max-height: 540px;
   background-color: var(--kk-surface-2);
   overflow: hidden;
   display: flex;
@@ -317,13 +318,13 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 25%;
 }
 
 .kk-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.05) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.04) 50%, transparent 100%);
   z-index: 2;
 }
 
@@ -331,45 +332,45 @@ img {
   position: relative;
   z-index: 3;
   width: 100%;
-  padding-bottom: 60px;
+  padding-bottom: 36px;
 }
 
 .kk-hero__meta {
-  max-width: 600px;
+  max-width: 520px;
   color: #FFFFFF;
 }
 
 .kk-hero__badge {
   display: inline-block;
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .kk-hero__title {
-  font-size: clamp(28px, 4.5vw, 46px);
+  font-size: clamp(22px, 3.2vw, 32px);
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.15;
   text-transform: uppercase;
-  margin: 0 0 16px 0;
+  margin: 0 0 10px 0;
   color: #FFFFFF;
 }
 
 .kk-hero__desc {
-  font-size: 13px;
-  line-height: 1.6;
+  font-size: 12px;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.8);
-  margin: 0 0 28px 0;
-  max-width: 480px;
+  margin: 0 0 20px 0;
+  max-width: 440px;
 }
 
 .kk-hero__actions {
   display: flex;
-  gap: 12px;
+  gap: 10px;
 }
 
 /* ==========================================================================
@@ -482,10 +483,10 @@ img {
 }
 
 /* ==========================================================================
-   PRODUCT CATALOG GRID (Tall 2:3 Editorial Portrait)
+   PRODUCT CATALOG GRID (Compact Refined Archival Grid)
    ========================================================================== */
 .kk-catalog {
-  padding: 90px 0;
+  padding: 48px 0;
   background: #FFFFFF;
   border-top: 1px solid var(--kk-border);
 }
@@ -493,13 +494,13 @@ img {
 .kk-product-matrix {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px 24px;
+  gap: 20px 16px;
 }
 
 @media (max-width: 1100px) {
   .kk-product-matrix {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px 16px;
+    gap: 18px 12px;
   }
 }
 
@@ -519,10 +520,11 @@ img {
 .kk-prod-card__media {
   position: relative;
   width: 100%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 3 / 4;
+  max-height: 380px;
   background: var(--kk-surface-2);
   overflow: hidden;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .kk-prod-card__img {
@@ -530,7 +532,7 @@ img {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .kk-prod-card:hover .kk-prod-card__img {
@@ -544,13 +546,13 @@ img {
   right: 0;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
-  padding: 10px 12px;
+  padding: 6px 10px;
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   opacity: 0;
   transform: translateY(100%);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 2;
   border-top: 1px solid var(--kk-border);
 }
@@ -561,13 +563,13 @@ img {
 }
 
 .kk-prod-card__size-opt {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   color: var(--kk-text-primary);
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 4px 6px;
+  padding: 2px 4px;
   transition: color 0.15s ease;
 }
 
@@ -578,31 +580,31 @@ img {
 .kk-prod-card__info {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 
 .kk-prod-card__category {
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--kk-muted);
 }
 
 .kk-prod-card__title {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   color: var(--kk-text-primary);
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .kk-prod-card__price {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 400;
   color: var(--kk-muted);
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 /* ==========================================================================
@@ -670,29 +672,30 @@ img {
    ARCHIVAL LOOKBOOK SECTION (ssstein Editorial Gallery)
    ========================================================================== */
 .kk-editorial-lookbook {
-  padding: 100px 0;
+  padding: 48px 0;
   background: #FFFFFF;
   border-top: 1px solid var(--kk-border);
 }
 
 .kk-lookbook-row {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
   align-items: center;
 }
 
 @media (max-width: 900px) {
   .kk-lookbook-row {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
   }
 }
 
 .kk-lookbook-media {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 3;
+  max-height: 380px;
   background: var(--kk-surface-2);
   overflow: hidden;
 }
@@ -706,22 +709,22 @@ img {
 .kk-lookbook-details {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding-right: 20px;
+  gap: 16px;
+  padding-right: 12px;
 }
 
 .kk-lookbook-tag {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--kk-muted);
 }
 
 .kk-lookbook-heading {
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: clamp(20px, 2.5vw, 24px);
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--kk-text-primary);
   margin: 0;
@@ -729,25 +732,25 @@ img {
 }
 
 .kk-lookbook-copy {
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 12px;
+  line-height: 1.65;
   color: var(--kk-text-secondary);
   margin: 0;
 }
 
 .kk-lookbook-breakdown {
   border-top: 1px solid var(--kk-border);
-  padding-top: 20px;
+  padding-top: 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .kk-breakdown-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
+  font-size: 11.5px;
 }
 
 .kk-breakdown-title {
@@ -760,10 +763,10 @@ img {
 }
 
 /* ==========================================================================
-   ATELIER MONOGRAPH / PHILOSOPHY
+   ATELIER MONOGRAPH / PHILOSOPHY (Preserved Modular Section)
    ========================================================================== */
 .kk-monograph {
-  padding: 100px 0;
+  padding: 48px 0;
   background: var(--kk-bg-subtle);
   border-top: 1px solid var(--kk-border);
   border-bottom: 1px solid var(--kk-border);
@@ -772,14 +775,14 @@ img {
 .kk-monograph-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 40px;
   align-items: center;
 }
 
 @media (max-width: 860px) {
   .kk-monograph-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 24px;
   }
 }
 
@@ -787,6 +790,7 @@ img {
   position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
+  max-height: 360px;
   overflow: hidden;
   background: var(--kk-surface-2);
 }
@@ -800,29 +804,29 @@ img {
 .kk-monograph-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .kk-monograph-label {
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--kk-muted);
 }
 
 .kk-monograph-quote {
-  font-size: clamp(20px, 2.5vw, 26px);
+  font-size: clamp(18px, 2.2vw, 22px);
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.35;
   letter-spacing: -0.01em;
   color: var(--kk-text-primary);
   margin: 0;
 }
 
 .kk-monograph-body {
-  font-size: 13px;
-  line-height: 1.75;
+  font-size: 12px;
+  line-height: 1.7;
   color: var(--kk-text-secondary);
   margin: 0;
 }
@@ -830,9 +834,9 @@ img {
 .kk-monograph-signoff {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-top: 10px;
-  font-size: 11px;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -844,47 +848,48 @@ img {
    ========================================================================== */
 .kk-footer {
   background: #FFFFFF;
-  padding: 80px 0 40px 0;
+  padding: 44px 0 28px 0;
+  border-top: 1px solid var(--kk-border);
 }
 
 .kk-footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 40px;
-  margin-bottom: 60px;
+  gap: 32px;
+  margin-bottom: 32px;
 }
 
 @media (max-width: 900px) {
   .kk-footer-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: 24px;
   }
 }
 
 @media (max-width: 500px) {
   .kk-footer-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 20px;
   }
 }
 
 .kk-footer-col {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .kk-footer-heading {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #111111;
-  margin: 0 0 6px 0;
+  margin: 0 0 4px 0;
 }
 
 .kk-footer-link {
-  font-size: 12px;
+  font-size: 11.5px;
   color: var(--kk-muted);
   transition: color 0.2s ease;
 }
@@ -896,15 +901,15 @@ img {
 .kk-footer-newsletter-form {
   display: flex;
   border-bottom: 1px solid #111111;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .kk-footer-input {
   flex: 1;
   border: none;
   background: transparent;
-  padding: 8px 0;
-  font-size: 12px;
+  padding: 6px 0;
+  font-size: 11.5px;
   font-family: var(--kk-font-sans);
   color: #111111;
   outline: none;
@@ -913,29 +918,29 @@ img {
 .kk-footer-submit {
   background: transparent;
   border: none;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #111111;
   cursor: pointer;
-  padding: 8px 0 8px 12px;
+  padding: 6px 0 6px 10px;
 }
 
 .kk-footer-bottom {
   border-top: 1px solid var(--kk-border);
-  padding-top: 30px;
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--kk-dim);
 }
 
 @media (max-width: 600px) {
   .kk-footer-bottom {
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
     align-items: flex-start;
   }
 }

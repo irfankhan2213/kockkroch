@@ -62,11 +62,7 @@
   },
   "order": [
     "kockkroch_hero",
-    "kockkroch_marquee_1",
-    "kockkroch_categories",
     "kockkroch_products",
-    "kockkroch_banner",
-    "kockkroch_lookbook",
-    "kockkroch_manifesto"
+    "kockkroch_lookbook"
   ]
 }
