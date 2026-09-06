@@ -1,0 +1,44 @@
+{% comment %} KOCK KROCH — Duo campaign blocks: UNKILLABLE AESTHETIC / MADE TO RULE {% endcomment %}
+<section class="k13-duo">
+  <a href="{{ section.settings.link_a | default: '/collections/all' }}" class="k13-duo__cell">
+    {% if section.settings.image_a != blank %}
+      <img src="{{ section.settings.image_a | image_url: width: 1400 }}" alt="Unkillable Aesthetic" loading="lazy">
+    {% else %}
+      <img src="{{ 'kockkroch-lookbook-01.webp' | asset_url }}" alt="Unkillable Aesthetic" loading="lazy">
+    {% endif %}
+    <div class="k13-duo__copy">
+      <span class="rule" style="background:var(--k13-blue)"></span>
+      <h3>UNKILLABLE<br>AESTHETIC</h3>
+      <p>Black heavyweight tees with technical graphics. Built to outlast every trend cycle.</p>
+      <span class="k13-btn k13-btn--outline-w">SHOP THE DROP</span>
+    </div>
+  </a>
+  <a href="{{ section.settings.link_b | default: '/collections/all' }}" class="k13-duo__cell">
+    {% if section.settings.image_b != blank %}
+      <img src="{{ section.settings.image_b | image_url: width: 1400 }}" alt="Made To Rule" loading="lazy">
+    {% else %}
+      <img src="{{ 'kockkroch-editorial-cargo.webp' | asset_url }}" alt="Made To Rule" loading="lazy">
+    {% endif %}
+    <div class="k13-duo__copy">
+      <span class="rule" style="background:var(--k13-orange)"></span>
+      <h3>MADE TO<br>RULE</h3>
+      <p>Oversized fits, dense cotton, fearless cuts. Uniform for the new street order.</p>
+      <span class="k13-btn k13-btn--black">EXPLORE FITS</span>
+    </div>
+  </a>
+</section>
+
+{% schema %}
+{
+  "name": "K13 Duo Campaign",
+  "tag": "section",
+  "enabled_on": { "templates": ["*"] },
+  "settings": [
+    { "type": "image_picker", "id": "image_a", "label": "Left image" },
+    { "type": "url", "id": "link_a", "label": "Left link" },
+    { "type": "image_picker", "id": "image_b", "label": "Right image" },
+    { "type": "url", "id": "link_b", "label": "Right link" }
+  ],
+  "presets": [{ "name": "K13 Duo Campaign" }]
+}
+{% endschema %}

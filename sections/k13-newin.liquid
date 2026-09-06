@@ -1,0 +1,82 @@
+{% comment %} KOCK KROCH — NEW IN: 4-product grid, fabric/fit line, INR price, wishlist, quick add {% endcomment %}
+<section class="k13-sec">
+  <div class="k13-wrap">
+    <div class="k13-sec-head k13-reveal">
+      <div>
+        <span class="k13-eyebrow">LATEST ARRIVALS</span>
+        <h2>{{ section.settings.title | default: 'NEW IN' }}</h2>
+      </div>
+      <a class="k13-link" href="{{ section.settings.link | default: '/collections/all' }}">VIEW ALL →</a>
+    </div>
+    <div class="k13-grid">
+      {% assign coll = collections[section.settings.collection] %}
+      {% if coll != blank and coll.products.size > 0 %}
+        {% for product in coll.products limit: 4 %}
+          <div class="k13-card k13-reveal">
+            <a href="{{ product.url }}" class="k13-card__media">
+              {% if product.compare_at_price > product.price %}<span class="k13-tag">SAVE {{ product.compare_at_price | minus: product.price | money_without_trailing_zeros }}</span>{% endif %}
+              <button type="button" class="k13-heart" onclick="event.preventDefault();this.classList.toggle('is-on')" aria-label="Add to wishlist">♡</button>
+              <img src="{{ product.featured_image | image_url: width: 700 }}" alt="{{ product.title | escape }}" loading="lazy">
+              <span class="k13-quick">
+                {% for v in product.variants limit: 4 %}
+                  <button type="button" onclick="event.preventDefault();location.href='{{ product.url }}?variant={{ v.id }}'">{{ v.title }}</button>
+                {% endfor %}
+              </span>
+            </a>
+            <div class="k13-card__info">
+              <div class="k13-card__name"><a href="{{ product.url }}" style="color:inherit;text-decoration:none">{{ product.title | upcase }}</a></div>
+              <div class="k13-card__meta">{{ product.type | default: 'HEAVYWEIGHT' | upcase }} · {{ product.price | money_without_trailing_zeros }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        {% assign fb = 'UNKILLABLE TEE|280 GSM · OVERSIZED FIT|₹1,499|kockkroch-editorial-hoodie.webp|org,ROBOTIC BLUE TEE|280 GSM · OVERSIZED FIT|₹1,499|kockkroch-editorial-tee.webp|,MADE TO RULE TEE|280 GSM · OVERSIZED FIT|₹1,499|kockkroch-editorial-cargo.webp|org,GEOMETRY TEE|280 GSM · OVERSIZED FIT|₹1,499|kockkroch-editorial-overshirt.webp|' | split: ',' %}
+        {% for row in fb %}
+          {% assign f = row | split: '|' %}
+          <div class="k13-card k13-reveal">
+            <a href="/collections/all" class="k13-card__media">
+              {% if f[4] == 'org' %}<span class="k13-tag k13-tag--org">NEW DROP</span>{% else %}<span class="k13-tag">NEW IN</span>{% endif %}
+              <button type="button" class="k13-heart" onclick="event.preventDefault();this.classList.toggle('is-on')" aria-label="Add to wishlist">♡</button>
+              <img src="{{ f[3] | asset_url }}" alt="{{ f[0] }}" loading="lazy">
+              <span class="k13-quick">
+                <button type="button" onclick="event.preventDefault();location.href='/collections/all'">S</button>
+                <button type="button" onclick="event.preventDefault();location.href='/collections/all'">M</button>
+                <button type="button" onclick="event.preventDefault();location.href='/collections/all'">L</button>
+                <button type="button" onclick="event.preventDefault();location.href='/collections/all'">XL</button>
+              </span>
+            </a>
+            <div class="k13-card__info">
+              <div class="k13-card__name">{{ f[0] }}</div>
+              <div class="k13-card__meta">{{ f[1] }} · {{ f[2] }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.k13-reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('is-in'); }); return; }
+    var o = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); o.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    els.forEach(function (e) { o.observe(e); });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "K13 New In Grid",
+  "tag": "section",
+  "enabled_on": { "templates": ["*"] },
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "text", "id": "title", "label": "Title", "default": "NEW IN" },
+    { "type": "url", "id": "link", "label": "View-all link" }
+  ],
+  "presets": [{ "name": "K13 New In Grid" }]
+}
+{% endschema %}

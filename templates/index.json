@@ -9,64 +9,91 @@
  */
 {
   "sections": {
-    "mg_hero": {
-      "type": "mg-hero",
+    "k13_hero": {
+      "type": "k13-hero",
       "settings": {
-        "ship_msg": "FREE EXPRESS SHIPPING OVER $199",
-        "ghost": "KOCKKROCH",
-        "line1": "ADDICTED",
-        "line2": "TO FASHION.",
-        "year": "2026",
-        "season": "AW26",
-        "cta_text": "SHOP NOW"
+        "primary_text": "SHOP NEW DROP →",
+        "secondary_text": "EXPLORE LOOKBOOK"
       }
     },
-    "mg_cats": {
-      "type": "mg-cats",
+    "k13_cats": {
+      "type": "k13-cats",
+      "blocks": {
+        "cat_tees": {
+          "type": "cat",
+          "settings": {
+            "title": "TEES",
+            "sub": "Graphic-led, boxy fits.",
+            "cta": "SHOP TEES",
+            "fallback": "kockkroch-product-tee.webp"
+          }
+        },
+        "cat_hoodies": {
+          "type": "cat",
+          "settings": {
+            "title": "HOODIES",
+            "sub": "Warmth with weight.",
+            "cta": "SHOP HOODIES",
+            "fallback": "kockkroch-product-hoodie.webp"
+          }
+        },
+        "cat_new": {
+          "type": "cat",
+          "settings": {
+            "title": "NEW DROP",
+            "sub": "Latest limited pieces.",
+            "cta": "EXPLORE",
+            "fallback": "kockkroch-editorial-hoodie.webp"
+          }
+        }
+      },
+      "block_order": [
+        "cat_tees",
+        "cat_hoodies",
+        "cat_new"
+      ]
+    },
+    "k13_newin": {
+      "type": "k13-newin",
+      "settings": {
+        "title": "NEW IN"
+      }
+    },
+    "k13_duo": {
+      "type": "k13-duo",
       "settings": {}
     },
-    "mg_best": {
-      "type": "mg-products",
-      "settings": {
-        "title": "BEST OF KOCKKROCH"
-      }
-    },
-    "mg_drop": {
-      "type": "mg-drop",
-      "settings": {
-        "drop_no": "013",
-        "percent": 78,
-        "title_a": "ALMOST",
-        "title_b": "GONE.",
-        "date": "2026-10-31T00:00:00"
-      }
-    },
-    "mg_editorial": {
-      "type": "mg-editorial",
-      "settings": {
-        "eyebrow": "NEW SEASON — DROP 013",
-        "title_a": "BUILT TO",
-        "title_b": "SURVIVE.",
-        "copy": "Dense ring-spun cottons, bar-tacked stress points and boxy cuts that hold shape for years. Discover everything new and now.",
-        "cta": "EXPLORE COLLECTION"
-      }
-    },
-    "mg_perks": {
-      "type": "mg-perks",
+    "k13_trust": {
+      "type": "k13-trust",
       "settings": {}
     },
-    "mg_footer": {
-      "type": "mg-footer",
+    "k13_wild": {
+      "type": "k13-wild",
+      "blocks": {
+        "look_1": { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-product-tee.webp" } },
+        "look_2": { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-product-hoodie.webp" } },
+        "look_3": { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-lookbook-01.webp" } },
+        "look_4": { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-editorial-tee.webp" } }
+      },
+      "block_order": [
+        "look_1",
+        "look_2",
+        "look_3",
+        "look_4"
+      ]
+    },
+    "k13_footer": {
+      "type": "k13-footer",
       "settings": {}
     }
   },
   "order": [
-    "mg_hero",
-    "mg_cats",
-    "mg_best",
-    "mg_drop",
-    "mg_editorial",
-    "mg_perks",
-    "mg_footer"
+    "k13_hero",
+    "k13_cats",
+    "k13_newin",
+    "k13_duo",
+    "k13_trust",
+    "k13_wild",
+    "k13_footer"
   ]
 }

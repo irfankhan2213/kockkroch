@@ -1,0 +1,60 @@
+{% comment %} KOCK KROCH — DROP 013 campaign hero: announcement marquee + full-width image hero {% endcomment %}
+<div class="k13-announce" role="marquee" aria-label="Store messages">
+  <div class="k13-announce__track">
+    {% for i in (1..2) %}
+      <span>FREE SHIPPING OVER ₹999 <b>•</b> EASY 15-DAY EXCHANGE <b>•</b> DROP 013 IS LIVE <b>•</b> OVERSIZED FITS • HEAVYWEIGHT COTTON <b>•</b>&nbsp;</span>
+    {% endfor %}
+    {% for i in (1..2) %}
+      <span aria-hidden="true">FREE SHIPPING OVER ₹999 <b>•</b> EASY 15-DAY EXCHANGE <b>•</b> DROP 013 IS LIVE <b>•</b> OVERSIZED FITS • HEAVYWEIGHT COTTON <b>•</b>&nbsp;</span>
+    {% endfor %}
+  </div>
+</div>
+
+<section class="k13-hero">
+  <picture>
+    {% if section.settings.image_mobile != blank %}
+      <source media="(max-width: 768px)" srcset="{{ section.settings.image_mobile | image_url: width: 1200 }}">
+    {% else %}
+      <source media="(max-width: 768px)" srcset="{{ 'kockkroch-hero-banner.webp' | asset_url }}">
+    {% endif %}
+    {% if section.settings.image_desktop != blank %}
+      <img src="{{ section.settings.image_desktop | image_url: width: 2200 }}" alt="DROP 013 — UNKILLABLE AESTHETIC" class="k13-hero__img" loading="eager" fetchpriority="high">
+    {% else %}
+      <img src="{{ 'kockkroch-hero-banner.webp' | asset_url }}" alt="DROP 013 — UNKILLABLE AESTHETIC" class="k13-hero__img" loading="eager" fetchpriority="high">
+    {% endif %}
+  </picture>
+  <div class="k13-hero__shade"></div>
+  <div class="k13-hero__ghost" aria-hidden="true">KOCK KROCH</div>
+
+  <div class="k13-hero__in">
+    <div class="k13-hero__top">
+      <div>DROP 013<br>AW26 / INDIAN STREETWEAR</div>
+      <div class="k13-hero__top--right">HEAVYWEIGHT<br>BLACK TEES<br>WITH TECHNICAL<br>GRAPHICS</div>
+    </div>
+    <div>
+      <h1 class="k13-hero__title">WEAR<br>THE<br><span class="org">BACK</span><br>STORY.</h1>
+      <p class="k13-hero__sub">Oversized silhouettes. Heavyweight cotton. Technical graphics.</p>
+      <div class="k13-hero__ctas">
+        <a href="{{ section.settings.primary_link | default: '/collections/all' }}" class="k13-btn k13-btn--black">{{ section.settings.primary_text | default: 'SHOP NEW DROP →' }}</a>
+        <a href="{{ section.settings.secondary_link | default: '#k13-wild' }}" class="k13-btn k13-btn--outline-w">{{ section.settings.secondary_text | default: 'EXPLORE LOOKBOOK' }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "K13 Campaign Hero",
+  "tag": "section",
+  "enabled_on": { "templates": ["*"] },
+  "settings": [
+    { "type": "image_picker", "id": "image_desktop", "label": "Desktop hero (16x9)" },
+    { "type": "image_picker", "id": "image_mobile", "label": "Mobile hero (4x5)" },
+    { "type": "text", "id": "primary_text", "label": "Primary CTA", "default": "SHOP NEW DROP →" },
+    { "type": "url", "id": "primary_link", "label": "Primary link" },
+    { "type": "text", "id": "secondary_text", "label": "Secondary CTA", "default": "EXPLORE LOOKBOOK" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary link" }
+  ],
+  "presets": [{ "name": "K13 Campaign Hero" }]
+}
+{% endschema %}

@@ -299,6 +299,58 @@
               },
               "block_order": []
             },
+            "fit_note": {
+              "type": "text",
+              "name": "Fit note",
+              "settings": {
+                "text": "<div class=\"k13-pdp-note k13-pdp-note--fit\"><strong>FIT — BOXY / OVERSIZED.</strong> Cut wide through the body with a dropped shoulder. Take your usual size for the intended drape, size down for a regular fit.<table><tr><th>SIZE</th><th>CHEST</th><th>LENGTH</th></tr><tr><td>M</td><td>42\"</td><td>28\"</td></tr><tr><td>L</td><td>44\"</td><td>29\"</td></tr><tr><td>XL</td><td>46\"</td><td>30\"</td></tr></table></div>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "delivery_note": {
+              "type": "text",
+              "name": "Delivery note",
+              "settings": {
+                "text": "<div class=\"k13-pdp-note k13-pdp-note--ship\"><strong>FREE SHIPPING OVER ₹999</strong> · Dispatch in 24–48 hrs · <strong>15-DAY EASY EXCHANGE</strong> · COD available across India.</div>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "divider": {
               "type": "_divider",
               "name": "t:names.divider",
@@ -317,6 +369,32 @@
               "name": "t:names.product_description",
               "settings": {
                 "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "fabric_note": {
+              "type": "text",
+              "name": "Fabric note",
+              "settings": {
+                "text": "<div class=\"k13-pdp-note\"><strong>FABRIC & WASH CARE.</strong> 280 GSM heavyweight combed cotton, bio-washed for zero shrinkage. Machine wash cold, inside out. Do not bleach. Warm iron on reverse. Puff / HD prints — avoid direct ironing on graphic.</div>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -361,9 +439,12 @@
           "block_order": [
             "group",
             "variant_picker",
+            "fit_note",
             "buy_buttons",
+            "delivery_note",
             "divider",
             "text",
+            "fabric_note",
             "disclosures_6A79tk"
           ]
         }

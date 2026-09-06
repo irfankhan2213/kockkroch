@@ -1,0 +1,59 @@
+{% comment %} KOCK KROCH — Strong black footer {% endcomment %}
+<footer class="k13-footer">
+  <div class="k13-wrap">
+    <div class="k13-footer__word">KOCK <em>KROCH</em></div>
+    <div class="k13-footer__grid">
+      <div>
+        <h5>THE BRAND</h5>
+        <p>Fearless, technical streetwear from India. Oversized heavyweight tees with technical graphics — Drop 013: Unkillable Aesthetic.</p>
+        <a href="https://instagram.com/" target="_blank" rel="noopener">INSTAGRAM →</a>
+      </div>
+      <div>
+        <h5>SHOP</h5>
+        <a href="/collections/all">Tees</a>
+        <a href="/collections/all">Hoodies</a>
+        <a href="/collections/all">New Drop</a>
+        <a href="/collections/all">View All</a>
+      </div>
+      <div>
+        <h5>ABOUT</h5>
+        <a href="/pages/contact">Our Story</a>
+        <a href="#k13-wild">Lookbook</a>
+        <a href="/pages/contact">Stockists</a>
+        <a href="/pages/contact">Contact</a>
+      </div>
+      <div>
+        <h5>SUPPORT</h5>
+        <a href="/policies/shipping-policy">Shipping</a>
+        <a href="/policies/refund-policy">Returns & Exchange</a>
+        <a href="/policies/shipping-policy">Track Order</a>
+        <a href="/pages/contact">Size Guide</a>
+        <a href="/pages/contact">FAQ</a>
+      </div>
+      <div>
+        <h5>GET THE DROP FIRST</h5>
+        <p>New pieces, restocks and private sales. No spam.</p>
+        {% form 'customer' %}
+          <div class="k13-news">
+            <input type="email" name="contact[email]" placeholder="Email address" required aria-label="Email">
+            <button type="submit" aria-label="Subscribe">→</button>
+          </div>
+        {% endform %}
+      </div>
+    </div>
+    <div class="k13-footer__bottom">
+      <span>© 2026 KOCK KROCH. ALL RIGHTS RESERVED.</span>
+      <span>MADE IN INDIA • PRICES IN INR (₹)</span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "K13 Black Footer",
+  "tag": "section",
+  "enabled_on": { "templates": ["*"] },
+  "settings": [],
+  "presets": [{ "name": "K13 Black Footer" }]
+}
+{% endschema %}

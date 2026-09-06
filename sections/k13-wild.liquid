@@ -1,0 +1,52 @@
+{% comment %} KOCK KROCH — THE DROP IN THE WILD (community lookbook) {% endcomment %}
+<section id="k13-wild" class="k13-sec">
+  <div class="k13-wrap">
+    <div class="k13-wild__head k13-reveal">
+      <span class="k13-eyebrow">COMMUNITY LOOKBOOK</span>
+      <h2>THE DROP IN THE WILD.</h2>
+      <a href="https://instagram.com/" target="_blank" rel="noopener">@KOCKKROCH ON INSTAGRAM →</a>
+    </div>
+    <div class="k13-wild__grid">
+      {% for block in section.blocks %}
+        <a href="https://instagram.com/" target="_blank" rel="noopener" class="k13-wild__tile k13-reveal" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.handle | escape }}" loading="lazy">
+          {% else %}
+            <img src="{{ block.settings.fallback | default: 'kockkroch-product-tee.webp' | asset_url }}" alt="Community look" loading="lazy">
+          {% endif %}
+          <span class="k13-wild__tag">{{ block.settings.handle | default: '@kockkroch' }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "K13 Drop In The Wild",
+  "tag": "section",
+  "enabled_on": { "templates": ["*"] },
+  "blocks": [
+    {
+      "type": "look",
+      "name": "Community look",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "fallback", "label": "Fallback asset filename", "default": "kockkroch-product-tee.webp" },
+        { "type": "text", "id": "handle", "label": "Handle tag", "default": "@kockkroch" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "K13 Drop In The Wild",
+      "blocks": [
+        { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-product-tee.webp" } },
+        { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-product-hoodie.webp" } },
+        { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-lookbook-01.webp" } },
+        { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-editorial-tee.webp" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

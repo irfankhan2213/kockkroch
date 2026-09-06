@@ -68,14 +68,45 @@
 {
   "name": "MG Drop Urgency",
   "tag": "section",
-  "enabled_on": { "templates": ["*"] },
+  "enabled_on": {
+    "templates": [
+      "*"
+    ]
+  },
   "settings": [
-    { "type": "text", "id": "drop_no", "label": "Drop number", "default": "013" },
-    { "type": "range", "id": "percent", "label": "Percent claimed", "min": 10, "max": 99, "step": 1, "default": 78 },
-    { "type": "text", "id": "title_a", "label": "Title line 1", "default": "ALMOST" },
-    { "type": "text", "id": "title_b", "label": "Title line 2", "default": "GONE." },
-    { "type": "text", "id": "date", "label": "Countdown target ISO", "default": "2026-10-31T00:00:00" }
-  ],
-  "presets": [{ "name": "MG Drop Urgency" }]
+    {
+      "type": "text",
+      "id": "drop_no",
+      "label": "Drop number",
+      "default": "013"
+    },
+    {
+      "type": "range",
+      "id": "percent",
+      "label": "Percent claimed",
+      "min": 10,
+      "max": 99,
+      "step": 1,
+      "default": 78
+    },
+    {
+      "type": "text",
+      "id": "title_a",
+      "label": "Title line 1",
+      "default": "ALMOST"
+    },
+    {
+      "type": "text",
+      "id": "title_b",
+      "label": "Title line 2",
+      "default": "GONE."
+    },
+    {
+      "type": "text",
+      "id": "date",
+      "label": "Countdown target ISO",
+      "default": "2026-10-31T00:00:00"
+    }
+  ]
 }
 {% endschema %}
