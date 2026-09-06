@@ -47,9 +47,28 @@
 {
   "name": "KX Bone Vault",
   "settings": [
-    { "type": "text", "id": "drop", "label": "Next drop", "default": "014" },
-    { "type": "text", "id": "date", "label": "Target ISO", "default": "2026-10-31T00:00:00" }
+    {
+      "type": "text",
+      "id": "drop",
+      "label": "Next drop",
+      "default": "014"
+    },
+    {
+      "type": "text",
+      "id": "date",
+      "label": "Target ISO",
+      "default": "2026-10-31T00:00:00"
+    }
   ],
-  "presets": [{ "name": "KX Bone Vault" }]
+  "presets": [
+    {
+      "name": "KX Bone Vault"
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "*"
+    ]
+  }
 }
 {% endschema %}

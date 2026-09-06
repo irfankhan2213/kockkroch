@@ -68,14 +68,59 @@
   "name": "KX Bone Drop Grid",
   "tag": "section",
   "settings": [
-    { "type": "collection", "id": "collection", "label": "Collection" },
-    { "type": "text", "id": "subtitle", "label": "Eyebrow", "default": "DROP 013 — 13 PIECES ONLY" },
-    { "type": "text", "id": "title_top", "label": "Title", "default": "THE" },
-    { "type": "text", "id": "title_italic", "label": "Title italic", "default": "hot list" },
-    { "type": "text", "id": "link_text", "label": "Link", "default": "SHOP ALL →" },
-    { "type": "url", "id": "link", "label": "Link URL" },
-    { "type": "range", "id": "count", "label": "Products", "min": 4, "max": 8, "step": 4, "default": 4 }
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Eyebrow",
+      "default": "DROP 013 \u2014 13 PIECES ONLY"
+    },
+    {
+      "type": "text",
+      "id": "title_top",
+      "label": "Title",
+      "default": "THE"
+    },
+    {
+      "type": "text",
+      "id": "title_italic",
+      "label": "Title italic",
+      "default": "hot list"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link",
+      "default": "SHOP ALL \u2192"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link URL"
+    },
+    {
+      "type": "range",
+      "id": "count",
+      "label": "Products",
+      "min": 4,
+      "max": 8,
+      "step": 4,
+      "default": 4
+    }
   ],
-  "presets": [{ "name": "KX Bone Drop Grid" }]
+  "presets": [
+    {
+      "name": "KX Bone Drop Grid"
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "*"
+    ]
+  }
 }
 {% endschema %}

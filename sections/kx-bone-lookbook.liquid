@@ -50,4 +50,20 @@ document.addEventListener('DOMContentLoaded',function(){
   els.forEach(e=>o.observe(e));
 });
 </script>
-{% schema %}{ "name": "KX Bone Lookbook", "tag": "section", "settings": [], "presets": [{ "name": "KX Bone Lookbook" }] }{% endschema %}
+{% schema %}
+{
+  "name": "KX Bone Lookbook",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "KX Bone Lookbook"
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "*"
+    ]
+  }
+}
+{% endschema %}

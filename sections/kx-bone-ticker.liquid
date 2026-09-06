@@ -19,4 +19,20 @@
     {% endfor %}
   </div>
 </div>
-{% schema %}{ "name": "KX Bone Ticker", "tag": "section", "settings": [], "presets": [{ "name": "KX Bone Ticker" }] }{% endschema %}
+{% schema %}
+{
+  "name": "KX Bone Ticker",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "KX Bone Ticker"
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "*"
+    ]
+  }
+}
+{% endschema %}
