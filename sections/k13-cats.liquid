@@ -1,17 +1,17 @@
-{% comment %} KOCK KROCH — Black category strip: Tees / Hoodies / New Drop {% endcomment %}
+{% comment %} KOCK KROCH — Black category strip: 240 GSM / 180 GSM / 210 GSM {% endcomment %}
 <section class="k13-cats">
   <div class="k13-cats__grid">
     {% for block in section.blocks %}
       <a href="{{ block.settings.link | default: '/collections/all' }}" class="k13-cat" {{ block.shopify_attributes }}>
         {% if block.settings.image != blank %}
-          <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+          <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title | escape }}" loading="lazy">
         {% else %}
-          <img src="{{ block.settings.fallback | default: 'kockkroch-product-tee.webp' | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+          <img src="{{ block.settings.fallback | default: 'kockkroch-acid-wash-240gsm-front.png' | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy">
         {% endif %}
         <div>
           <h3>{{ block.settings.title }}</h3>
           <p>{{ block.settings.sub }}</p>
-          <span>{{ block.settings.cta }} →</span>
+          <span>{{ block.settings.cta | default: 'EXPLORE' }} →</span>
         </div>
       </a>
     {% endfor %}
@@ -29,10 +29,10 @@
       "name": "Category card",
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "fallback", "label": "Fallback asset filename", "default": "kockkroch-product-tee.webp" },
-        { "type": "text", "id": "title", "label": "Title", "default": "TEES" },
-        { "type": "text", "id": "sub", "label": "Subtitle", "default": "Graphic-led, boxy fits." },
-        { "type": "text", "id": "cta", "label": "Link label", "default": "SHOP TEES" },
+        { "type": "text", "id": "fallback", "label": "Fallback asset filename", "default": "kockkroch-acid-wash-240gsm-front.png" },
+        { "type": "text", "id": "title", "label": "Title", "default": "240 GSM ACID WASH" },
+        { "type": "text", "id": "sub", "label": "Subtitle", "default": "Brutalist Skyline & Exoskeleton." },
+        { "type": "text", "id": "cta", "label": "Link label", "default": "EXPLORE 240 GSM" },
         { "type": "url", "id": "link", "label": "Link" }
       ]
     }
@@ -41,9 +41,9 @@
     {
       "name": "K13 Category Strip",
       "blocks": [
-        { "type": "cat", "settings": { "title": "TEES", "sub": "Graphic-led, boxy fits.", "cta": "SHOP TEES", "fallback": "kockkroch-product-tee.webp" } },
-        { "type": "cat", "settings": { "title": "HOODIES", "sub": "Warmth with weight.", "cta": "SHOP HOODIES", "fallback": "kockkroch-product-hoodie.webp" } },
-        { "type": "cat", "settings": { "title": "NEW DROP", "sub": "Latest limited pieces.", "cta": "EXPLORE", "fallback": "kockkroch-editorial-hoodie.webp" } }
+        { "type": "cat", "settings": { "title": "240 GSM ACID WASH", "sub": "Brutalist Skyline & Exoskeleton.", "cta": "EXPLORE 240 GSM", "fallback": "kockkroch-acid-wash-240gsm-front.png", "link": "/products/kockkroch-acid-wash-240gsm-oversized-t-shirt" } },
+        { "type": "cat", "settings": { "title": "180 GSM JET BLACK", "sub": "Gangster Flying Slogan.", "cta": "EXPLORE 180 GSM", "fallback": "kockkroch-kok-f-180gsm-front.png", "link": "/products/kockkroch-kok-f-180gsm-oversized-t-shirt" } },
+        { "type": "cat", "settings": { "title": "210 GSM NUMERICAL", "sub": "Cryptographic Date Coordinate.", "cta": "EXPLORE 210 GSM", "fallback": "kockkroch-side-p-210gsm-front.png", "link": "/products/kockkroch-side-p-210gsm-oversized-t-shirt" } }
       ]
     }
   ]

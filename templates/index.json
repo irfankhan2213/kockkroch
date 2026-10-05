@@ -1,74 +1,84 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "k13_hero": {
       "type": "k13-hero",
       "settings": {
-        "primary_text": "SHOP NEW DROP →",
-        "secondary_text": "EXPLORE LOOKBOOK"
+        "primary_text": "SHOP DROP 013 →",
+        "primary_link": "#k13-newin",
+        "secondary_text": "EXPLORE LOOKBOOK",
+        "secondary_link": "#k13-wild"
       }
     },
     "k13_cats": {
       "type": "k13-cats",
       "blocks": {
-        "cat_tees": {
+        "cat_acid": {
           "type": "cat",
           "settings": {
-            "title": "TEES",
-            "sub": "Graphic-led, boxy fits.",
-            "cta": "SHOP TEES",
-            "fallback": "kockkroch-product-tee.webp"
+            "title": "240 GSM ACID WASH",
+            "sub": "Brutalist Skyline & Exoskeleton.",
+            "cta": "EXPLORE 240 GSM",
+            "fallback": "kockkroch-acid-wash-240gsm-front.png",
+            "link": "/products/kockkroch-acid-wash-240gsm-oversized-t-shirt"
           }
         },
-        "cat_hoodies": {
+        "cat_gangster": {
           "type": "cat",
           "settings": {
-            "title": "HOODIES",
-            "sub": "Warmth with weight.",
-            "cta": "SHOP HOODIES",
-            "fallback": "kockkroch-product-hoodie.webp"
+            "title": "180 GSM JET BLACK",
+            "sub": "Gangster Flying Slogan.",
+            "cta": "EXPLORE 180 GSM",
+            "fallback": "kockkroch-kok-f-180gsm-front.png",
+            "link": "/products/kockkroch-kok-f-180gsm-oversized-t-shirt"
           }
         },
-        "cat_new": {
+        "cat_numerical": {
           "type": "cat",
           "settings": {
-            "title": "NEW DROP",
-            "sub": "Latest limited pieces.",
-            "cta": "EXPLORE",
-            "fallback": "kockkroch-editorial-hoodie.webp"
+            "title": "210 GSM NUMERICAL",
+            "sub": "Cryptographic Date Coordinate.",
+            "cta": "EXPLORE 210 GSM",
+            "fallback": "kockkroch-side-p-210gsm-front.png",
+            "link": "/products/kockkroch-side-p-210gsm-oversized-t-shirt"
           }
         }
       },
       "block_order": [
-        "cat_tees",
-        "cat_hoodies",
-        "cat_new"
+        "cat_acid",
+        "cat_gangster",
+        "cat_numerical"
       ]
     },
     "k13_newin": {
       "type": "k13-newin",
       "settings": {
-        "title": "NEW IN"
+        "eyebrow": "FLAGSHIP STREETWEAR",
+        "title": "DROP 013 CAPSULE",
+        "link_text": "VIEW ALL (03) →",
+        "link": "/collections/all"
       }
     },
     "k13_duo": {
       "type": "k13-duo",
-      "settings": {}
+      "settings": {
+        "title_a": "STANDING OUT //\n240 GSM ACID WASH",
+        "copy_a": "Heavyweight 240 GSM combed cotton with mineral acid-wash finish and bio-mechanical cockroach exoskeleton back shield.",
+        "cta_a": "SHOP 240 GSM TEE →",
+        "link_a": "/products/kockkroch-acid-wash-240gsm-oversized-t-shirt",
+        "accent_a": "#2E9BFF",
+        "title_b": "GANGSTER FLYING //\n180 GSM OVERSIZED",
+        "copy_b": "Iconic statement piece: 'Everyone Is a Gangster Until The Kockkroch Start Flying.' with cryptographic Roman date III.XVI.MMXXVI.",
+        "cta_b": "SHOP 180 GSM TEE →",
+        "link_b": "/products/kockkroch-kok-f-180gsm-oversized-t-shirt",
+        "accent_b": "#F26B21"
+      }
     },
     "k13_trust": {
       "type": "k13-trust",
       "blocks": {
         "perk_1": { "type": "perk", "settings": { "icon": "dispatch", "title": "FAST DISPATCH", "sub": "Ships in 24–48 hrs" } },
-        "perk_2": { "type": "perk", "settings": { "icon": "exchange", "title": "EASY EXCHANGE", "sub": "15-day easy exchange" } },
-        "perk_3": { "type": "perk", "settings": { "icon": "fit", "title": "HEAVYWEIGHT FIT", "sub": "280 GSM boxy cotton" } },
+        "perk_2": { "type": "perk", "settings": { "icon": "exchange", "title": "EASY EXCHANGE", "sub": "15-day size exchange" } },
+        "perk_3": { "type": "perk", "settings": { "icon": "fit", "title": "HEAVYWEIGHT COTTON", "sub": "180–240 GSM dense cotton" } },
         "perk_4": { "type": "perk", "settings": { "icon": "secure", "title": "SECURE CHECKOUT", "sub": "UPI, cards & COD" } }
       },
       "block_order": [
@@ -80,11 +90,17 @@
     },
     "k13_wild": {
       "type": "k13-wild",
+      "settings": {
+        "eyebrow": "COMMUNITY LOOKBOOK",
+        "title": "THE DROP IN THE WILD.",
+        "handle_label": "@KOCKKROCH ON INSTAGRAM →",
+        "handle_link": "https://instagram.com/kockkroch"
+      },
       "blocks": {
-        "look_1": { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-product-tee.webp" } },
-        "look_2": { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-product-hoodie.webp" } },
-        "look_3": { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-lookbook-01.webp" } },
-        "look_4": { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-editorial-tee.webp" } }
+        "look_1": { "type": "look", "settings": { "handle": "@kockkroch • EXOSKELETON", "fallback": "kockkroch-acid-wash-240gsm-back.png" } },
+        "look_2": { "type": "look", "settings": { "handle": "@kockkroch • GANGSTER FLYING", "fallback": "kockkroch-kok-f-180gsm-detail.png" } },
+        "look_3": { "type": "look", "settings": { "handle": "@kockkroch • NUMERICAL CODE", "fallback": "kockkroch-side-p-210gsm-detail.png" } },
+        "look_4": { "type": "look", "settings": { "handle": "@kockkroch • SKYLINE ART", "fallback": "kockkroch-acid-wash-240gsm-detail.png" } }
       },
       "block_order": [
         "look_1",
@@ -95,7 +111,15 @@
     },
     "k13_footer": {
       "type": "k13-footer",
-      "settings": {}
+      "settings": {
+        "word_a": "KOCK",
+        "word_b": "KROCH",
+        "brand_heading": "THE BRAND",
+        "blurb": "Fearless, technical streetwear. Calibrated to survive. Drop 013: Standing out instead of fitting in.",
+        "insta_link": "https://instagram.com/kockkroch",
+        "bottom_left": "© 2026 KOCKKROCH. ALL RIGHTS RESERVED.",
+        "bottom_right": "PRICES IN INR (₹) • ALL TAXES INCLUDED"
+      }
     }
   },
   "order": [

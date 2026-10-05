@@ -4,15 +4,15 @@
     <div class="k13-wild__head k13-reveal">
       <span class="k13-eyebrow">{{ section.settings.eyebrow | default: 'COMMUNITY LOOKBOOK' }}</span>
       <h2>{{ section.settings.title | default: 'THE DROP IN THE WILD.' }}</h2>
-      <a href="{{ section.settings.handle_link | default: 'https://instagram.com/' }}" target="_blank" rel="noopener">{{ section.settings.handle_label | default: '@KOCKKROCH ON INSTAGRAM →' }}</a>
+      <a href="{{ section.settings.handle_link | default: 'https://instagram.com/kockkroch' }}" target="_blank" rel="noopener">{{ section.settings.handle_label | default: '@KOCKKROCH ON INSTAGRAM →' }}</a>
     </div>
     <div class="k13-wild__grid">
       {% for block in section.blocks %}
-        <a href="{{ section.settings.handle_link | default: 'https://instagram.com/' }}" target="_blank" rel="noopener" class="k13-wild__tile k13-reveal" {{ block.shopify_attributes }}>
+        <a href="{{ section.settings.handle_link | default: 'https://instagram.com/kockkroch' }}" target="_blank" rel="noopener" class="k13-wild__tile k13-reveal" {{ block.shopify_attributes }}>
           {% if block.settings.image != blank %}
             <img src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.handle | escape }}" loading="lazy">
           {% else %}
-            <img src="{{ block.settings.fallback | default: 'kockkroch-product-tee.webp' | asset_url }}" alt="Community look" loading="lazy">
+            <img src="{{ block.settings.fallback | default: 'kockkroch-acid-wash-240gsm-back.png' | asset_url }}" alt="Community look" loading="lazy">
           {% endif %}
           <span class="k13-wild__tag">{{ block.settings.handle | default: '@kockkroch' }}</span>
         </a>
@@ -38,7 +38,7 @@
       "name": "Community look",
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Photo" },
-        { "type": "text", "id": "fallback", "label": "Fallback asset filename", "default": "kockkroch-product-tee.webp" },
+        { "type": "text", "id": "fallback", "label": "Fallback asset filename", "default": "kockkroch-acid-wash-240gsm-back.png" },
         { "type": "text", "id": "handle", "label": "Handle tag", "default": "@kockkroch" }
       ]
     }
@@ -47,10 +47,10 @@
     {
       "name": "K13 Drop In The Wild",
       "blocks": [
-        { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-product-tee.webp" } },
-        { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-product-hoodie.webp" } },
-        { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-lookbook-01.webp" } },
-        { "type": "look", "settings": { "handle": "@kockkroch", "fallback": "kockkroch-editorial-tee.webp" } }
+        { "type": "look", "settings": { "handle": "@kockkroch • EXOSKELETON", "fallback": "kockkroch-acid-wash-240gsm-back.png" } },
+        { "type": "look", "settings": { "handle": "@kockkroch • GANGSTER FLYING", "fallback": "kockkroch-kok-f-180gsm-detail.png" } },
+        { "type": "look", "settings": { "handle": "@kockkroch • NUMERICAL CODE", "fallback": "kockkroch-side-p-210gsm-detail.png" } },
+        { "type": "look", "settings": { "handle": "@kockkroch • SKYLINE ART", "fallback": "kockkroch-acid-wash-240gsm-detail.png" } }
       ]
     }
   ]

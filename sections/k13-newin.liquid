@@ -1,14 +1,14 @@
 {% comment %} KOCK KROCH — NEW IN: 4-product grid, fabric/fit line, INR price, wishlist, quick add {% endcomment %}
-<section class="k13-sec">
+<section id="k13-newin" class="k13-sec">
   <div class="k13-wrap">
     <div class="k13-sec-head k13-reveal">
       <div>
         <span class="k13-eyebrow">{{ section.settings.eyebrow | default: 'LATEST ARRIVALS' }}</span>
-        <h2>{{ section.settings.title | default: 'NEW IN' }}</h2>
+        <h2>{{ section.settings.title | default: 'DROP 013 CAPSULE' }}</h2>
       </div>
-      <a class="k13-link" href="{{ section.settings.link | default: '/collections/all' }}">{{ section.settings.link_text | default: 'VIEW ALL →' }}</a>
+      <a class="k13-link" href="{{ section.settings.link | default: '/collections/all' }}">{{ section.settings.link_text | default: 'VIEW ALL (03) →' }}</a>
     </div>
-    <div class="k13-grid">
+    <div class="k13-grid k13-grid--3col">
       {% assign coll = collections[section.settings.collection] %}
       {% if coll != blank and coll.products.size > 0 %}
         {% for product in coll.products limit: 4 %}
@@ -16,7 +16,10 @@
             <a href="{{ product.url }}" class="k13-card__media">
               {% if product.compare_at_price > product.price %}<span class="k13-tag">SAVE {{ product.compare_at_price | minus: product.price | money_without_trailing_zeros }}</span>{% endif %}
               <button type="button" class="k13-heart" onclick="event.preventDefault();this.classList.toggle('is-on')" aria-label="Add to wishlist">♡</button>
-              <img src="{{ product.featured_image | image_url: width: 700 }}" alt="{{ product.title | escape }}" loading="lazy">
+              <img src="{{ product.featured_image | image_url: width: 700 }}" alt="{{ product.title | escape }}" loading="lazy" class="k13-card__front">
+              {% if product.images.size > 1 %}
+                <img src="{{ product.images[1] | image_url: width: 700 }}" alt="{{ product.title | escape }}" loading="lazy" class="k13-card__back">
+              {% endif %}
               <span class="k13-quick">
                 {% for v in product.variants limit: 4 %}
                   <button type="button" onclick="event.preventDefault();location.href='{{ product.url }}?variant={{ v.id }}'">{{ v.title }}</button>
@@ -25,29 +28,42 @@
             </a>
             <div class="k13-card__info">
               <div class="k13-card__name"><a href="{{ product.url }}" style="color:inherit;text-decoration:none">{{ product.title | upcase }}</a></div>
-              <div class="k13-card__meta">{{ product.type | default: 'HEAVYWEIGHT' | upcase }} · {{ product.price | money_without_trailing_zeros }}</div>
+              <div class="k13-card__meta">{{ product.type | default: 'HEAVYWEIGHT TEE' | upcase }} · {{ product.price | money_without_trailing_zeros }}</div>
             </div>
           </div>
         {% endfor %}
       {% else %}
-        {% assign fb = 'UNKILLABLE TEE|280 GSM · OVERSIZED FIT|₹1,499|kockkroch-editorial-hoodie.webp|org,ROBOTIC BLUE TEE|280 GSM · OVERSIZED FIT|₹1,499|kockkroch-editorial-tee.webp|,MADE TO RULE TEE|280 GSM · OVERSIZED FIT|₹1,499|kockkroch-editorial-cargo.webp|org,GEOMETRY TEE|280 GSM · OVERSIZED FIT|₹1,499|kockkroch-editorial-overshirt.webp|' | split: ',' %}
-        {% for row in fb %}
-          {% assign f = row | split: '|' %}
+        {% comment %} Flagship Drop 013 Authentic Products {% endcomment %}
+        {% assign flagship_products = 'kockkroch-acid-wash-240gsm-oversized-t-shirt|\'STANDING OUT\' ACID WASH TEE|240 GSM · MINERAL PATINA|₹2,499|₹3,499|kockkroch-acid-wash-240gsm-front.png|kockkroch-acid-wash-240gsm-back.png|NEW DROP|org,kockkroch-kok-f-180gsm-oversized-t-shirt|\'GANGSTER FLYING\' OVERSIZED TEE|180 GSM · MATTE JET BLACK|₹1,899|₹2,599|kockkroch-kok-f-180gsm-front.png|kockkroch-kok-f-180gsm-back.png|BESTSELLER|,kockkroch-side-p-210gsm-oversized-t-shirt|\'NUMERICAL CODE\' OVERSIZED TEE|210 GSM · COMPACT PURE COTTON|₹2,199|₹2,999|kockkroch-side-p-210gsm-front.png|kockkroch-side-p-210gsm-back.png|DROP 013|org' | split: ',' %}
+        {% for row in flagship_products %}
+          {% assign p = row | split: '|' %}
+          {% assign handle = p[0] %}
+          {% assign prod = all_products[handle] %}
+          {% assign prod_url = '/products/' | append: handle %}
+          {% if prod != blank %}
+            {% assign prod_url = prod.url %}
+          {% endif %}
           <div class="k13-card k13-reveal">
-            <a href="/collections/all" class="k13-card__media">
-              {% if f[4] == 'org' %}<span class="k13-tag k13-tag--org">NEW DROP</span>{% else %}<span class="k13-tag">NEW IN</span>{% endif %}
+            <a href="{{ prod_url }}" class="k13-card__media">
+              {% if p[8] == 'org' %}<span class="k13-tag k13-tag--org">{{ p[7] }}</span>{% else %}<span class="k13-tag">{{ p[7] }}</span>{% endif %}
               <button type="button" class="k13-heart" onclick="event.preventDefault();this.classList.toggle('is-on')" aria-label="Add to wishlist">♡</button>
-              <img src="{{ f[3] | asset_url }}" alt="{{ f[0] }}" loading="lazy">
+              <img src="{{ p[5] | asset_url }}" alt="{{ p[1] }}" loading="lazy" class="k13-card__front">
+              <img src="{{ p[6] | asset_url }}" alt="{{ p[1] }} Back Artwork" loading="lazy" class="k13-card__back">
               <span class="k13-quick">
-                <button type="button" onclick="event.preventDefault();location.href='/collections/all'">S</button>
-                <button type="button" onclick="event.preventDefault();location.href='/collections/all'">M</button>
-                <button type="button" onclick="event.preventDefault();location.href='/collections/all'">L</button>
-                <button type="button" onclick="event.preventDefault();location.href='/collections/all'">XL</button>
+                <button type="button" onclick="event.preventDefault();location.href='{{ prod_url }}'">S</button>
+                <button type="button" onclick="event.preventDefault();location.href='{{ prod_url }}'">M</button>
+                <button type="button" onclick="event.preventDefault();location.href='{{ prod_url }}'">L</button>
+                <button type="button" onclick="event.preventDefault();location.href='{{ prod_url }}'">XL</button>
               </span>
             </a>
             <div class="k13-card__info">
-              <div class="k13-card__name">{{ f[0] }}</div>
-              <div class="k13-card__meta">{{ f[1] }} · {{ f[2] }}</div>
+              <div class="k13-card__name"><a href="{{ prod_url }}" style="color:inherit;text-decoration:none">{{ p[1] }}</a></div>
+              <div class="k13-card__meta">
+                <span>{{ p[2] }}</span> · <strong>{{ p[3] }}</strong>
+                {% if p[4] != blank %}
+                  <span style="text-decoration:line-through;opacity:0.55;font-size:11px;margin-left:4px">{{ p[4] }}</span>
+                {% endif %}
+              </div>
             </div>
           </div>
         {% endfor %}

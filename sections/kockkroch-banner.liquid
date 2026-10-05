@@ -7,15 +7,15 @@
   {% if section.settings.image != blank %}
     <img src="{{ section.settings.image | image_url: width: 2200 }}" alt="{{ section.settings.title | escape }}" class="kk-campaign-banner__img" loading="lazy">
   {% else %}
-    <img src="{{ 'kockkroch-brand-atelier.webp' | asset_url }}" alt="Atelier Study" class="kk-campaign-banner__img" loading="lazy">
+    <img src="{{ 'kockkroch-hero-editorial.png' | asset_url }}" alt="Editorial Study" class="kk-campaign-banner__img" loading="lazy">
   {% endif %}
   <div class="kk-campaign-banner__overlay"></div>
 
   <div class="kk-container" style="width: 100%;">
     <div class="kk-campaign-banner__content">
-      <span class="kk-campaign-banner__label">{{ section.settings.label | default: 'ATELIER STUDY // AUTUMN WINTER 2026' }}</span>
+      <span class="kk-campaign-banner__label">{{ section.settings.label | default: 'DROP 013 // AUTUMN WINTER 2026' }}</span>
       <h2 class="kk-campaign-banner__title">{{ section.settings.title | default: 'FORM FOLLOWS SURVIVAL' }}</h2>
-      <a href="{{ section.settings.link | default: '#kk-lookbook-section' }}" class="kk-btn kk-btn--ghost-white">
+      <a href="{{ section.settings.link | default: '#k13-wild' }}" class="kk-btn kk-btn--ghost-white">
         {{ section.settings.btn_text | default: 'EXPLORE CAMPAIGN →' }}
       </a>
     </div>

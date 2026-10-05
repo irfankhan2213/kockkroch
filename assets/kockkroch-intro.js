@@ -7,7 +7,7 @@
   'use strict';
 
   const STORAGE_KEY = 'kockkroch_intro_seen';
-  const INTRO_DURATION_MS = 1800;
+  const INTRO_DURATION_MS = 1700;
 
   function initKockkrochIntro() {
     const introEl = document.getElementById('kockkroch-intro');
@@ -25,6 +25,14 @@
       return;
     }
 
+    // Dynamically harmonize background color to body so there is zero contrast or border
+    try {
+      const bodyBg = window.getComputedStyle(document.body).backgroundColor;
+      if (bodyBg && bodyBg !== 'transparent' && bodyBg !== 'rgba(0, 0, 0, 0)') {
+        introEl.style.backgroundColor = bodyBg;
+      }
+    } catch (e) {}
+
     document.body.classList.add('kockkroch-intro-active');
     let isExited = false;
 
@@ -36,6 +44,7 @@
         sessionStorage.setItem(STORAGE_KEY, 'true');
       } catch (e) {}
 
+      // Smooth atmospheric dissolve
       introEl.classList.add('kockkroch-intro--exiting');
       document.body.classList.remove('kockkroch-intro-active');
 
@@ -45,7 +54,7 @@
 
       setTimeout(function () {
         introEl.classList.add('kockkroch-intro--hidden');
-      }, 750);
+      }, 850);
     }
 
     setTimeout(completeIntro, INTRO_DURATION_MS);

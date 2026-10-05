@@ -14,7 +14,7 @@
       >
     {% else %}
       <img
-        src="{{ 'kockkroch-hero-banner.webp' | asset_url }}"
+        src="{{ 'kockkroch-hero-editorial.png' | asset_url }}"
         alt="KOCKKROCH Editorial Campaign"
         class="kk-hero__img"
         loading="eager"
@@ -26,16 +26,16 @@
   <div class="kk-hero__content">
     <div class="kk-container">
       <div class="kk-hero__meta">
-        <span class="kk-hero__badge">{{ section.settings.caption | default: 'COLLECTION 01 // AUTUMN WINTER 2026' }}</span>
+        <span class="kk-hero__badge">{{ section.settings.caption | default: 'DROP 013 // AUTUMN WINTER 2026' }}</span>
         <h1 class="kk-hero__title">{{ section.settings.title | default: 'ARCHIVAL SILHOUETTES' }}</h1>
         <p class="kk-hero__desc">
-          {{ section.settings.subtitle | default: 'Meticulous Japanese and American archival tailoring. Heavyweight ring-spun cottons, drop shoulders, and permanent structural integrity.' }}
+          {{ section.settings.subtitle | default: 'Meticulous technical tailoring. Heavyweight ring-spun cottons, drop shoulders, and permanent structural integrity.' }}
         </p>
         <div class="kk-hero__actions">
-          <a href="{{ section.settings.primary_btn_link | default: '#kk-catalog-section' }}" class="kk-btn kk-btn--white">
+          <a href="{{ section.settings.primary_btn_link | default: '#k13-newin' }}" class="kk-btn kk-btn--white">
             {{ section.settings.primary_btn_text | default: 'EXPLORE COLLECTION' }}
           </a>
-          <a href="{{ section.settings.secondary_btn_link | default: '#kk-lookbook-section' }}" class="kk-btn kk-btn--ghost-white">
+          <a href="{{ section.settings.secondary_btn_link | default: '#k13-wild' }}" class="kk-btn kk-btn--ghost-white">
             {{ section.settings.secondary_btn_text | default: 'VIEW LOOKBOOK' }}
           </a>
         </div>
