@@ -1,0 +1,8 @@
+=== OPTION 1: ARCHITECTURAL EDITORIAL (RECOMMENDED) ===
+High-fashion archival streetwear campaign banner, male model wearing a boxy oversized heavy-cotton jet black t-shirt, standing beside a minimalist brutalist concrete wall with subtle natural afternoon shadows. Clean composition, extensive negative space, muted tones, warm bone and desaturated charcoal color grading, 35mm fashion editorial film aesthetic, cinematic natural diffused light, understated luxury, ssstein and Rick Owens inspired lookbook photography, 8k resolution, ultra-detailed garment drape, no text, no logos --ar 16:9 --style raw --v 6.1
+
+=== OPTION 2: STUDIO MINIMALIST CYCLORAMA ===
+Minimalist luxury streetwear editorial banner, back view of model in an oversized heavyweight mineral-washed charcoal black t-shirt, subtle sculptural silhouette with dropped shoulders, standing against a seamless warm off-white #F4F2ED studio cyclorama background. Muted soft studio shadows, elegant negative space on the left half for typography, tactile combed cotton texture, calm monochromatic tone, high-end avant-garde Tokyo streetwear lookbook, hasselblad medium format photography, no clutter, no text --ar 16:9 --style raw --v 6.1
+
+=== OPTION 3: BRUTALIST MONOLITH ===
+Cinematic editorial banner for technical archival streetwear, full landscape composition, minimalist model in oversized matte black streetwear walking past monolithic raw concrete architecture and architectural stone steps. Soft atmospheric haze, muted neutral palette of warm stone, slate gray, and deep ink black, subtle geometric light and shadow interplay, expansive empty space for text layout, contemporary high-end fashion magazine cover style, clean and quiet luxury aesthetic --ar 16:9 --style raw --v 6.1
