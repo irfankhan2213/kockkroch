@@ -57,6 +57,7 @@ body {
 
 /* ---------- campaign hero ---------- */
 .k13-hero { position: relative; background: var(--k13-stone); overflow: clip; }
+.k13-hero__link { display: block; width: 100%; text-decoration: none; color: inherit; }
 .k13-hero picture, .k13-hero__img { display: block; width: 100%; }
 .k13-hero__img { height: clamp(560px, 88vh, 860px); object-fit: cover; object-position: center; }
 @media (max-width: 768px) { .k13-hero__img { height: 78vh; object-position: center 20%; } }

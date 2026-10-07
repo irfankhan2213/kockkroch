@@ -1,47 +1,115 @@
-{% comment %} KOCK KROCH — DROP 013 campaign hero: announcement marquee + full-width image hero {% endcomment %}
-{% assign msgs = section.settings.messages | default: 'FREE SHIPPING OVER ₹999 • EASY 15-DAY EXCHANGE|DROP 013 IS LIVE|OVERSIZED FITS • HEAVYWEIGHT COTTON' | split: '|' %}
-<div class="k13-announce" role="marquee" aria-label="Store messages">
-  <div class="k13-announce__track">
-    {% for i in (1..2) %}
-      <span>{% for m in msgs %}{{ m | strip }}{% unless forloop.last %} <b>•</b> {% endunless %}{% endfor %} <b>•</b>&nbsp;</span>
-    {% endfor %}
-    {% for i in (1..2) %}
-      <span aria-hidden="true">{% for m in msgs %}{{ m | strip }}{% unless forloop.last %} <b>•</b> {% endunless %}{% endfor %} <b>•</b>&nbsp;</span>
-    {% endfor %}
+{% comment %} KOCK KROCH — Campaign Hero: full-width image hero + optional announcement & overlays {% endcomment %}
+{% if section.settings.messages != blank %}
+  {% assign msgs = section.settings.messages | split: '|' %}
+  <div class="k13-announce" role="marquee" aria-label="Store messages">
+    <div class="k13-announce__track">
+      {% for i in (1..2) %}
+        <span>{% for m in msgs %}{{ m | strip }}{% unless forloop.last %} <b>•</b> {% endunless %}{% endfor %} <b>•</b>&nbsp;</span>
+      {% endfor %}
+      {% for i in (1..2) %}
+        <span aria-hidden="true">{% for m in msgs %}{{ m | strip }}{% unless forloop.last %} <b>•</b> {% endunless %}{% endfor %} <b>•</b>&nbsp;</span>
+      {% endfor %}
+    </div>
   </div>
-</div>
+{% endif %}
 
-{% assign accent = section.settings.accent_line | default: 'line3' %}
+{% assign has_top = false %}
+{% if section.settings.top_left != blank or section.settings.top_right != blank %}
+  {% assign has_top = true %}
+{% endif %}
+
+{% assign has_title = false %}
+{% for n in (1..4) %}
+  {% capture key %}line{{ n }}{% endcapture %}
+  {% if section.settings[key] != blank %}
+    {% assign has_title = true %}
+  {% endif %}
+{% endfor %}
+
+{% assign has_ctas = false %}
+{% if section.settings.primary_text != blank or section.settings.secondary_text != blank %}
+  {% assign has_ctas = true %}
+{% endif %}
+
+{% assign has_overlay = false %}
+{% if section.settings.ghost != blank or has_top or has_title or section.settings.sub != blank or has_ctas %}
+  {% assign has_overlay = true %}
+{% endif %}
+
+{% assign accent = section.settings.accent_line | default: 'none' %}
 <section class="k13-hero">
+  {% if section.settings.hero_link != blank %}
+    <a href="{{ section.settings.hero_link }}" class="k13-hero__link" aria-label="{{ shop.name }}">
+  {% endif %}
+
   <picture>
     {% if section.settings.image_mobile != blank %}
       <source media="(max-width: 768px)" srcset="{{ section.settings.image_mobile | image_url: width: 1200 }}">
+    {% elsif section.settings.image_desktop != blank %}
+      <source media="(max-width: 768px)" srcset="{{ section.settings.image_desktop | image_url: width: 1200 }}">
     {% else %}
       <source media="(max-width: 768px)" srcset="{{ 'kockkroch-hero-editorial.png' | asset_url }}">
     {% endif %}
     {% if section.settings.image_desktop != blank %}
-      <img src="{{ section.settings.image_desktop | image_url: width: 2200 }}" alt="{{ section.settings.line1 | default: 'WEAR' }} {{ section.settings.line4 | default: 'STORY' }}" class="k13-hero__img" loading="eager" fetchpriority="high">
+      <img src="{{ section.settings.image_desktop | image_url: width: 2200 }}" alt="{{ section.settings.image_desktop.alt | default: shop.name | escape }}" class="k13-hero__img" loading="eager" fetchpriority="high">
     {% else %}
-      <img src="{{ 'kockkroch-hero-editorial.png' | asset_url }}" alt="{{ section.settings.line1 | default: 'WEAR' }} {{ section.settings.line4 | default: 'STORY' }}" class="k13-hero__img" loading="eager" fetchpriority="high">
+      <img src="{{ 'kockkroch-hero-editorial.png' | asset_url }}" alt="{{ shop.name }}" class="k13-hero__img" loading="eager" fetchpriority="high">
     {% endif %}
   </picture>
-  <div class="k13-hero__shade"></div>
-  <div class="k13-hero__ghost" aria-hidden="true">{{ section.settings.ghost | default: 'KOCK KROCH' }}</div>
 
-  <div class="k13-hero__in">
-    <div class="k13-hero__top">
-      <div>{{ section.settings.top_left | default: 'DROP 013\nAW26 / INDIAN STREETWEAR' | newline_to_br }}</div>
-      <div class="k13-hero__top--right">{{ section.settings.top_right | default: 'HEAVYWEIGHT\nBLACK TEES\nWITH TECHNICAL\nGRAPHICS' | newline_to_br }}</div>
-    </div>
-    <div>
-      <h1 class="k13-hero__title">{% for n in (1..4) %}{% capture key %}line{{ n }}{% endcapture %}{% assign ln = section.settings[key] %}{% if ln != blank %}{% if key == accent %}<span class="org">{{ ln }}</span><br>{% else %}{{ ln }}<br>{% endif %}{% endif %}{% endfor %}</h1>
-      <p class="k13-hero__sub">{{ section.settings.sub | default: 'Oversized silhouettes. Heavyweight cotton. Technical graphics.' }}</p>
-      <div class="k13-hero__ctas">
-        <a href="{{ section.settings.primary_link | default: '#k13-newin' }}" class="k13-btn k13-btn--black">{{ section.settings.primary_text | default: 'SHOP DROP 013 →' }}</a>
-        <a href="{{ section.settings.secondary_link | default: '#k13-wild' }}" class="k13-btn k13-btn--outline-w">{{ section.settings.secondary_text | default: 'EXPLORE LOOKBOOK' }}</a>
+  {% if section.settings.hero_link != blank %}
+    </a>
+  {% endif %}
+
+  {% if section.settings.enable_shade %}
+    <div class="k13-hero__shade"></div>
+  {% endif %}
+
+  {% if section.settings.ghost != blank %}
+    <div class="k13-hero__ghost" aria-hidden="true">{{ section.settings.ghost }}</div>
+  {% endif %}
+
+  {% if has_overlay %}
+    <div class="k13-hero__in">
+      {% if has_top %}
+        <div class="k13-hero__top">
+          {% if section.settings.top_left != blank %}<div>{{ section.settings.top_left | newline_to_br }}</div>{% endif %}
+          {% if section.settings.top_right != blank %}<div class="k13-hero__top--right">{{ section.settings.top_right | newline_to_br }}</div>{% endif %}
+        </div>
+      {% else %}
+        <div></div>
+      {% endif %}
+
+      <div>
+        {% if has_title %}
+          <h1 class="k13-hero__title">
+            {%- for n in (1..4) -%}
+              {%- capture key -%}line{{ n }}{%- endcapture -%}
+              {%- assign ln = section.settings[key] -%}
+              {%- if ln != blank -%}
+                {%- if key == accent -%}<span class="org">{{ ln }}</span><br>{%- else -%}{{ ln }}<br>{%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </h1>
+        {% endif %}
+
+        {% if section.settings.sub != blank %}
+          <p class="k13-hero__sub">{{ section.settings.sub }}</p>
+        {% endif %}
+
+        {% if has_ctas %}
+          <div class="k13-hero__ctas">
+            {% if section.settings.primary_text != blank %}
+              <a href="{{ section.settings.primary_link | default: '#' }}" class="k13-btn k13-btn--black">{{ section.settings.primary_text }}</a>
+            {% endif %}
+            {% if section.settings.secondary_text != blank %}
+              <a href="{{ section.settings.secondary_link | default: '#' }}" class="k13-btn k13-btn--outline-w">{{ section.settings.secondary_text }}</a>
+            {% endif %}
+          </div>
+        {% endif %}
       </div>
     </div>
-  </div>
+  {% endif %}
 </section>
 
 {% schema %}
@@ -51,18 +119,20 @@
   "enabled_on": { "templates": ["*"] },
   "settings": [
     { "type": "header", "content": "Announcement bar" },
-    { "type": "textarea", "id": "messages", "label": "Messages (separate with | )", "default": "FREE SHIPPING OVER ₹999 • EASY 15-DAY EXCHANGE|DROP 013 IS LIVE|OVERSIZED FITS • HEAVYWEIGHT COTTON" },
-    { "type": "header", "content": "Images" },
+    { "type": "textarea", "id": "messages", "label": "Messages (separate with | )" },
+    { "type": "header", "content": "Images & Link" },
     { "type": "image_picker", "id": "image_desktop", "label": "Desktop hero (16x9)" },
     { "type": "image_picker", "id": "image_mobile", "label": "Mobile hero (4x5)" },
-    { "type": "header", "content": "Overlay text" },
-    { "type": "text", "id": "ghost", "label": "Ghost outline word", "default": "KOCK KROCH" },
-    { "type": "textarea", "id": "top_left", "label": "Top-left meta", "default": "DROP 013\nAW26 / INDIAN STREETWEAR" },
-    { "type": "textarea", "id": "top_right", "label": "Top-right meta", "default": "HEAVYWEIGHT\nBLACK TEES\nWITH TECHNICAL\nGRAPHICS" },
-    { "type": "text", "id": "line1", "label": "Headline line 1", "default": "WEAR" },
-    { "type": "text", "id": "line2", "label": "Headline line 2", "default": "THE" },
-    { "type": "text", "id": "line3", "label": "Headline line 3", "default": "BACK" },
-    { "type": "text", "id": "line4", "label": "Headline line 4", "default": "STORY." },
+    { "type": "url", "id": "hero_link", "label": "Banner link (optional)" },
+    { "type": "checkbox", "id": "enable_shade", "label": "Enable dark overlay gradient", "default": false },
+    { "type": "header", "content": "Overlay text (leave blank for clean banner)" },
+    { "type": "text", "id": "ghost", "label": "Ghost outline word" },
+    { "type": "textarea", "id": "top_left", "label": "Top-left meta" },
+    { "type": "textarea", "id": "top_right", "label": "Top-right meta" },
+    { "type": "text", "id": "line1", "label": "Headline line 1" },
+    { "type": "text", "id": "line2", "label": "Headline line 2" },
+    { "type": "text", "id": "line3", "label": "Headline line 3" },
+    { "type": "text", "id": "line4", "label": "Headline line 4" },
     {
       "type": "select",
       "id": "accent_line",
@@ -74,13 +144,13 @@
         { "value": "line4", "label": "Line 4" },
         { "value": "none", "label": "None" }
       ],
-      "default": "line3"
+      "default": "none"
     },
-    { "type": "textarea", "id": "sub", "label": "Supporting text", "default": "Oversized silhouettes. Heavyweight cotton. Technical graphics." },
+    { "type": "textarea", "id": "sub", "label": "Supporting text" },
     { "type": "header", "content": "Buttons" },
-    { "type": "text", "id": "primary_text", "label": "Primary CTA", "default": "SHOP NEW DROP →" },
+    { "type": "text", "id": "primary_text", "label": "Primary CTA" },
     { "type": "url", "id": "primary_link", "label": "Primary link" },
-    { "type": "text", "id": "secondary_text", "label": "Secondary CTA", "default": "EXPLORE LOOKBOOK" },
+    { "type": "text", "id": "secondary_text", "label": "Secondary CTA" },
     { "type": "url", "id": "secondary_link", "label": "Secondary link" }
   ],
   "presets": [{ "name": "K13 Campaign Hero" }]
