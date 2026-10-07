@@ -1,11 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "k13_hero": {
       "type": "k13-hero",
       "settings": {
-        "primary_text": "SHOP DROP 013 →",
+        "messages": "FREE SHIPPING OVER ₹999 • EASY 15-DAY EXCHANGE|DROP 013 IS LIVE|OVERSIZED FITS • HEAVYWEIGHT COTTON",
+        "ghost": "",
+        "top_left": "",
+        "top_right": "",
+        "line1": "",
+        "line2": "",
+        "line3": "",
+        "line4": "",
+        "accent_line": "line3",
+        "sub": "",
+        "primary_text": "",
         "primary_link": "#k13-newin",
-        "secondary_text": "EXPLORE LOOKBOOK",
+        "secondary_text": "",
         "secondary_link": "#k13-wild"
       }
     },
@@ -15,30 +34,30 @@
         "cat_acid": {
           "type": "cat",
           "settings": {
+            "fallback": "kockkroch-acid-wash-240gsm-front.png",
             "title": "240 GSM ACID WASH",
             "sub": "Brutalist Skyline & Exoskeleton.",
             "cta": "EXPLORE 240 GSM",
-            "fallback": "kockkroch-acid-wash-240gsm-front.png",
             "link": "/collections/all"
           }
         },
         "cat_gangster": {
           "type": "cat",
           "settings": {
+            "fallback": "kockkroch-kok-f-180gsm-front.png",
             "title": "180 GSM JET BLACK",
             "sub": "Gangster Flying Slogan.",
             "cta": "EXPLORE 180 GSM",
-            "fallback": "kockkroch-kok-f-180gsm-front.png",
             "link": "/collections/all"
           }
         },
         "cat_numerical": {
           "type": "cat",
           "settings": {
+            "fallback": "kockkroch-side-p-210gsm-front.png",
             "title": "210 GSM NUMERICAL",
             "sub": "Cryptographic Date Coordinate.",
             "cta": "EXPLORE 210 GSM",
-            "fallback": "kockkroch-side-p-210gsm-front.png",
             "link": "/collections/all"
           }
         }
@@ -47,11 +66,13 @@
         "cat_acid",
         "cat_gangster",
         "cat_numerical"
-      ]
+      ],
+      "settings": {}
     },
     "k13_newin": {
       "type": "k13-newin",
       "settings": {
+        "collection": "",
         "eyebrow": "FLAGSHIP STREETWEAR",
         "title": "DROP 013 CAPSULE",
         "link_text": "VIEW ALL →",
@@ -61,65 +82,102 @@
     "k13_duo": {
       "type": "k13-duo",
       "settings": {
-        "title_a": "STANDING OUT //\n240 GSM ACID WASH",
-        "copy_a": "Heavyweight 240 GSM combed cotton with mineral acid-wash finish and bio-mechanical cockroach exoskeleton back shield.",
-        "cta_a": "EXPLORE COLLECTION →",
         "link_a": "/collections/all",
-        "accent_a": "#2E9BFF",
-        "title_b": "GANGSTER FLYING //\n180 GSM OVERSIZED",
-        "copy_b": "Iconic statement piece: 'Everyone Is a Gangster Until The Kockkroch Start Flying.' with cryptographic Roman date III.XVI.MMXXVI.",
-        "cta_b": "EXPLORE COLLECTION →",
-        "link_b": "/collections/all",
-        "accent_b": "#F26B21"
+        "link_b": "/collections/all"
       }
     },
     "k13_trust": {
       "type": "k13-trust",
       "blocks": {
-        "perk_1": { "type": "perk", "settings": { "icon": "dispatch", "title": "FAST DISPATCH", "sub": "Ships in 24–48 hrs" } },
-        "perk_2": { "type": "perk", "settings": { "icon": "exchange", "title": "EASY EXCHANGE", "sub": "15-day size exchange" } },
-        "perk_3": { "type": "perk", "settings": { "icon": "fit", "title": "HEAVYWEIGHT COTTON", "sub": "180–240 GSM dense cotton" } },
-        "perk_4": { "type": "perk", "settings": { "icon": "secure", "title": "SECURE CHECKOUT", "sub": "UPI, cards & COD" } }
+        "perk_1": {
+          "type": "perk",
+          "settings": {
+            "icon": "dispatch",
+            "title": "FAST DISPATCH",
+            "sub": "Ships in 24–48 hrs"
+          }
+        },
+        "perk_2": {
+          "type": "perk",
+          "settings": {
+            "icon": "exchange",
+            "title": "EASY EXCHANGE",
+            "sub": "15-day size exchange"
+          }
+        },
+        "perk_3": {
+          "type": "perk",
+          "settings": {
+            "icon": "fit",
+            "title": "HEAVYWEIGHT COTTON",
+            "sub": "180–240 GSM dense cotton"
+          }
+        },
+        "perk_4": {
+          "type": "perk",
+          "settings": {
+            "icon": "secure",
+            "title": "SECURE CHECKOUT",
+            "sub": "UPI, cards & COD"
+          }
+        }
       },
       "block_order": [
         "perk_1",
         "perk_2",
         "perk_3",
         "perk_4"
-      ]
+      ],
+      "settings": {}
     },
     "k13_wild": {
       "type": "k13-wild",
-      "settings": {
-        "eyebrow": "COMMUNITY LOOKBOOK",
-        "title": "THE DROP IN THE WILD.",
-        "handle_label": "@KOCKKROCH ON INSTAGRAM →",
-        "handle_link": "https://instagram.com/kockkroch"
-      },
       "blocks": {
-        "look_1": { "type": "look", "settings": { "handle": "@kockkroch • EXOSKELETON", "fallback": "kockkroch-acid-wash-240gsm-back.png" } },
-        "look_2": { "type": "look", "settings": { "handle": "@kockkroch • GANGSTER FLYING", "fallback": "kockkroch-kok-f-180gsm-detail.png" } },
-        "look_3": { "type": "look", "settings": { "handle": "@kockkroch • NUMERICAL CODE", "fallback": "kockkroch-side-p-210gsm-detail.png" } },
-        "look_4": { "type": "look", "settings": { "handle": "@kockkroch • SKYLINE ART", "fallback": "kockkroch-acid-wash-240gsm-detail.png" } }
+        "look_1": {
+          "type": "look",
+          "settings": {
+            "fallback": "kockkroch-acid-wash-240gsm-back.png",
+            "handle": "@kockkroch • EXOSKELETON"
+          }
+        },
+        "look_2": {
+          "type": "look",
+          "settings": {
+            "fallback": "kockkroch-kok-f-180gsm-detail.png",
+            "handle": "@kockkroch • GANGSTER FLYING"
+          }
+        },
+        "look_3": {
+          "type": "look",
+          "settings": {
+            "fallback": "kockkroch-side-p-210gsm-detail.png",
+            "handle": "@kockkroch • NUMERICAL CODE"
+          }
+        },
+        "look_4": {
+          "type": "look",
+          "settings": {
+            "fallback": "kockkroch-acid-wash-240gsm-detail.png",
+            "handle": "@kockkroch • SKYLINE ART"
+          }
+        }
       },
       "block_order": [
         "look_1",
         "look_2",
         "look_3",
         "look_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "COMMUNITY LOOKBOOK",
+        "title": "THE DROP IN THE WILD.",
+        "handle_label": "@KOCKKROCH ON INSTAGRAM →",
+        "handle_link": "https://instagram.com/kockkroch"
+      }
     },
     "k13_footer": {
       "type": "k13-footer",
-      "settings": {
-        "word_a": "KOCK",
-        "word_b": "KROCH",
-        "brand_heading": "THE BRAND",
-        "blurb": "Fearless, technical streetwear. Calibrated to survive. Drop 013: Standing out instead of fitting in.",
-        "insta_link": "https://instagram.com/kockkroch",
-        "bottom_left": "© 2026 KOCKKROCH. ALL RIGHTS RESERVED.",
-        "bottom_right": "PRICES IN INR (₹) • ALL TAXES INCLUDED"
-      }
+      "settings": {}
     }
   },
   "order": [
