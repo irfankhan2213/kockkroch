@@ -19,7 +19,7 @@
             "sub": "Brutalist Skyline & Exoskeleton.",
             "cta": "EXPLORE 240 GSM",
             "fallback": "kockkroch-acid-wash-240gsm-front.png",
-            "link": "/products/kockkroch-acid-wash-240gsm-oversized-t-shirt"
+            "link": "/collections/all"
           }
         },
         "cat_gangster": {
@@ -29,7 +29,7 @@
             "sub": "Gangster Flying Slogan.",
             "cta": "EXPLORE 180 GSM",
             "fallback": "kockkroch-kok-f-180gsm-front.png",
-            "link": "/products/kockkroch-kok-f-180gsm-oversized-t-shirt"
+            "link": "/collections/all"
           }
         },
         "cat_numerical": {
@@ -39,7 +39,7 @@
             "sub": "Cryptographic Date Coordinate.",
             "cta": "EXPLORE 210 GSM",
             "fallback": "kockkroch-side-p-210gsm-front.png",
-            "link": "/products/kockkroch-side-p-210gsm-oversized-t-shirt"
+            "link": "/collections/all"
           }
         }
       },
@@ -54,7 +54,7 @@
       "settings": {
         "eyebrow": "FLAGSHIP STREETWEAR",
         "title": "DROP 013 CAPSULE",
-        "link_text": "VIEW ALL (03) →",
+        "link_text": "VIEW ALL →",
         "link": "/collections/all"
       }
     },
@@ -63,13 +63,13 @@
       "settings": {
         "title_a": "STANDING OUT //\n240 GSM ACID WASH",
         "copy_a": "Heavyweight 240 GSM combed cotton with mineral acid-wash finish and bio-mechanical cockroach exoskeleton back shield.",
-        "cta_a": "SHOP 240 GSM TEE →",
-        "link_a": "/products/kockkroch-acid-wash-240gsm-oversized-t-shirt",
+        "cta_a": "EXPLORE COLLECTION →",
+        "link_a": "/collections/all",
         "accent_a": "#2E9BFF",
         "title_b": "GANGSTER FLYING //\n180 GSM OVERSIZED",
         "copy_b": "Iconic statement piece: 'Everyone Is a Gangster Until The Kockkroch Start Flying.' with cryptographic Roman date III.XVI.MMXXVI.",
-        "cta_b": "SHOP 180 GSM TEE →",
-        "link_b": "/products/kockkroch-kok-f-180gsm-oversized-t-shirt",
+        "cta_b": "EXPLORE COLLECTION →",
+        "link_b": "/collections/all",
         "accent_b": "#F26B21"
       }
     },

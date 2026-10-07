@@ -19,11 +19,11 @@
             <a href="{{ link.url }}" class="k13-nav-link{% if link.active %} is-active{% endif %}">{{ link.title | upcase }}</a>
           {% endfor %}
         {% else %}
-          <a href="#k13-newin" class="k13-nav-link">DROP 013</a>
-          <a href="/products/kockkroch-acid-wash-240gsm-oversized-t-shirt" class="k13-nav-link">240 GSM</a>
-          <a href="/products/kockkroch-kok-f-180gsm-oversized-t-shirt" class="k13-nav-link">180 GSM</a>
-          <a href="/products/kockkroch-side-p-210gsm-oversized-t-shirt" class="k13-nav-link">210 GSM</a>
+          <a href="/collections/all" class="k13-nav-link">SHOP ALL</a>
+          <a href="#k13-newin" class="k13-nav-link">NEW ARRIVALS</a>
           <a href="#k13-wild" class="k13-nav-link">LOOKBOOK</a>
+          <a href="/pages/contact" class="k13-nav-link">ABOUT</a>
+          <a href="/pages/contact" class="k13-nav-link">CONTACT</a>
         {% endif %}
       </nav>
     </div>
@@ -60,7 +60,7 @@
     <div class="k13-nav-right">
       <span class="k13-nav-region">IN / INR (₹)</span>
 
-      <a href="#k13-newin" class="k13-nav-action" aria-label="Search Collection">
+      <a href="/collections/all" class="k13-nav-action" aria-label="Search Collection">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -87,36 +87,37 @@
       </div>
 
       <nav class="k13-drawer-nav">
-        <a href="#k13-newin" class="k13-drawer-link" onclick="closeK13Drawer()">
-          <span class="num">01</span>
-          <span class="label">DROP 013 CAPSULE</span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/products/kockkroch-acid-wash-240gsm-oversized-t-shirt" class="k13-drawer-link" onclick="closeK13Drawer()">
-          <span class="num">02</span>
-          <span class="label">240 GSM ACID WASH</span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/products/kockkroch-kok-f-180gsm-oversized-t-shirt" class="k13-drawer-link" onclick="closeK13Drawer()">
-          <span class="num">03</span>
-          <span class="label">180 GSM JET BLACK</span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/products/kockkroch-side-p-210gsm-oversized-t-shirt" class="k13-drawer-link" onclick="closeK13Drawer()">
-          <span class="num">04</span>
-          <span class="label">210 GSM NUMERICAL</span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="#k13-wild" class="k13-drawer-link" onclick="closeK13Drawer()">
-          <span class="num">05</span>
-          <span class="label">COMMUNITY LOOKBOOK</span>
-          <span class="arrow">→</span>
-        </a>
-        <a href="/collections/all" class="k13-drawer-link" onclick="closeK13Drawer()">
-          <span class="num">06</span>
-          <span class="label">ALL SILHOUETTES</span>
-          <span class="arrow">→</span>
-        </a>
+        {% assign nav_menu = linklists[section.settings.menu] %}
+        {% if nav_menu != blank and nav_menu.links.size > 0 %}
+          {% for link in nav_menu.links %}
+            <a href="{{ link.url }}" class="k13-drawer-link" onclick="closeK13Drawer()">
+              <span class="num">0{{ forloop.index }}</span>
+              <span class="label">{{ link.title | upcase }}</span>
+              <span class="arrow">→</span>
+            </a>
+          {% endfor %}
+        {% else %}
+          <a href="/collections/all" class="k13-drawer-link" onclick="closeK13Drawer()">
+            <span class="num">01</span>
+            <span class="label">SHOP ALL</span>
+            <span class="arrow">→</span>
+          </a>
+          <a href="#k13-newin" class="k13-drawer-link" onclick="closeK13Drawer()">
+            <span class="num">02</span>
+            <span class="label">NEW ARRIVALS</span>
+            <span class="arrow">→</span>
+          </a>
+          <a href="#k13-wild" class="k13-drawer-link" onclick="closeK13Drawer()">
+            <span class="num">03</span>
+            <span class="label">LOOKBOOK</span>
+            <span class="arrow">→</span>
+          </a>
+          <a href="/pages/contact" class="k13-drawer-link" onclick="closeK13Drawer()">
+            <span class="num">04</span>
+            <span class="label">ABOUT & CONTACT</span>
+            <span class="arrow">→</span>
+          </a>
+        {% endif %}
       </nav>
 
       <div class="k13-drawer-foot">

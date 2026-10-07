@@ -20,6 +20,9 @@
 
   <div class="kk-product-grid">
     {% assign collection = collections[section.settings.collection] %}
+    {% if collection == blank or collection.products_count == 0 %}
+      {% assign collection = collections['all'] %}
+    {% endif %}
     {% if collection != blank and collection.products_count > 0 %}
       {% for product in collection.products limit: section.settings.products_to_show %}
         <div class="kk-product-card">
@@ -83,77 +86,9 @@
         </div>
       {% endfor %}
     {% else %}
-      <!-- Clean Default Product Demos with Real Brand Assets -->
-      <div class="kk-product-card">
-        <div class="kk-product-card__media">
-          <a href="/products/kockkroch-acid-wash-240gsm-oversized-t-shirt">
-            <img src="{{ 'kockkroch-acid-wash-240gsm-front.png' | asset_url }}" alt="KOCKKROCH Standing Out Acid Wash 240 GSM Oversized T-Shirt" class="kk-product-card__img" loading="lazy">
-            <img src="{{ 'kockkroch-acid-wash-240gsm-back.png' | asset_url }}" alt="KOCKKROCH Exoskeleton Back Shield" class="kk-product-card__img-hover" loading="lazy">
-          </a>
-          <span class="kk-product-card__badge">NEW DROP</span>
-          <div class="kk-product-card__sizes">
-            <a href="/products/kockkroch-acid-wash-240gsm-oversized-t-shirt" class="kk-size-pill">S</a>
-            <a href="/products/kockkroch-acid-wash-240gsm-oversized-t-shirt" class="kk-size-pill">M</a>
-            <a href="/products/kockkroch-acid-wash-240gsm-oversized-t-shirt" class="kk-size-pill">L</a>
-            <a href="/products/kockkroch-acid-wash-240gsm-oversized-t-shirt" class="kk-size-pill">XL</a>
-          </div>
-        </div>
-        <div class="kk-product-card__info">
-          <span class="kk-product-card__vendor">KOCKKROCH • 240 GSM</span>
-          <h3 class="kk-product-card__title"><a href="/products/kockkroch-acid-wash-240gsm-oversized-t-shirt">'STANDING OUT' ACID WASH TEE</a></h3>
-          <div class="kk-product-card__price-row">
-            <span class="kk-product-card__price">₹2,499</span>
-            <span class="kk-product-card__compare">₹3,499</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="kk-product-card">
-        <div class="kk-product-card__media">
-          <a href="/products/kockkroch-kok-f-180gsm-oversized-t-shirt">
-            <img src="{{ 'kockkroch-kok-f-180gsm-front.png' | asset_url }}" alt="KOCKKROCH Gangster Flying 180 GSM Oversized T-Shirt" class="kk-product-card__img" loading="lazy">
-            <img src="{{ 'kockkroch-kok-f-180gsm-back.png' | asset_url }}" alt="KOCKKROCH Gangster Flying Back Statement" class="kk-product-card__img-hover" loading="lazy">
-          </a>
-          <span class="kk-product-card__badge">BESTSELLER</span>
-          <div class="kk-product-card__sizes">
-            <a href="/products/kockkroch-kok-f-180gsm-oversized-t-shirt" class="kk-size-pill">S</a>
-            <a href="/products/kockkroch-kok-f-180gsm-oversized-t-shirt" class="kk-size-pill">M</a>
-            <a href="/products/kockkroch-kok-f-180gsm-oversized-t-shirt" class="kk-size-pill">L</a>
-            <a href="/products/kockkroch-kok-f-180gsm-oversized-t-shirt" class="kk-size-pill">XL</a>
-          </div>
-        </div>
-        <div class="kk-product-card__info">
-          <span class="kk-product-card__vendor">KOCKKROCH • 180 GSM</span>
-          <h3 class="kk-product-card__title"><a href="/products/kockkroch-kok-f-180gsm-oversized-t-shirt">'GANGSTER FLYING' OVERSIZED TEE</a></h3>
-          <div class="kk-product-card__price-row">
-            <span class="kk-product-card__price">₹1,899</span>
-            <span class="kk-product-card__compare">₹2,599</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="kk-product-card">
-        <div class="kk-product-card__media">
-          <a href="/products/kockkroch-side-p-210gsm-oversized-t-shirt">
-            <img src="{{ 'kockkroch-side-p-210gsm-front.png' | asset_url }}" alt="KOCKKROCH Numerical Code 210 GSM Oversized T-Shirt" class="kk-product-card__img" loading="lazy">
-            <img src="{{ 'kockkroch-side-p-210gsm-back.png' | asset_url }}" alt="KOCKKROCH Minimal Nape Stripe" class="kk-product-card__img-hover" loading="lazy">
-          </a>
-          <span class="kk-product-card__badge">DROP 013</span>
-          <div class="kk-product-card__sizes">
-            <a href="/products/kockkroch-side-p-210gsm-oversized-t-shirt" class="kk-size-pill">S</a>
-            <a href="/products/kockkroch-side-p-210gsm-oversized-t-shirt" class="kk-size-pill">M</a>
-            <a href="/products/kockkroch-side-p-210gsm-oversized-t-shirt" class="kk-size-pill">L</a>
-            <a href="/products/kockkroch-side-p-210gsm-oversized-t-shirt" class="kk-size-pill">XL</a>
-          </div>
-        </div>
-        <div class="kk-product-card__info">
-          <span class="kk-product-card__vendor">KOCKKROCH • 210 GSM</span>
-          <h3 class="kk-product-card__title"><a href="/products/kockkroch-side-p-210gsm-oversized-t-shirt">'NUMERICAL CODE' OVERSIZED TEE</a></h3>
-          <div class="kk-product-card__price-row">
-            <span class="kk-product-card__price">₹2,199</span>
-            <span class="kk-product-card__compare">₹2,999</span>
-          </div>
-        </div>
+      <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--kk-muted);">
+        <p style="font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;">NO PRODUCTS FOUND IN THIS COLLECTION.</p>
+        <a href="/collections/all" class="kk-btn kk-btn--primary" style="margin-top: 16px;">VIEW ALL PRODUCTS →</a>
       </div>
     {% endif %}
   </div>

@@ -1,6 +1,6 @@
 {% comment %} KOCK KROCH — Duo campaign blocks, fully editable {% endcomment %}
 <section class="k13-duo">
-  <a href="{{ section.settings.link_a | default: '/products/kockkroch-acid-wash-240gsm-oversized-t-shirt' }}" class="k13-duo__cell">
+  <a href="{{ section.settings.link_a | default: '/collections/all' }}" class="k13-duo__cell">
     {% if section.settings.image_a != blank %}
       <img src="{{ section.settings.image_a | image_url: width: 1400 }}" alt="{{ section.settings.title_a | strip_html | escape }}" loading="lazy">
     {% else %}
@@ -10,10 +10,10 @@
       <span class="rule" style="background:{{ section.settings.accent_a | default: '#2E9BFF' }}"></span>
       <h3>{{ section.settings.title_a | default: 'STANDING OUT //\n240 GSM ACID WASH' | newline_to_br }}</h3>
       <p>{{ section.settings.copy_a | default: 'Heavyweight 240 GSM combed cotton with mineral acid-wash finish and bio-mechanical cockroach exoskeleton back shield.' }}</p>
-      <span class="k13-btn k13-btn--outline-w">{{ section.settings.cta_a | default: 'SHOP 240 GSM TEE →' }}</span>
+      <span class="k13-btn k13-btn--outline-w">{{ section.settings.cta_a | default: 'EXPLORE COLLECTION →' }}</span>
     </div>
   </a>
-  <a href="{{ section.settings.link_b | default: '/products/kockkroch-kok-f-180gsm-oversized-t-shirt' }}" class="k13-duo__cell">
+  <a href="{{ section.settings.link_b | default: '/collections/all' }}" class="k13-duo__cell">
     {% if section.settings.image_b != blank %}
       <img src="{{ section.settings.image_b | image_url: width: 1400 }}" alt="{{ section.settings.title_b | strip_html | escape }}" loading="lazy">
     {% else %}
@@ -23,7 +23,7 @@
       <span class="rule" style="background:{{ section.settings.accent_b | default: '#F26B21' }}"></span>
       <h3>{{ section.settings.title_b | default: 'GANGSTER FLYING //\n180 GSM OVERSIZED' | newline_to_br }}</h3>
       <p>{{ section.settings.copy_b | default: 'Iconic statement piece: \'Everyone Is a Gangster Until The Kockkroch Start Flying.\' with cryptographic Roman date III.XVI.MMXXVI.' }}</p>
-      <span class="k13-btn k13-btn--black">{{ section.settings.cta_b | default: 'SHOP 180 GSM TEE →' }}</span>
+      <span class="k13-btn k13-btn--black">{{ section.settings.cta_b | default: 'EXPLORE COLLECTION →' }}</span>
     </div>
   </a>
 </section>
@@ -38,7 +38,7 @@
     { "type": "image_picker", "id": "image_a", "label": "Left image" },
     { "type": "textarea", "id": "title_a", "label": "Left title", "default": "STANDING OUT //\n240 GSM ACID WASH" },
     { "type": "textarea", "id": "copy_a", "label": "Left copy", "default": "Heavyweight 240 GSM combed cotton with mineral acid-wash finish and bio-mechanical cockroach exoskeleton back shield." },
-    { "type": "text", "id": "cta_a", "label": "Left button", "default": "SHOP 240 GSM TEE →" },
+    { "type": "text", "id": "cta_a", "label": "Left button", "default": "EXPLORE COLLECTION →" },
     { "type": "url", "id": "link_a", "label": "Left link" },
     {
       "type": "select",
@@ -55,7 +55,7 @@
     { "type": "image_picker", "id": "image_b", "label": "Right image" },
     { "type": "textarea", "id": "title_b", "label": "Right title", "default": "GANGSTER FLYING //\n180 GSM OVERSIZED" },
     { "type": "textarea", "id": "copy_b", "label": "Right copy", "default": "Iconic statement piece: 'Everyone Is a Gangster Until The Kockkroch Start Flying.' with cryptographic Roman date III.XVI.MMXXVI." },
-    { "type": "text", "id": "cta_b", "label": "Right button", "default": "SHOP 180 GSM TEE →" },
+    { "type": "text", "id": "cta_b", "label": "Right button", "default": "EXPLORE COLLECTION →" },
     { "type": "url", "id": "link_b", "label": "Right link" },
     {
       "type": "select",
