@@ -290,16 +290,13 @@
         "padding-block-end": 4
       }
     },
-    "k13_cats": {
-      "type": "k13-cats",
-      "settings": {}
-    },
-    "k13_cats_PVQFNb": {
+    "k13_cats_mn8DYN": {
       "type": "k13-cats",
       "blocks": {
-        "cat_TtPPHt": {
+        "cat_nX8Tci": {
           "type": "cat",
           "settings": {
+            "image": "shopify://shop_images/rock-krock-acid-wash-tee-front-model_89c9ba88-a3c9-4f9a-b742-580a562b8c60.png",
             "fallback": "kockkroch-acid-wash-240gsm-front.png",
             "title": "240 GSM ACID WASH",
             "sub": "Brutalist Skyline & Exoskeleton.",
@@ -307,7 +304,7 @@
             "link": "/collections/all"
           }
         },
-        "cat_RYNzxV": {
+        "cat_fT8rWf": {
           "type": "cat",
           "settings": {
             "fallback": "kockkroch-kok-f-180gsm-front.png",
@@ -317,7 +314,7 @@
             "link": "/collections/all"
           }
         },
-        "cat_kCiRfX": {
+        "cat_enwjTU": {
           "type": "cat",
           "settings": {
             "fallback": "kockkroch-side-p-210gsm-front.png",
@@ -329,9 +326,9 @@
         }
       },
       "block_order": [
-        "cat_TtPPHt",
-        "cat_RYNzxV",
-        "cat_kCiRfX"
+        "cat_nX8Tci",
+        "cat_fT8rWf",
+        "cat_enwjTU"
       ],
       "name": "K13 Category Strip",
       "settings": {}
@@ -515,8 +512,7 @@
     "k13_hero",
     "hero_NtExyd",
     "section_wWVxqe",
-    "k13_cats",
-    "k13_cats_PVQFNb",
+    "k13_cats_mn8DYN",
     "k13_newin",
     "k13_duo",
     "k13_trust",
