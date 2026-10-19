@@ -78,7 +78,7 @@
         "actions_text_case": "none",
         "background_color_top": "#ffffff",
         "text_color_top": "#111111",
-        "background_color_bottom": "",
+        "background_color_bottom": "{{ settings.color_palette.color1 }}",
         "text_color_bottom": "",
         "bubble_style": "default",
         "bubble_background_color": "",
