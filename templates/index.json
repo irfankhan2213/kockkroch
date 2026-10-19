@@ -38,7 +38,7 @@
         "text_FRndwc": {
           "type": "text",
           "settings": {
-            "text": "<h2>New arrivals</h2>",
+            "text": "",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
@@ -63,7 +63,7 @@
         "text_imteVe": {
           "type": "text",
           "settings": {
-            "text": "<p>Made with care and unconditionally loved by our customers.</p>",
+            "text": "",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
@@ -107,7 +107,7 @@
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
+        "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "flex-end",
         "gap": 16,
         "section_width": "page-width",
