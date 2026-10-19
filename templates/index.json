@@ -137,7 +137,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-end",
-            "gap": 32,
+            "gap": 0,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -185,24 +185,10 @@
                 "custom_width_mobile": 100
               },
               "blocks": {}
-            },
-            "spacer_nWrkFV": {
-              "type": "spacer",
-              "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "button_3cNEph",
-            "spacer_nWrkFV"
+            "button_3cNEph"
           ]
         },
         "group_tJzR73": {
@@ -215,7 +201,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-end",
-            "gap": 32,
+            "gap": 0,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -263,24 +249,10 @@
                 "custom_width_mobile": 100
               },
               "blocks": {}
-            },
-            "spacer_ERHpam": {
-              "type": "spacer",
-              "settings": {
-                "size": "pixel",
-                "percent_size": 100,
-                "pixel_size": 16,
-                "custom_mobile_size": false,
-                "size_mobile": "percent",
-                "percent_size_mobile": 100,
-                "pixel_size_mobile": 120
-              },
-              "blocks": {}
             }
           },
           "block_order": [
-            "button_xTzVwW",
-            "spacer_ERHpam"
+            "button_xTzVwW"
           ]
         }
       },
