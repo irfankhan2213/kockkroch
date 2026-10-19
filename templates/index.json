@@ -292,7 +292,9 @@
     "k13_duo": {
       "type": "k13-duo",
       "settings": {
+        "image_a": "shopify://shop_images/rock-krock-acid-wash-tee-front-model_89c9ba88-a3c9-4f9a-b742-580a562b8c60.png",
         "link_a": "/collections/all",
+        "image_b": "shopify://shop_images/exec-47cf28ef-5f7f-42a2-9970-de3b6e0c40f6.png",
         "link_b": "/collections/all"
       }
     },
