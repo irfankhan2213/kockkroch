@@ -14,30 +14,33 @@
     "179241251975f76e27": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_648b4f6_J3Lt9X": {
-          "type": "ai_gen_block_648b4f6",
+        "ai_gen_block_645ce80_CjP7j6": {
+          "type": "ai_gen_block_645ce80",
           "settings": {
-            "announcement_text": "FEARLESS FROM ORIGIN • BUILT TO SURVIVE",
+            "announcement_text": "Fearless from origin • built to survive",
+            "announcement_text_2": "Explore the latest collection",
+            "announcement_text_3": "Designed for the fearless",
             "announcement_link": "",
-            "scroll_speed": 24,
+            "scroll_speed": 30,
             "text_color": "#F4F2ED",
             "background_color": "#101012",
+            "bar_height": 40,
             "desktop_width_percent": 100
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_648b4f6_J3Lt9X"
+        "ai_gen_block_645ce80_CjP7j6"
       ],
       "settings": {
-        "content_direction": "column",
+        "content_direction": "row",
         "vertical_on_mobile": true,
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-start",
         "gap": 0,
         "section_width": "full-width",
         "section_height": "",
