@@ -307,6 +307,7 @@
         "cat_fT8rWf": {
           "type": "cat",
           "settings": {
+            "image": "shopify://shop_images/kock-kroch-coded-date-tee-front-model_afd8be1a-2cee-4abc-a597-9bc782357823.png",
             "fallback": "kockkroch-kok-f-180gsm-front.png",
             "title": "180 GSM JET BLACK",
             "sub": "Gangster Flying Slogan.",
@@ -317,6 +318,7 @@
         "cat_enwjTU": {
           "type": "cat",
           "settings": {
+            "image": "shopify://shop_images/gangster-tee-front-model_3d65563c-6ecc-40cb-9ab8-1ea27d2f3ff9.png",
             "fallback": "kockkroch-side-p-210gsm-front.png",
             "title": "210 GSM NUMERICAL",
             "sub": "Cryptographic Date Coordinate.",
