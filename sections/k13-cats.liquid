@@ -1,20 +1,159 @@
-{% comment %} KOCK KROCH — Black category strip: 240 GSM / 180 GSM / 210 GSM {% endcomment %}
-<section class="k13-cats">
-  <div class="k13-cats__grid">
-    {% for block in section.blocks %}
-      <a href="{{ block.settings.link | default: '/collections/all' }}" class="k13-cat" {{ block.shopify_attributes }}>
-        {% if block.settings.image != blank %}
-          <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title | escape }}" loading="lazy">
-        {% else %}
-          <img src="{{ block.settings.fallback | default: 'kockkroch-acid-wash-240gsm-front.png' | asset_url }}" alt="{{ block.settings.title | escape }}" loading="lazy">
-        {% endif %}
+{% comment %}
+  KOCK KROCH — K13 Category / Product Strip
+  Supports:
+  1. Selecting products directly via native Shopify product picker.
+  2. Selecting collections directly via native collection picker.
+  3. Custom override of image, title, subtitle, price, and CTA per card.
+  4. Adding unlimited product/category blocks with reordering in theme editor.
+  5. Section-level product_list for instant 1-click product population.
+{% endcomment %}
+
+<section class="k13-cats" id="k13-cats-{{ section.id }}" style="{% if section.settings.bg_color != blank %}background: {{ section.settings.bg_color }};{% endif %}{% if section.settings.text_color != blank %}color: {{ section.settings.text_color }};{% endif %}">
+  {% if section.settings.eyebrow != blank or section.settings.heading != blank %}
+    <div class="k13-wrap" style="padding-top: 32px; padding-bottom: 8px;">
+      <div class="k13-sec-head" style="margin-bottom: 12px; align-items: flex-end;">
         <div>
-          <h3>{{ block.settings.title }}</h3>
-          <p>{{ block.settings.sub }}</p>
-          <span>{{ block.settings.cta | default: 'EXPLORE' }} →</span>
+          {% if section.settings.eyebrow != blank %}
+            <span class="k13-eyebrow" style="{% if section.settings.accent_color != blank %}color: {{ section.settings.accent_color }};{% endif %}">{{ section.settings.eyebrow }}</span>
+          {% endif %}
+          {% if section.settings.heading != blank %}
+            <h2 style="font-family: var(--k13-display); font-size: clamp(28px, 3.6vw, 48px); font-weight: 700; text-transform: uppercase; margin: 4px 0 0 0; color: inherit;">{{ section.settings.heading }}</h2>
+          {% endif %}
         </div>
-      </a>
-    {% endfor %}
+        {% if section.settings.link != blank and section.settings.link_text != blank %}
+          <a class="k13-link" href="{{ section.settings.link }}" style="color: inherit; border-bottom: 2px solid currentColor; text-decoration: none; padding-bottom: 4px;">{{ section.settings.link_text }} →</a>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% assign block_count = section.blocks.size %}
+  {% if block_count == 0 and section.settings.product_list != blank %}
+    {% assign block_count = section.settings.product_list.count %}
+  {% endif %}
+
+  {% assign col_setting = section.settings.columns_desktop %}
+  {% if col_setting == 'auto' or col_setting == blank %}
+    {% if block_count == 2 %}
+      {% assign col_class = 'k13-cats__grid--2' %}
+    {% elsif block_count >= 4 %}
+      {% assign col_class = 'k13-cats__grid--4' %}
+    {% else %}
+      {% assign col_class = 'k13-cats__grid--3' %}
+    {% endif %}
+  {% else %}
+    {% assign col_class = 'k13-cats__grid--' | append: col_setting %}
+  {% endif %}
+
+  <div class="k13-cats__grid {{ col_class }}">
+    {% if section.blocks.size > 0 %}
+      {% for block in section.blocks %}
+        {% assign prod = block.settings.product %}
+        {% assign coll = block.settings.collection %}
+
+        {%- comment -%} Determine Destination Link {%- endcomment -%}
+        {% assign card_url = block.settings.link %}
+        {% if card_url == blank and prod != blank %}
+          {% assign card_url = prod.url %}
+        {% elsif card_url == blank and coll != blank %}
+          {% assign card_url = coll.url %}
+        {% elsif card_url == blank %}
+          {% assign card_url = '/collections/all' %}
+        {% endif %}
+
+        {%- comment -%} Determine Title {%- endcomment -%}
+        {% assign card_title = block.settings.title %}
+        {% if card_title == blank and prod != blank %}
+          {% assign card_title = prod.title %}
+        {% elsif card_title == blank and coll != blank %}
+          {% assign card_title = coll.title %}
+        {% elsif card_title == blank %}
+          {% assign card_title = 'K13 SILHOUETTE' %}
+        {% endif %}
+
+        {%- comment -%} Determine Subtitle & Price {%- endcomment -%}
+        {% assign card_sub = block.settings.sub %}
+        {% assign show_price = block.settings.show_price %}
+        {% if card_sub == blank and prod != blank and show_price %}
+          {% capture card_sub %}
+            <span class="k13-cat__price-val">{{ prod.price | money }}</span>
+            {% if prod.compare_at_price > prod.price %}
+              <span class="k13-cat__compare-val">{{ prod.compare_at_price | money }}</span>
+            {% endif %}
+          {% endcapture %}
+        {% elsif card_sub == blank and prod != blank %}
+          {% assign card_sub = prod.type | default: '100% COTTON OVERSIZE' %}
+        {% elsif card_sub == blank and coll != blank %}
+          {% assign card_sub = coll.products_count | append: ' PIECES' %}
+        {% endif %}
+
+        {%- comment -%} Determine CTA Button Label {%- endcomment -%}
+        {% assign card_cta = block.settings.cta %}
+        {% if card_cta == blank %}
+          {% if prod != blank %}
+            {% assign card_cta = 'VIEW PRODUCT' %}
+          {% elsif coll != blank %}
+            {% assign card_cta = 'EXPLORE' %}
+          {% else %}
+            {% assign card_cta = 'SHOP NOW' %}
+          {% endif %}
+        {% endif %}
+
+        {%- comment -%} Determine Image {%- endcomment -%}
+        {% assign img_url = '' %}
+        {% if block.settings.image != blank %}
+          {% assign img_url = block.settings.image | image_url: width: 600 %}
+        {% elsif prod != blank and prod.featured_image != blank %}
+          {% assign img_url = prod.featured_image | image_url: width: 600 %}
+        {% elsif coll != blank and coll.image != blank %}
+          {% assign img_url = coll.image | image_url: width: 600 %}
+        {% elsif coll != blank and coll.products.first.featured_image != blank %}
+          {% assign img_url = coll.products.first.featured_image | image_url: width: 600 %}
+        {% elsif block.settings.fallback != blank %}
+          {% assign img_url = block.settings.fallback | asset_url %}
+        {% else %}
+          {% assign img_url = 'kockkroch-acid-wash-240gsm-front.png' | asset_url %}
+        {% endif %}
+
+        <a href="{{ card_url }}" class="k13-cat" {{ block.shopify_attributes }}>
+          <div class="k13-cat__media">
+            {% if img_url != blank %}
+              <img src="{{ img_url }}" alt="{{ card_title | escape }}" loading="lazy" class="k13-cat__img">
+            {% else %}
+              {{ 'product-apparel-1' | placeholder_svg_tag: 'k13-cat__img' }}
+            {% endif %}
+          </div>
+          <div class="k13-cat__info">
+            <h3 class="k13-cat__title">{{ card_title }}</h3>
+            <p class="k13-cat__sub">{{ card_sub }}</p>
+            <span class="k13-cat__cta" {% if section.settings.accent_color != blank %}style="color: {{ section.settings.accent_color }};"{% endif %}>{{ card_cta }} →</span>
+          </div>
+        </a>
+      {% endfor %}
+
+    {% elsif section.settings.product_list != blank %}
+      {% for prod in section.settings.product_list %}
+        <a href="{{ prod.url }}" class="k13-cat">
+          <div class="k13-cat__media">
+            {% if prod.featured_image != blank %}
+              <img src="{{ prod.featured_image | image_url: width: 600 }}" alt="{{ prod.title | escape }}" loading="lazy" class="k13-cat__img">
+            {% else %}
+              {{ 'product-apparel-1' | placeholder_svg_tag: 'k13-cat__img' }}
+            {% endif %}
+          </div>
+          <div class="k13-cat__info">
+            <h3 class="k13-cat__title">{{ prod.title | upcase }}</h3>
+            <p class="k13-cat__sub">
+              <span class="k13-cat__price-val">{{ prod.price | money }}</span>
+              {% if prod.compare_at_price > prod.price %}
+                <span class="k13-cat__compare-val">{{ prod.compare_at_price | money }}</span>
+              {% endif %}
+            </p>
+            <span class="k13-cat__cta" {% if section.settings.accent_color != blank %}style="color: {{ section.settings.accent_color }};"{% endif %}>VIEW PRODUCT →</span>
+          </div>
+        </a>
+      {% endfor %}
+    {% endif %}
   </div>
 </section>
 
@@ -22,18 +161,198 @@
 {
   "name": "K13 Category Strip",
   "tag": "section",
+  "class": "k13-section-category-strip",
   "enabled_on": { "templates": ["*"] },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header (Optional)"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Tag"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Header Link Text"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Header Link URL"
+    },
+    {
+      "type": "header",
+      "content": "Layout & Grid Settings"
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Desktop Columns",
+      "options": [
+        { "value": "auto", "label": "Auto (adaptive to card count)" },
+        { "value": "2", "label": "2 Columns" },
+        { "value": "3", "label": "3 Columns" },
+        { "value": "4", "label": "4 Columns" }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "Quick Product Selection (Section level)",
+      "info": "Quickly select products directly. (Will be used if no custom blocks are added below)",
+      "limit": 8
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent / Arrow Color",
+      "default": "#2b59ff"
+    }
+  ],
   "blocks": [
     {
       "type": "cat",
-      "name": "Category card",
+      "name": "Product / Category Card",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "fallback", "label": "Fallback asset filename", "default": "kockkroch-acid-wash-240gsm-front.png" },
-        { "type": "text", "id": "title", "label": "Title", "default": "240 GSM ACID WASH" },
-        { "type": "text", "id": "sub", "label": "Subtitle", "default": "Brutalist Skyline & Exoskeleton." },
-        { "type": "text", "id": "cta", "label": "Link label", "default": "EXPLORE 240 GSM" },
-        { "type": "url", "id": "link", "label": "Link" }
+        {
+          "type": "header",
+          "content": "Product or Collection Selection"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product",
+          "info": "Automatically populates the image, title, price, and product URL"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Or Select Collection",
+          "info": "Used if no product is selected above"
+        },
+        {
+          "type": "header",
+          "content": "Custom Overrides (Optional)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Image",
+          "info": "Overrides the product/collection image"
+        },
+        {
+          "type": "text",
+          "id": "fallback",
+          "label": "Fallback Asset Filename",
+          "default": "kockkroch-acid-wash-240gsm-front.png",
+          "info": "Used if neither image nor product image is available"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom Title",
+          "info": "Leave blank to use the selected Product/Collection title"
+        },
+        {
+          "type": "text",
+          "id": "sub",
+          "label": "Custom Subtitle",
+          "info": "Leave blank to automatically show product price or collection count"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_price",
+          "label": "Show Product Price",
+          "default": true,
+          "info": "Displays price and compare-at sale price if a product is selected and subtitle is blank"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "Button / Link Label",
+          "default": "EXPLORE"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Custom Link",
+          "info": "Overrides the product/collection URL"
+        }
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Direct Product Card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product",
+          "info": "Picks a product directly from your catalog"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Image (Optional override)"
+        },
+        {
+          "type": "text",
+          "id": "fallback",
+          "label": "Fallback Asset Filename",
+          "default": "kockkroch-acid-wash-240gsm-front.png"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom Title (Optional override)"
+        },
+        {
+          "type": "text",
+          "id": "sub",
+          "label": "Custom Subtitle (Optional override)"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_price",
+          "label": "Show Product Price",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "Button Label",
+          "default": "VIEW PRODUCT"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Custom Link (Optional override)"
+        }
       ]
     }
   ],
@@ -41,9 +360,36 @@
     {
       "name": "K13 Category Strip",
       "blocks": [
-        { "type": "cat", "settings": { "title": "240 GSM ACID WASH", "sub": "Brutalist Skyline & Exoskeleton.", "cta": "EXPLORE 240 GSM", "fallback": "kockkroch-acid-wash-240gsm-front.png", "link": "/collections/all" } },
-        { "type": "cat", "settings": { "title": "180 GSM JET BLACK", "sub": "Gangster Flying Slogan.", "cta": "EXPLORE 180 GSM", "fallback": "kockkroch-kok-f-180gsm-front.png", "link": "/collections/all" } },
-        { "type": "cat", "settings": { "title": "210 GSM NUMERICAL", "sub": "Cryptographic Date Coordinate.", "cta": "EXPLORE 210 GSM", "fallback": "kockkroch-side-p-210gsm-front.png", "link": "/collections/all" } }
+        {
+          "type": "cat",
+          "settings": {
+            "title": "240 GSM ACID WASH",
+            "sub": "Brutalist Skyline & Exoskeleton.",
+            "cta": "EXPLORE 240 GSM",
+            "fallback": "kockkroch-acid-wash-240gsm-front.png",
+            "link": "/collections/all"
+          }
+        },
+        {
+          "type": "cat",
+          "settings": {
+            "title": "180 GSM JET BLACK",
+            "sub": "Gangster Flying Slogan.",
+            "cta": "EXPLORE 180 GSM",
+            "fallback": "kockkroch-kok-f-180gsm-front.png",
+            "link": "/collections/all"
+          }
+        },
+        {
+          "type": "cat",
+          "settings": {
+            "title": "210 GSM NUMERICAL",
+            "sub": "Cryptographic Date Coordinate.",
+            "cta": "EXPLORE 210 GSM",
+            "fallback": "kockkroch-side-p-210gsm-front.png",
+            "link": "/collections/all"
+          }
+        }
       ]
     }
   ]

@@ -296,34 +296,40 @@
         "cat_nX8Tci": {
           "type": "cat",
           "settings": {
+            "product": "kockkroch-acid-wash-240gsm-oversized-t-shirt",
             "image": "shopify://shop_images/rock-krock-acid-wash-tee-front-model_89c9ba88-a3c9-4f9a-b742-580a562b8c60.png",
             "fallback": "kockkroch-acid-wash-240gsm-front.png",
             "title": "240 GSM ACID WASH",
             "sub": "Brutalist Skyline & Exoskeleton.",
+            "show_price": true,
             "cta": "EXPLORE 240 GSM",
-            "link": "/collections/all"
+            "link": ""
           }
         },
         "cat_fT8rWf": {
           "type": "cat",
           "settings": {
+            "product": "kockkroch-kok-f-180gsm-oversized-t-shirt",
             "image": "shopify://shop_images/kock-kroch-coded-date-tee-front-model_afd8be1a-2cee-4abc-a597-9bc782357823.png",
             "fallback": "kockkroch-kok-f-180gsm-front.png",
             "title": "180 GSM JET BLACK",
             "sub": "Gangster Flying Slogan.",
+            "show_price": true,
             "cta": "EXPLORE 180 GSM",
-            "link": "/collections/all"
+            "link": ""
           }
         },
         "cat_enwjTU": {
           "type": "cat",
           "settings": {
+            "product": "kockkroch-side-p-210gsm-oversized-t-shirt",
             "image": "shopify://shop_images/gangster-tee-front-model_3d65563c-6ecc-40cb-9ab8-1ea27d2f3ff9.png",
             "fallback": "kockkroch-side-p-210gsm-front.png",
             "title": "210 GSM NUMERICAL",
             "sub": "Cryptographic Date Coordinate.",
+            "show_price": true,
             "cta": "EXPLORE 210 GSM",
-            "link": "shopify://collections/all"
+            "link": ""
           }
         }
       },
