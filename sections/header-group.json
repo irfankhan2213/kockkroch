@@ -11,6 +11,54 @@
   "type": "header",
   "name": "t:names.header",
   "sections": {
+    "179241251975f76e27": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_648b4f6_J3Lt9X": {
+          "type": "ai_gen_block_648b4f6",
+          "settings": {
+            "announcement_text": "FEARLESS FROM ORIGIN • BUILT TO SURVIVE",
+            "announcement_link": "",
+            "scroll_speed": 24,
+            "text_color": "#F4F2ED",
+            "background_color": "#101012",
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_648b4f6_J3Lt9X"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "full-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -96,6 +144,7 @@
     }
   },
   "order": [
+    "179241251975f76e27",
     "header_section"
   ]
 }
