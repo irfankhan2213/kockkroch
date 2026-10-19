@@ -61,9 +61,9 @@
             "overlay_style": "solid",
             "gradient_direction": "to top",
             "border": "none",
-            "border_width": 1,
+            "border_width": 0,
             "border_opacity": 100,
-            "border_color": "",
+            "border_color": "{{ settings.color_palette.color1 }}",
             "border_radius": 0,
             "link": "",
             "open_in_new_tab": false,
@@ -282,7 +282,7 @@
     "k13_newin": {
       "type": "k13-newin",
       "settings": {
-        "collection": "",
+        "collection": "all",
         "eyebrow": "FLAGSHIP STREETWEAR",
         "title": "DROP 01 CAPSULE",
         "link_text": "VIEW ALL →",
