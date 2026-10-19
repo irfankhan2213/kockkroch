@@ -222,11 +222,53 @@
         "border_color": "",
         "border_radius": 0,
         "padding-block-start": 4,
-        "padding-block-end": 0
+        "padding-block-end": 4
       }
     },
     "k13_cats": {
       "type": "k13-cats",
+      "settings": {}
+    },
+    "k13_cats_PVQFNb": {
+      "type": "k13-cats",
+      "blocks": {
+        "cat_TtPPHt": {
+          "type": "cat",
+          "settings": {
+            "fallback": "kockkroch-acid-wash-240gsm-front.png",
+            "title": "240 GSM ACID WASH",
+            "sub": "Brutalist Skyline & Exoskeleton.",
+            "cta": "EXPLORE 240 GSM",
+            "link": "/collections/all"
+          }
+        },
+        "cat_RYNzxV": {
+          "type": "cat",
+          "settings": {
+            "fallback": "kockkroch-kok-f-180gsm-front.png",
+            "title": "180 GSM JET BLACK",
+            "sub": "Gangster Flying Slogan.",
+            "cta": "EXPLORE 180 GSM",
+            "link": "/collections/all"
+          }
+        },
+        "cat_kCiRfX": {
+          "type": "cat",
+          "settings": {
+            "fallback": "kockkroch-side-p-210gsm-front.png",
+            "title": "210 GSM NUMERICAL",
+            "sub": "Cryptographic Date Coordinate.",
+            "cta": "EXPLORE 210 GSM",
+            "link": "/collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "cat_TtPPHt",
+        "cat_RYNzxV",
+        "cat_kCiRfX"
+      ],
+      "name": "K13 Category Strip",
       "settings": {}
     },
     "k13_newin": {
@@ -346,6 +388,7 @@
     "k13_hero",
     "section_wWVxqe",
     "k13_cats",
+    "k13_cats_PVQFNb",
     "k13_newin",
     "k13_duo",
     "k13_trust",
